@@ -20,6 +20,110 @@
     width: 100%;
     max-width: 1100px;
     animation: fadeUp 0.8s 0.5s ease both;
+    position: relative;
+}
+
+/* ============================================================
+   Bouncing Pointer Arrow
+   ============================================================ */
+.sidebar-pointer {
+    position: absolute;
+    left: -110px;
+    top: 85px;
+    width: 140px;
+    height: 64px;
+    z-index: 100;
+    pointer-events: none;
+    animation: moveDownItems 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-pointer-text {
+    font-family: 'Kalam', 'Caveat', cursive, sans-serif;
+    color: #FF3B30;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    transform: rotate(-10deg);
+    animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-pointer svg {
+    width: 64px;
+    flex-shrink: 0;
+    height: auto;
+    animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes moveDownItems {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    5%,
+    15% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    20%,
+    30% {
+        transform: translateY(26px);
+        opacity: 1;
+    }
+
+    35%,
+    45% {
+        transform: translateY(52px);
+        opacity: 1;
+    }
+
+    50%,
+    60% {
+        transform: translateY(78px);
+        opacity: 1;
+    }
+
+    65%,
+    75% {
+        transform: translateY(104px);
+        opacity: 1;
+    }
+
+    80%,
+    90% {
+        transform: translateY(130px);
+        opacity: 1;
+    }
+
+    95% {
+        transform: translateY(130px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes pointerBounce {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(12px);
+    }
+}
+
+@media (max-width: 960px) {
+    .sidebar-pointer {
+        display: none;
+    }
 }
 
 .mockup-window {

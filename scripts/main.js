@@ -10,7 +10,7 @@
         Array.from(slots).map(async (slot) => {
             const path = slot.getAttribute("data-section");
             try {
-                const res = await fetch(path);
+                const res = await fetch(path + "?v=" + new Date().getTime());
                 if (!res.ok) throw new Error(`${res.status} ${path}`);
                 const html = await res.text();
                 slot.outerHTML = html;
@@ -41,7 +41,7 @@
         "sections/navbar/navbar.js",
         "sections/faq/faq.js",
         "sections/pricing/pricing.js",
-        "sections/mockup/mock.js"
+        "sections/mockup/mock.js?v=" + new Date().getTime()
     ];
 
     for (const src of sectionScripts) {

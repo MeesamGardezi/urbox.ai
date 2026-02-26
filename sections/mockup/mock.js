@@ -25,6 +25,11 @@
         sidebarItems.forEach(i => {
             if (i.dataset.panel === panelId) i.classList.add('active');
         });
+        // Hide the bouncing arrow when a tab is clicked
+        const pointer = document.querySelector('.sidebar-pointer');
+        if (pointer) {
+            pointer.style.display = 'none';
+        }
     }
 
     sidebarItems.forEach(item => {
