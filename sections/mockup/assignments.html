@@ -1,0 +1,211 @@
+<!-- ═══════════ ASSIGNMENTS PANEL ═══════════ -->
+<div class="panel-assignments" id="panelAssignments">
+
+    <!-- Top bar -->
+    <div class="as-topbar">
+        <div class="as-topbar-left">
+            <h2 class="as-title">Team Assignments</h2>
+            <p class="as-subtitle">Manage team tasks and deadlines</p>
+        </div>
+        <button class="as-new-btn">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            New Assignment
+        </button>
+    </div>
+
+    <!-- Search + Filters -->
+    <div class="as-filters">
+        <div class="as-search">
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
+                <circle cx="5" cy="5" r="3.5" stroke="#94A3B8" stroke-width="1.2" />
+                <path d="M8 8L10.5 10.5" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round" />
+            </svg>
+            <span>Search title, description or members...</span>
+        </div>
+        <button class="as-filter-btn">
+            All Statuses
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M3 4L5 6.5L7 4" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button class="as-filter-btn">
+            All Priorities
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M3 4L5 6.5L7 4" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="as-grid">
+
+        <!-- Card 1 — Pending / High -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-pending">● Pending</span>
+                    <span class="as-badge as-badge-high">● High</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">Redesign landing page</h4>
+                <p class="as-card-desc">Update the hero section and revise CTA copy to reflect new brand guidelines.</p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#2B8EF0">A</div>
+                    <span>Alex Chen</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 — In Progress / Medium -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-inprogress">● In Progress</span>
+                    <span class="as-badge as-badge-medium">● Medium</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">API rate limit documentation</h4>
+                <p class="as-card-desc">Write developer docs covering rate limits, retry logic, and error codes.</p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#10B981">J</div>
+                    <span>Jamie Park</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 — Completed / Medium -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-completed">✓ Completed</span>
+                    <span class="as-badge as-badge-medium">● Medium</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">Onboard new client accounts</h4>
+                <p class="as-card-desc">Complete setup for three new enterprise accounts including SSO configuration.
+                </p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#8B5CF6">S</div>
+                    <span>Sara Nguyen</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 — Pending / Low -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-pending">● Pending</span>
+                    <span class="as-badge as-badge-low">● Low</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">Q2 competitor analysis</h4>
+                <p class="as-card-desc">Research top 5 competitors and compile a comparison report for leadership
+                    review.</p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#F59E0B">R</div>
+                    <span>Ryan Torres</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 — In Progress / High -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-inprogress">● In Progress</span>
+                    <span class="as-badge as-badge-high">● High</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">Mobile push notifications</h4>
+                <p class="as-card-desc">Implement and test push notification delivery for iOS and Android platforms.</p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#EF4444">K</div>
+                    <span>Kai Brennan</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 — Completed / Low -->
+        <div class="as-card">
+            <div class="as-card-header">
+                <div class="as-badges">
+                    <span class="as-badge as-badge-completed">✓ Completed</span>
+                    <span class="as-badge as-badge-low">● Low</span>
+                </div>
+                <button class="as-card-more">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                        <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                    </svg>
+                </button>
+            </div>
+            <div class="as-card-body">
+                <h4 class="as-card-title">Update privacy policy</h4>
+                <p class="as-card-desc">Revise terms and privacy policy to comply with updated regional regulations.</p>
+            </div>
+            <div class="as-card-footer">
+                <div class="as-member">
+                    <div class="as-avatar" style="background:#06B6D4">L</div>
+                    <span>Lena Hart</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

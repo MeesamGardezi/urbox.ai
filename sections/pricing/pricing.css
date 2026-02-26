@@ -1,0 +1,222 @@
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.pricing-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.pricing-card.featured {
+    border-color: var(--primary);
+    border-width: 2px;
+    box-shadow: 0 4px 24px rgba(43, 142, 240, 0.14);
+    position: relative;
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.pricing-tier {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--midnight);
+    margin-bottom: 4px;
+}
+
+.pricing-tagline {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.pricing-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    color: var(--midnight);
+    line-height: 1;
+}
+
+.pricing-period {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.pricing-cta {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s, transform 0.15s, border-color 0.2s, color 0.2s;
+    margin-bottom: 22px;
+}
+
+.pricing-cta-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 12px rgba(43, 142, 240, 0.28);
+}
+
+.pricing-cta-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.pricing-cta-outline {
+    background: transparent;
+    color: var(--midnight);
+    border: 1.5px solid var(--border);
+}
+
+.pricing-cta-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.pricing-cta-dark {
+    background: #2D2D2D;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 12px rgba(45, 45, 45, 0.28);
+}
+
+.pricing-cta-dark:hover {
+    background: #1A1A1A;
+    transform: translateY(-1px);
+}
+
+.pricing-cta-disabled {
+    background: #E5E7EB;
+    color: #9CA3AF;
+    border: none;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pricing-cta-disabled:hover {
+    background: #E5E7EB;
+    transform: none;
+}
+
+.pricing-features {
+    list-style: none;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    padding: 5px 0;
+    border-bottom: 1px solid #F8FAFC;
+    line-height: 1.5;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features li .check {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Toggle ── */
+.pricing-header-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.pricing-toggle-wrapper {
+    display: inline-block;
+}
+
+.pricing-toggle {
+    display: flex;
+    background: #F3F4F6;
+    padding: 6px;
+    border-radius: 100px;
+    gap: 4px;
+}
+
+.pricing-toggle-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pricing-toggle-btn.active {
+    background: white;
+    color: #111827;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}

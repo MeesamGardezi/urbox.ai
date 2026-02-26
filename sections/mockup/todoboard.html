@@ -1,0 +1,259 @@
+<!-- ═══════════ TODO BOARD PANEL ═══════════ -->
+<div class="panel-todoboard" id="panelTodoBoard">
+
+    <!-- Top bar -->
+    <div class="tb-topbar">
+        <div class="tb-topbar-left">
+            <h2 class="tb-title">Todo Board</h2>
+            <span class="tb-meta">7 tasks · 2 done</span>
+        </div>
+        <div class="tb-topbar-right">
+            <div class="tb-search">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                    <circle cx="5" cy="5" r="3.5" stroke="#94A3B8" stroke-width="1.2" />
+                    <path d="M8 8L10.5 10.5" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round" />
+                </svg>
+                <span>Search tasks...</span>
+            </div>
+            <div class="tb-priority-filters">
+                <button class="tb-pf-btn tb-pf-active">All</button>
+                <button class="tb-pf-btn"><span class="tb-dot" style="background:#EF4444"></span>Urgent</button>
+                <button class="tb-pf-btn"><span class="tb-dot" style="background:#F97316"></span>High</button>
+                <button class="tb-pf-btn"><span class="tb-dot" style="background:#F59E0B"></span>Medium</button>
+                <button class="tb-pf-btn"><span class="tb-dot" style="background:#22C55E"></span>Low</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kanban columns -->
+    <div class="tb-board">
+
+        <!-- Column: To Do -->
+        <div class="tb-column">
+            <div class="tb-col-header">
+                <div class="tb-col-header-left">
+                    <span class="tb-col-indicator" style="background:#94A3B8"></span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="5.5" stroke="#94A3B8" stroke-width="1.2" />
+                    </svg>
+                    <span class="tb-col-name">To Do</span>
+                </div>
+                <div class="tb-col-header-right">
+                    <span class="tb-col-count">4</span>
+                    <button class="tb-col-add">
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="tb-card">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check">
+                    <span class="tb-priority tb-priority-urgent">● Urgent</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title">Audit login security</h4>
+                <p class="tb-card-desc">Review auth flows and flag any vulnerabilities before the release.</p>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="tb-card">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check">
+                    <span class="tb-priority tb-priority-medium">● Medium</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title">Write release notes</h4>
+                <p class="tb-card-desc">Document all changes for the v2.4.0 changelog and notify users.</p>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="tb-card">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check">
+                    <span class="tb-priority tb-priority-medium">● Medium</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title">Set up analytics dashboard</h4>
+                <p class="tb-card-desc">Configure event tracking and connect it to the reporting pipeline.</p>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="tb-card">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check">
+                    <span class="tb-priority tb-priority-low">● Low</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title">Update team handbook</h4>
+                <p class="tb-card-desc">Reflect recent process changes in the internal documentation.</p>
+            </div>
+        </div>
+
+        <!-- Column: In Progress -->
+        <div class="tb-column">
+            <div class="tb-col-header">
+                <div class="tb-col-header-left">
+                    <span class="tb-col-indicator" style="background:#F59E0B"></span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="5.5" stroke="#F59E0B" stroke-width="1.2" />
+                        <circle cx="7" cy="7" r="2.5" fill="#F59E0B" />
+                    </svg>
+                    <span class="tb-col-name">In Progress</span>
+                </div>
+                <div class="tb-col-header-right">
+                    <span class="tb-col-count">1</span>
+                    <button class="tb-col-add">
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Task -->
+            <div class="tb-card">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check">
+                    <span class="tb-priority tb-priority-high">● High</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title">Migrate database schema</h4>
+                <p class="tb-card-desc">Run the pending migrations on staging, then production after QA sign-off.</p>
+            </div>
+
+            <!-- Empty state -->
+            <div class="tb-empty">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="10" stroke="#CBD5E1" stroke-width="1.5" />
+                    <circle cx="14" cy="14" r="4" fill="#CBD5E1" />
+                </svg>
+                <span>No more tasks</span>
+                <span class="tb-empty-sub">Tap + to add a task</span>
+            </div>
+        </div>
+
+        <!-- Column: Review -->
+        <div class="tb-column">
+            <div class="tb-col-header">
+                <div class="tb-col-header-left">
+                    <span class="tb-col-indicator" style="background:#8B5CF6"></span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <rect x="2" y="2" width="10" height="10" rx="2" stroke="#8B5CF6" stroke-width="1.2" />
+                        <path d="M4 7L6 9L10 5" stroke="#8B5CF6" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span class="tb-col-name">Review</span>
+                </div>
+                <div class="tb-col-header-right">
+                    <span class="tb-col-count">0</span>
+                    <button class="tb-col-add">
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="tb-empty">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect x="4" y="4" width="20" height="20" rx="4" stroke="#CBD5E1" stroke-width="1.5" />
+                    <path d="M9 14L12 17L19 10" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>No tasks</span>
+                <span class="tb-empty-sub">Tap + to add a task</span>
+            </div>
+        </div>
+
+        <!-- Column: Done -->
+        <div class="tb-column">
+            <div class="tb-col-header">
+                <div class="tb-col-header-left">
+                    <span class="tb-col-indicator" style="background:#22C55E"></span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="5.5" stroke="#22C55E" stroke-width="1.2" />
+                        <path d="M4.5 7L6.5 9L9.5 5" stroke="#22C55E" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span class="tb-col-name">Done</span>
+                </div>
+                <div class="tb-col-header-right">
+                    <span class="tb-col-count">2</span>
+                    <button class="tb-col-add">
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Done Task 1 -->
+            <div class="tb-card tb-card-done">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check" checked>
+                    <span class="tb-priority tb-priority-medium">● Medium</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title tb-card-title-done">Fix email preview truncation</h4>
+                <p class="tb-card-desc">Email subjects were being cut off at 40 characters on mobile.</p>
+            </div>
+
+            <!-- Done Task 2 -->
+            <div class="tb-card tb-card-done">
+                <div class="tb-card-top">
+                    <input type="checkbox" class="tb-check" checked>
+                    <span class="tb-priority tb-priority-low">● Low</span>
+                    <button class="tb-card-more">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                            <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="tb-card-title tb-card-title-done">Add tooltip to sidebar icons</h4>
+                <p class="tb-card-desc">Hover tooltips added to all nav icons for better discoverability.</p>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,171 @@
+<!-- ═══════════ WHATSAPP PANEL ═══════════ -->
+<div class="panel-whatsapp" id="panelWhatsApp">
+
+    <!-- Tab bar: Connection / Messages -->
+    <div class="wa-tabs">
+        <button class="wa-tab wa-tab-active">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path
+                    d="M9.5 2L9.5 2C10.3 2.9 10.8 4.1 10.8 5.4C10.8 8.4 8.4 10.8 5.4 10.8C3.9 10.8 2.6 10.2 1.7 9.2L1 10.8L2.2 8.5L2 6.5C2 3.5 3.7 2 5.5 2C7 2 8.3 2.7 9.5 2"
+                    stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Connection
+        </button>
+        <button class="wa-tab">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <rect x="1.5" y="2.5" width="9" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                <path d="M1.5 4.5L6 7.5L10.5 4.5" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+            Messages
+        </button>
+    </div>
+
+    <!-- Connection content -->
+    <div class="wa-content">
+
+        <!-- Integration header -->
+        <div class="wa-header-section">
+            <div class="wa-header-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                        d="M16 4C17.5 5.7 18.4 7.9 18.4 10.3C18.4 15.3 14.3 19.3 9.3 19.3C7.3 19.3 5.5 18.7 4 17.6L1 19.3L2.8 15.3C1.7 13.8 1 12 1 10.1C1 5.1 5.1 1 10.1 1C12.6 1 14.9 2 16 4"
+                        stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div>
+                <h3 class="wa-header-title">WhatsApp Integration</h3>
+                <p class="wa-header-sub">Connect your WhatsApp to monitor group messages</p>
+            </div>
+        </div>
+
+        <!-- Connected status -->
+        <div class="wa-status-row">
+            <div class="wa-status-left">
+                <div class="wa-status-icon">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 7L6 10L11 4" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="wa-status-label">Connected</div>
+                    <div class="wa-status-sub">Connected as +1 (555) 012-3456</div>
+                </div>
+            </div>
+            <button class="wa-disconnect-btn">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 6C2 3.8 3.8 2 6 2M10 6C10 8.2 8.2 10 6 10M6 2L8 4M6 2L4 4M6 10L4 8M6 10L8 8"
+                        stroke="#EF4444" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Disconnect
+            </button>
+        </div>
+
+        <!-- Account information -->
+        <div class="wa-section">
+            <h4 class="wa-section-title">Account Information</h4>
+
+            <div class="wa-info-row">
+                <div class="wa-info-icon wa-info-icon-phone">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path
+                            d="M3.5 2H5.5L7 5.5L5.5 6.5C6.2 7.9 7.1 8.8 8.5 9.5L9.5 8L13 9.5V11.5C13 12.1 12.4 12.5 11.8 12.3C5.9 10.3 2.7 6.1 1.7 3.2C1.5 2.6 1.9 2 2.5 2H3.5Z"
+                            stroke="#10B981" stroke-width="1.2" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="wa-info-detail">
+                    <span class="wa-info-label">Phone Number</span>
+                    <span class="wa-info-value">+1 (555) 012-3456</span>
+                </div>
+            </div>
+
+            <div class="wa-info-row">
+                <div class="wa-info-icon wa-info-icon-person">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="5" r="2.5" stroke="#64748B" stroke-width="1.2" />
+                        <path d="M2.5 12C2.5 9.8 4.5 8 7 8C9.5 8 11.5 9.8 11.5 12" stroke="#64748B" stroke-width="1.2"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="wa-info-detail">
+                    <span class="wa-info-label">Account Name</span>
+                    <span class="wa-info-value">Acme Workspace</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitored groups -->
+        <div class="wa-section">
+            <div class="wa-section-header">
+                <h4 class="wa-section-title">Monitored Groups</h4>
+                <button class="wa-manage-btn">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                        <circle cx="6" cy="6" r="2" stroke="white" stroke-width="1.1" />
+                        <path
+                            d="M6 1V2M6 10V11M11 6H10M2 6H1M9.2 2.8L8.5 3.5M3.5 8.5L2.8 9.2M9.2 9.2L8.5 8.5M3.5 3.5L2.8 2.8"
+                            stroke="white" stroke-width="1.1" stroke-linecap="round" />
+                    </svg>
+                    Manage
+                </button>
+            </div>
+
+            <div class="wa-group-row">
+                <div class="wa-group-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981" stroke-width="1.2"
+                            stroke-linecap="round" />
+                        <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                        <circle cx="3.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                        <circle cx="12.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                    </svg>
+                </div>
+                <span class="wa-group-name">Engineering Team</span>
+                <div class="wa-group-check">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="wa-group-row">
+                <div class="wa-group-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981" stroke-width="1.2"
+                            stroke-linecap="round" />
+                        <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                        <circle cx="3.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                        <circle cx="12.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                    </svg>
+                </div>
+                <span class="wa-group-name">Product & Design</span>
+                <div class="wa-group-check">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="wa-group-row">
+                <div class="wa-group-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981" stroke-width="1.2"
+                            stroke-linecap="round" />
+                        <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                        <circle cx="3.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                        <circle cx="12.5" cy="5.5" r="2" stroke="#10B981" stroke-width="1" stroke-dasharray="1.5 1" />
+                    </svg>
+                </div>
+                <span class="wa-group-name">General Announcements</span>
+                <div class="wa-group-check">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

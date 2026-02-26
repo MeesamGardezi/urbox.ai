@@ -1,0 +1,41 @@
+/* ============================================================
+   TRUST BAR
+   ============================================================ */
+.trust-bar {
+    padding: 44px 5%;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: white;
+    text-align: center;
+}
+
+.trust-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.trust-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.trust-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #CBD5E1;
+    letter-spacing: -0.3px;
+    transition: color 0.2s;
+    cursor: default;
+}
+
+.trust-logo:hover {
+    color: var(--muted);
+}

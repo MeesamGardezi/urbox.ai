@@ -1,0 +1,165 @@
+/* ============================================================
+   EMAIL ACCOUNTS PANEL
+   ============================================================ */
+.panel-emailaccounts {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+/* ── Top bar ── */
+.ea-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.ea-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ea-icon-wrap {
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ea-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: -0.2px;
+    margin: 0 0 2px;
+}
+
+.ea-subtitle {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 0;
+}
+
+.ea-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.ea-add-btn:hover {
+    background: #1A7FE0;
+}
+
+/* ── Account list ── */
+.ea-list {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.ea-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: white;
+    transition: box-shadow 0.15s;
+}
+
+.ea-row:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ea-row-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ea-provider-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ea-provider-outlook {
+    background: #0078D4;
+}
+
+.ea-provider-gmail {
+    background: #EA4335;
+}
+
+.ea-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ea-account-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--midnight);
+    line-height: 1.2;
+}
+
+.ea-account-email {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.ea-delete-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s;
+    opacity: 0;
+}
+
+.ea-row:hover .ea-delete-btn {
+    opacity: 1;
+}
+
+.ea-delete-btn:hover {
+    background: #FEE2E2;
+}
+
+.ea-delete-btn:hover svg path {
+    stroke: #EF4444;
+}

@@ -1,0 +1,50 @@
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cta-section {
+    padding: 120px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(43, 142, 240, 0.07) 0%, transparent 70%);
+}
+
+.cta-section>* {
+    position: relative;
+}
+
+.cta-title {
+    font-size: clamp(36px, 5vw, 60px);
+    color: var(--midnight);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    max-width: 680px;
+    margin: 0 auto 20px;
+}
+
+.cta-sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 460px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+}
+
+.cta-note {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.cta-note strong {
+    color: var(--slate);
+    font-weight: 600;
+}

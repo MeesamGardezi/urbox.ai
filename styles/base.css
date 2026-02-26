@@ -1,0 +1,161 @@
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+    --primary: #2B8EF0;
+    --primary-dark: #1565C0;
+    --primary-light: #60B4F8;
+    --primary-subtle: #EFF6FF;
+    --midnight: #0D1B2A;
+    --slate: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --bg: #F8FAFC;
+    --white: #FFFFFF;
+    --success: #10B981;
+    --warning: #F59E0B;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--slate);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1,
+h2,
+h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+}
+
+/* ============================================================
+   SHARED SECTION STYLES
+   ============================================================ */
+.section {
+    padding: 96px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-bg-white {
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-size: clamp(30px, 3.8vw, 46px);
+    color: var(--midnight);
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    max-width: 620px;
+    margin-bottom: 18px;
+}
+
+.section-sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 540px;
+    margin-bottom: 52px;
+}
+
+/* ============================================================
+   SHARED UTILITIES
+   ============================================================ */
+.check {
+    color: var(--success);
+    font-size: 15px;
+}
+
+.cross {
+    color: #CBD5E1;
+    font-size: 15px;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.4);
+    }
+}

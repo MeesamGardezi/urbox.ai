@@ -1,0 +1,77 @@
+<!-- ═══════════ EMAIL ACCOUNTS PANEL ═══════════ -->
+<div class="panel-emailaccounts" id="panelEmailAccounts">
+
+    <!-- Top bar -->
+    <div class="ea-topbar">
+        <div class="ea-topbar-left">
+            <div class="ea-icon-wrap">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="white" stroke-width="1.3" />
+                    <path d="M1.5 6L8 10L14.5 6" stroke="white" stroke-width="1.3" />
+                </svg>
+            </div>
+            <div>
+                <h2 class="ea-title">Email Connections</h2>
+                <p class="ea-subtitle">Manage your connected email accounts</p>
+            </div>
+        </div>
+        <button class="ea-add-btn">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            Add Account
+        </button>
+    </div>
+
+    <!-- Account list -->
+    <div class="ea-list">
+
+        <!-- Account 1: Outlook / Microsoft -->
+        <div class="ea-row">
+            <div class="ea-row-left">
+                <div class="ea-provider-icon ea-provider-outlook">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <rect x="1" y="1" width="6" height="6" rx="1" fill="white" opacity="0.9" />
+                        <rect x="9" y="1" width="6" height="6" rx="1" fill="white" opacity="0.7" />
+                        <rect x="1" y="9" width="6" height="6" rx="1" fill="white" opacity="0.7" />
+                        <rect x="9" y="9" width="6" height="6" rx="1" fill="white" opacity="0.5" />
+                    </svg>
+                </div>
+                <div class="ea-row-info">
+                    <span class="ea-account-name">Acme Inc</span>
+                    <span class="ea-account-email">workspace@acme.inc</span>
+                </div>
+            </div>
+            <button class="ea-delete-btn">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 4H11M5 4V3H9V4M5.5 6V10.5M8.5 6V10.5M4 4L4.5 11H9.5L10 4" stroke="#CBD5E1"
+                        stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Account 2: Gmail -->
+        <div class="ea-row">
+            <div class="ea-row-left">
+                <div class="ea-provider-icon ea-provider-gmail">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M2 4L8 9L14 4" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="white" stroke-width="1.2" />
+                    </svg>
+                </div>
+                <div class="ea-row-info">
+                    <span class="ea-account-name">Alex Chen</span>
+                    <span class="ea-account-email">alex.chen@gmail.com</span>
+                </div>
+            </div>
+            <button class="ea-delete-btn">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 4H11M5 4V3H9V4M5.5 6V10.5M8.5 6V10.5M4 4L4.5 11H9.5L10 4" stroke="#CBD5E1"
+                        stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</div>

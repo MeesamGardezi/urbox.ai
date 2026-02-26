@@ -1,0 +1,151 @@
+<!-- ═══════════ CALENDAR PANEL ═══════════ -->
+<div class="panel-calendar" id="panelCalendar">
+
+    <!-- Top bar -->
+    <div class="cal-topbar">
+        <div class="cal-topbar-left">
+            <div class="cal-icon-wrap">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="white" stroke-width="1.3" />
+                    <path d="M2 7H14" stroke="white" stroke-width="1.3" />
+                    <path d="M5 2V4M11 2V4" stroke="white" stroke-width="1.3" stroke-linecap="round" />
+                </svg>
+            </div>
+            <button class="cal-nav-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M8 2L4 6L8 10" stroke="#64748B" stroke-width="1.4" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <span class="cal-month-title">February 2026</span>
+            <button class="cal-nav-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M4 2L8 6L4 10" stroke="#64748B" stroke-width="1.4" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="cal-today-btn">Today</button>
+        </div>
+        <div class="cal-topbar-right">
+            <div class="cal-account-pill">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <rect x="0.5" y="0.5" width="9" height="9" rx="1.5" stroke="#2B8EF0" stroke-width="1" />
+                </svg>
+                acme.inc
+            </div>
+            <div class="cal-account-pill">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <rect x="0.5" y="0.5" width="9" height="9" rx="1.5" stroke="#64748B" stroke-width="1" />
+                </svg>
+                alex@acme.inc
+            </div>
+            <button class="cal-refresh">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M11 6.5C11 9 9 11 6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C8 2 9.3 2.7 10.1 3.8"
+                        stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round" />
+                    <path d="M10.5 2L10.1 3.8L8.3 3.4" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Calendar body -->
+    <div class="cal-body">
+
+        <!-- Day headers -->
+        <div class="cal-day-headers">
+            <div class="cal-day-header">Mon</div>
+            <div class="cal-day-header">Tue</div>
+            <div class="cal-day-header">Wed</div>
+            <div class="cal-day-header">Thu</div>
+            <div class="cal-day-header">Fri</div>
+            <div class="cal-day-header">Sat</div>
+            <div class="cal-day-header">Sun</div>
+        </div>
+
+        <!-- Grid -->
+        <div class="cal-grid">
+
+            <!-- Week 1: Feb 2–8 (Feb starts on Sunday, so Mon Feb 2 is first cell) -->
+            <!-- padding: Jan 27–Feb 1 are Sunday start; Feb 2026 starts on Sunday -->
+            <!-- Feb 1 = Sunday, so: Mon=Feb2? No — Feb 1, 2026 is a Sunday -->
+            <!-- Row 1: Mon Jan 26 ... Sun Feb 1 -->
+            <div class="cal-cell cal-other-month"><span class="cal-num">26</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">27</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">28</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">29</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">30</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">31</span></div>
+            <div class="cal-cell"><span class="cal-num">1</span></div>
+
+            <!-- Row 2: Feb 2–8 -->
+            <div class="cal-cell"><span class="cal-num">2</span></div>
+            <div class="cal-cell"><span class="cal-num">3</span>
+                <div class="cal-event cal-event-blue">Design review</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">4</span></div>
+            <div class="cal-cell"><span class="cal-num">5</span>
+                <div class="cal-event cal-event-blue">Sprint planning</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">6</span></div>
+            <div class="cal-cell"><span class="cal-num">7</span></div>
+            <div class="cal-cell"><span class="cal-num">8</span></div>
+
+            <!-- Row 3: Feb 9–15 -->
+            <div class="cal-cell"><span class="cal-num">9</span></div>
+            <div class="cal-cell"><span class="cal-num">10</span></div>
+            <div class="cal-cell"><span class="cal-num">11</span>
+                <div class="cal-event cal-event-purple">All-hands meeting</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">12</span></div>
+            <div class="cal-cell"><span class="cal-num">13</span>
+                <div class="cal-event cal-event-green">Client call</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">14</span></div>
+            <div class="cal-cell"><span class="cal-num">15</span></div>
+
+            <!-- Row 4: Feb 16–22 -->
+            <div class="cal-cell"><span class="cal-num">16</span>
+                <div class="cal-event cal-event-blue">1:1 with Jamie</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">17</span></div>
+            <div class="cal-cell"><span class="cal-num">18</span></div>
+            <div class="cal-cell"><span class="cal-num">19</span>
+                <div class="cal-event cal-event-purple">Q1 review prep</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">20</span></div>
+            <div class="cal-cell"><span class="cal-num">21</span></div>
+            <div class="cal-cell"><span class="cal-num">22</span></div>
+
+            <!-- Row 5: Feb 23 – Mar 1 -->
+            <div class="cal-cell"><span class="cal-num">23</span></div>
+            <div class="cal-cell"><span class="cal-num">24</span></div>
+            <div class="cal-cell"><span class="cal-num">25</span>
+                <div class="cal-event cal-event-green">Standup notes</div>
+            </div>
+            <div class="cal-cell cal-today"><span class="cal-num cal-num-today">26</span>
+                <div class="cal-event cal-event-blue">Launch prep call</div>
+            </div>
+            <div class="cal-cell"><span class="cal-num">27</span></div>
+            <div class="cal-cell"><span class="cal-num">28</span></div>
+            <div class="cal-cell cal-other-month"><span class="cal-num">1</span></div>
+
+        </div>
+    </div>
+
+    <!-- Right panel: selected day -->
+    <div class="cal-detail">
+        <div class="cal-detail-date">Thursday, February 26</div>
+        <div class="cal-detail-count">1 event</div>
+        <div class="cal-detail-event">
+            <div class="cal-detail-event-bar"></div>
+            <div class="cal-detail-event-info">
+                <span class="cal-detail-source">acme.inc</span>
+                <span class="cal-detail-title">All Day</span>
+                <span class="cal-detail-name">Launch prep call</span>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,152 @@
+<!-- ═══════════ TEAM CHAT PANEL ═══════════ -->
+<div class="panel-teamchat" id="panelTeamChat">
+
+    <!-- Groups sidebar -->
+    <div class="tc-groups">
+        <div class="tc-groups-header">
+            <span class="tc-groups-title">Groups</span>
+            <button class="tc-add-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 2V10M2 6H10" stroke="#64748B" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Group: Engineering -->
+        <div class="tc-group-row tc-group-active">
+            <div class="tc-group-avatar" style="background:#2B8EF0">E</div>
+            <div class="tc-group-info">
+                <span class="tc-group-name">Engineering</span>
+                <span class="tc-group-preview">Let's ship this by Friday 🚀</span>
+            </div>
+        </div>
+
+        <!-- Group: Design -->
+        <div class="tc-group-row">
+            <div class="tc-group-avatar" style="background:#8B5CF6">D</div>
+            <div class="tc-group-info">
+                <span class="tc-group-name">Design</span>
+                <span class="tc-group-preview">New Figma file shared</span>
+            </div>
+        </div>
+
+        <!-- Group: Marketing -->
+        <div class="tc-group-row">
+            <div class="tc-group-avatar" style="background:#F59E0B">M</div>
+            <div class="tc-group-info">
+                <span class="tc-group-name">Marketing</span>
+                <span class="tc-group-preview">Campaign assets ready ✅</span>
+            </div>
+        </div>
+
+        <!-- Group: General -->
+        <div class="tc-group-row">
+            <div class="tc-group-avatar" style="background:#10B981">G</div>
+            <div class="tc-group-info">
+                <span class="tc-group-name">General</span>
+                <span class="tc-group-preview">Happy Friday everyone!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat window -->
+    <div class="tc-chat">
+
+        <!-- Chat header -->
+        <div class="tc-chat-header">
+            <div class="tc-chat-header-left">
+                <div class="tc-group-avatar" style="background:#2B8EF0; width:28px; height:28px; font-size:12px">E</div>
+                <div>
+                    <div class="tc-chat-name">Engineering</div>
+                    <div class="tc-chat-members">5 members</div>
+                </div>
+            </div>
+            <div class="tc-chat-header-right">
+                <button class="tc-header-btn">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path
+                            d="M7 2C4.24 2 2 4.24 2 7C2 8.08 2.36 9.08 2.96 9.88L2 12L4.12 11.04C4.92 11.64 5.92 12 7 12C9.76 12 12 9.76 12 7C12 4.24 9.76 2 7 2Z"
+                            stroke="#64748B" stroke-width="1.2" stroke-linejoin="round" />
+                    </svg>
+                    Add
+                </button>
+                <button class="tc-header-icon">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.2" />
+                        <path d="M7 5V7.5M7 9.5V9.4" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="tc-messages">
+
+            <!-- Incoming: Alex -->
+            <div class="tc-msg-row tc-msg-incoming">
+                <div class="tc-msg-avatar" style="background:#2B8EF0">A</div>
+                <div class="tc-msg-bubble-wrap">
+                    <span class="tc-msg-sender">Alex Chen</span>
+                    <div class="tc-msg-bubble tc-msg-bubble-in">
+                        Hey team, the staging build is ready for review
+                        <span class="tc-msg-time">9:14 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incoming: Jamie -->
+            <div class="tc-msg-row tc-msg-incoming">
+                <div class="tc-msg-avatar" style="background:#10B981">J</div>
+                <div class="tc-msg-bubble-wrap">
+                    <span class="tc-msg-sender">Jamie Park</span>
+                    <div class="tc-msg-bubble tc-msg-bubble-in">
+                        Looks good! Found one minor alignment issue on mobile
+                        <span class="tc-msg-time">9:21 AM</span>
+                    </div>
+                    <div class="tc-msg-reaction">👍</div>
+                </div>
+            </div>
+
+            <!-- Outgoing -->
+            <div class="tc-msg-row tc-msg-outgoing">
+                <div class="tc-msg-bubble-wrap tc-msg-bubble-wrap-out">
+                    <span class="tc-msg-sender tc-msg-sender-out">Acme Inc</span>
+                    <div class="tc-msg-bubble tc-msg-bubble-out">
+                        On it — will push a fix in 10 mins
+                        <span class="tc-msg-time tc-msg-time-out">9:25 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incoming: Sara -->
+            <div class="tc-msg-row tc-msg-incoming">
+                <div class="tc-msg-avatar" style="background:#8B5CF6">S</div>
+                <div class="tc-msg-bubble-wrap">
+                    <span class="tc-msg-sender">Sara Nguyen</span>
+                    <div class="tc-msg-bubble tc-msg-bubble-in">
+                        Let's ship this by Friday 🚀
+                        <span class="tc-msg-time">9:30 AM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Input bar -->
+        <div class="tc-input-bar">
+            <button class="tc-input-add">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 2V12M2 7H12" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="tc-input-field">Message...</div>
+            <button class="tc-send-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M12 7L2 2L4.5 7L2 12L12 7Z" fill="white" stroke="white" stroke-width="0.5"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</div>

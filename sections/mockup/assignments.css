@@ -1,0 +1,240 @@
+/* ============================================================
+   ASSIGNMENTS PANEL
+   ============================================================ */
+.panel-assignments {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+/* ── Top bar ── */
+.as-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 16px 8px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.as-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: -0.3px;
+    margin: 0 0 2px;
+}
+
+.as-subtitle {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 0;
+}
+
+.as-new-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.as-new-btn:hover {
+    background: #1A7FE0;
+}
+
+/* ── Filters row ── */
+.as-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.as-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: 10.5px;
+    color: var(--muted);
+}
+
+.as-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--slate);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.as-filter-btn:hover {
+    background: #F8FAFC;
+}
+
+/* ── Cards grid ── */
+.as-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 12px 16px;
+    overflow-y: auto;
+    flex: 1;
+    align-content: start;
+}
+
+.as-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: white;
+    transition: box-shadow 0.15s;
+}
+
+.as-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.as-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.as-badges {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.as-badge {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+}
+
+.as-badge-pending {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.as-badge-inprogress {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.as-badge-completed {
+    background: #D1FAE5;
+    color: #059669;
+}
+
+.as-badge-high {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.as-badge-medium {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.as-badge-low {
+    background: #F0FDF4;
+    color: #16A34A;
+}
+
+.as-card-more {
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.as-card-more:hover {
+    background: var(--border);
+}
+
+.as-card-body {
+    flex: 1;
+}
+
+.as-card-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--midnight);
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+
+.as-card-desc {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+}
+
+.as-card-footer {
+    padding-top: 8px;
+    border-top: 1px solid #F1F5F9;
+}
+
+.as-member {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.as-avatar {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.as-member span {
+    font-size: 9.5px;
+    font-weight: 500;
+    color: var(--slate);
+}

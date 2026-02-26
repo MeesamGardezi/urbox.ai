@@ -1,0 +1,107 @@
+/* ============================================================
+   FEATURES GRID
+   ============================================================ */
+.features-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: white;
+}
+
+.features-grid-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.feature-item {
+    padding: 40px 36px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    cursor: default;
+}
+
+.feature-item:hover {
+    background: var(--primary-subtle);
+}
+
+.feature-item:nth-child(3n) {
+    border-right: none;
+}
+
+.feature-item:nth-child(n+4) {
+    border-bottom: none;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-subtle);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    transition: background 0.2s;
+}
+
+.feature-item:hover .feature-icon {
+    background: white;
+}
+
+.feature-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--midnight);
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-item:nth-child(3n) {
+        border-right: 1px solid var(--border);
+    }
+
+    .feature-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .feature-item:nth-child(n+4) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .feature-item:nth-child(n+5) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border) !important;
+    }
+
+    .feature-item:last-child {
+        border-bottom: none !important;
+    }
+}

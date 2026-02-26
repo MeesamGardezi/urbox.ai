@@ -1,0 +1,1376 @@
+<!-- ══════ APP MOCKUP — Sidebar + Dynamic Panel ══════ -->
+<div class="hero-mockup" id="heroMockup">
+    <div class="mockup-window">
+
+        <!-- Window chrome -->
+        <div class="mockup-bar">
+            <div class="mockup-dots">
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+                <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-url">app.urbox.ai</div>
+        </div>
+
+        <!-- Sidebar + Main content -->
+        <div class="mockup-body-3col">
+
+            <!-- ═══════════ LEFT SIDEBAR ═══════════ -->
+            <div class="mock-sidebar">
+                <!-- Logo row -->
+                <div class="ms-header">
+                    <div class="ms-logo">
+                        <div class="ms-logo-icon">
+                            <svg viewBox="0 0 26 26" fill="none" width="16" height="16">
+                                <path d="M13 3L22 8V18L13 23L4 18V8L13 3Z" fill="#2B8EF0" opacity="0.15" />
+                                <path d="M13 3L22 8L13 13L4 8L13 3Z" fill="#2B8EF0" />
+                                <path d="M4 8V18L13 23V13L4 8Z" fill="#1565C0" />
+                                <path d="M22 8V18L13 23V13L22 8Z" fill="#60B4F8" />
+                            </svg>
+                        </div>
+                        <span class="ms-brand">urBox</span>
+                    </div>
+                    <div class="ms-collapse">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M8 2L4 6L8 10" stroke="#94A3B8" stroke-width="1.4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- MAIN nav -->
+                <div class="ms-group">
+                    <div class="ms-label">Main</div>
+                    <div class="ms-item active" data-panel="panelInbox">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor"
+                                stroke-width="1.2" />
+                            <path d="M1.5 5L7.5 9L13.5 5" stroke="currentColor" stroke-width="1.2" />
+                        </svg>
+                        <span>Inbox</span>
+                        <svg class="ms-item-badge" width="11" height="11" viewBox="0 0 12 12" fill="none">
+                            <circle cx="6" cy="6" r="5" stroke="#CBD5E1" stroke-width="1" />
+                            <path d="M6 4V8M4 6H8" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="ms-item" data-panel="panelStorage">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <rect x="2" y="2" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.2" />
+                            <path d="M5 7.5H10M7.5 5V10" stroke="currentColor" stroke-width="1.2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <span>Storage</span>
+                    </div>
+                    <div class="ms-item" data-panel="panelAssignments">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <circle cx="7.5" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.2" />
+                            <path d="M3 13C3 10.5 5 9 7.5 9C10 9 12 10.5 12 13" stroke="currentColor" stroke-width="1.2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <span>Assignments</span>
+                    </div>
+                    <div class="ms-item" data-panel="panelTeamChat">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <path
+                                d="M2 10C2 7.5 4 5.5 6.5 5.5H8.5C11 5.5 13 7.5 13 10V11C13 13 11 14.5 8.5 14.5H6.5C4 14.5 2 13 2 11V10Z"
+                                stroke="currentColor" stroke-width="1.2" />
+                            <path d="M5 9H10M5 11.5H8" stroke="currentColor" stroke-width="1.2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <span>Team Chat</span>
+                    </div>
+                    <div class="ms-item" data-panel="panelCalendar">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <rect x="2" y="2" width="11" height="11" rx="1.5" stroke="currentColor"
+                                stroke-width="1.2" />
+                            <path d="M2 6H13M5 2V4M10 2V4" stroke="currentColor" stroke-width="1.2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <span>Calendar</span>
+                    </div>
+                    <div class="ms-item" data-panel="panelTodoBoard">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <path d="M2 4L5.5 7.5L2 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M7 11H13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                        </svg>
+                        <span>Todo Board</span>
+                    </div>
+                </div>
+
+                <!-- INBOXES -->
+                <div class="ms-group">
+                    <div class="ms-label">Inboxes</div>
+                    <div class="ms-item" data-panel="panelInbox">
+                        <span class="ms-dot" style="background:#2B8EF0"></span>
+                        <span>urbox work inbox</span>
+                        <div class="ms-item-icons">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                <path d="M6 2.5L7.5 5.5L11 6L8.5 8.5L9 12L6 10.5L3 12L3.5 8.5L1 6L4.5 5.5L6 2.5Z"
+                                    stroke="#CBD5E1" stroke-width="0.9" fill="none" />
+                            </svg>
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                <circle cx="6" cy="6" r="5" stroke="#CBD5E1" stroke-width="1" />
+                                <path d="M4 6L5.5 7.5L8 4.5" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONNECTIONS -->
+                <div class="ms-group">
+                    <div class="ms-label">Connections</div>
+                    <div class="ms-item" data-panel="panelEmailAccounts">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor"
+                                stroke-width="1.2" />
+                            <path d="M1.5 5L7.5 9L13.5 5" stroke="currentColor" stroke-width="1.2" />
+                        </svg>
+                        <span>Email Accounts</span>
+                        <div class="ms-item-icons">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                <circle cx="6" cy="6" r="5" stroke="#CBD5E1" stroke-width="1" />
+                                <path d="M4 6L5.5 7.5L8 4.5" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ms-item" data-panel="panelSlack">
+                        <span class="ms-hash">#</span>
+                        <span>Slack</span>
+                        <div class="ms-item-icons">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                <circle cx="6" cy="6" r="5" stroke="#CBD5E1" stroke-width="1" />
+                                <path d="M4 6L5.5 7.5L8 4.5" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ms-item" data-panel="panelWhatsApp">
+                        <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                            <path
+                                d="M12 3C13 4.2 13.6 5.8 13.6 7.5C13.6 11.4 10.8 14 7.5 14C5.7 14 4 13.3 2.9 12.1L1.5 14L2.2 10.5L1.5 7C1.5 3.4 4 1 7.5 1C9.2 1 10.8 1.7 12 3"
+                                stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <span>WhatsApp</span>
+                        <div class="ms-item-icons">
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                <circle cx="6" cy="6" r="5" stroke="#CBD5E1" stroke-width="1" />
+                                <path d="M4 6L5.5 7.5L8 4.5" stroke="#CBD5E1" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User -->
+                <div class="ms-user">
+                    <div class="ms-user-avatar">A</div>
+                    <div class="ms-user-info">
+                        <div class="ms-user-name">Acme Inc</div>
+                        <div class="ms-user-role">Workspace</div>
+                    </div>
+                    <svg class="ms-user-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M3 4L5 6.5L7 4" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- ═══════════ MAIN CONTENT AREA ═══════════ -->
+            <div class="mock-main">
+
+                <!-- ── INBOX PANEL (default) ── -->
+                <div class="mock-panel active" id="panelInbox">
+                    <div class="panel-inbox">
+
+                        <!-- Email list -->
+                        <div class="mock-list">
+                            <div class="ml-search">
+                                <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
+                                    <circle cx="5" cy="5" r="3.5" stroke="#94A3B8" stroke-width="1.2" />
+                                    <path d="M8 8L10.5 10.5" stroke="#94A3B8" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                Search messages...
+                            </div>
+
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#96BF48">S</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Shopify &lt;noreply@notif...</span><span
+                                            class="ml-date">7:36 AM</span></div>
+                                    <div class="ml-subject">Your store report is ready</div>
+                                    <div class="ml-preview">Weekly performance summary for ...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#4285F4">G</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Google Cloud
+                                            &lt;cloud-nore...</span><span class="ml-date">7:29 AM</span></div>
+                                    <div class="ml-subject">Immediate Action Required on cu...</div>
+                                    <div class="ml-preview">API CONSOLE Policy Violation Immedi...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#635BFF">P</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Stripe
+                                            &lt;notifications@stri...</span><span class="ml-date">7:16 AM</span></div>
+                                    <div class="ml-subject">Action Required - Verify your ba...</div>
+                                    <div class="ml-preview">Complete verification to continue proc...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#000000">N</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Notion &lt;notify@notio...</span><span
+                                            class="ml-date">3:12 AM</span></div>
+                                    <div class="ml-subject">New Notion AI features are live ✨</div>
+                                    <div class="ml-preview">Explore AI-powered writing and auto...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#1A8917">M</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Medium Daily Digest
+                                            &lt;no...</span><span class="ml-date">2:00 AM</span></div>
+                                    <div class="ml-subject">The State of AI Infrastructure in 2...</div>
+                                    <div class="ml-preview">Top stories curated for your intere...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row active">
+                                <div class="ml-avatar" style="background:#8B5CF6">D</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Dribbble
+                                            &lt;no-reply@n.dri...</span><span class="ml-date">Feb 25</span></div>
+                                    <div class="ml-subject">🌿 Sustainability that's more than jus...</div>
+                                    <div class="ml-preview">Plus Nike ACG's offline-first plat...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#5E6AD2">L</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Linear
+                                            &lt;notifications@li...</span><span class="ml-date">Feb 25</span></div>
+                                    <div class="ml-subject">3 issues assigned to your team</div>
+                                    <div class="ml-preview">Sprint 14: Frontend polish, API rate...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#F24E1E">F</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Figma &lt;no-reply@figma...</span><span
+                                            class="ml-date">Feb 25</span></div>
+                                    <div class="ml-subject">Start earning your free Pro credits</div>
+                                    <div class="ml-preview">Here's a few tips to help you get sta...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#000000">V</div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Vercel &lt;ship@vercel.co...</span><span
+                                            class="ml-date">Feb 25</span></div>
+                                    <div class="ml-subject">Build failed: acme-dashboard</div>
+                                    <div class="ml-preview">Deployment error on commit 4f2a9c...</div>
+                                </div>
+                            </div>
+                            <div class="ml-row">
+                                <div class="ml-avatar" style="background:#10B981">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path d="M2 9C2 7 3.5 5.5 6 5.5C8.5 5.5 10 7 10 9" stroke="white"
+                                            stroke-width="1.2" stroke-linecap="round" />
+                                        <circle cx="6" cy="3.5" r="2" stroke="white" stroke-width="1.2" />
+                                    </svg>
+                                </div>
+                                <div class="ml-body">
+                                    <div class="ml-top"><span class="ml-sender">Engineering Team</span><span
+                                            class="ml-date">Feb 25</span></div>
+                                    <div class="ml-subject">Sprint standup notes:</div>
+                                    <div class="ml-preview">https://docs.acme.com/standup/w...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email detail -->
+                        <div class="mock-detail">
+                            <div class="md-toolbar">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M3 4H11M3 7H11M3 10H11" stroke="#94A3B8" stroke-width="1.3"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="md-header">
+                                <div class="md-header-left">
+                                    <div class="md-avatar" style="background:#8B5CF6">D</div>
+                                    <div class="md-meta">
+                                        <div class="md-from">Dribbble &lt;no-reply@n.dribbble.com&gt;</div>
+                                        <div class="md-subject-line">🌿 Sustainability that's more than just a color
+                                            palette</div>
+                                        <div class="md-to">to me</div>
+                                    </div>
+                                </div>
+                                <div class="md-date">Feb 25, 2026 10:37 PM</div>
+                            </div>
+                            <div class="md-body">
+                                <div class="md-banner" id="mockBanner">
+                                    <div class="md-banner-track">
+                                        <span>DRIBBBLE INSIDER</span><span>DRIBBBLE INSIDER</span><span>DRIBBBLE
+                                            INSIDER</span>
+                                        <span>DRIBBBLE INSIDER</span><span>DRIBBBLE INSIDER</span><span>DRIBBBLE
+                                            INSIDER</span>
+                                        <span>DRIBBBLE INSIDER</span><span>DRIBBBLE INSIDER</span><span>DRIBBBLE
+                                            INSIDER</span>
+                                        <span>DRIBBBLE INSIDER</span><span>DRIBBBLE INSIDER</span><span>DRIBBBLE
+                                            INSIDER</span>
+                                    </div>
+                                </div>
+                                <div class="md-content">
+                                    <div class="md-unsub">unsubscribe from this type of email.</div>
+                                    <div class="md-logo-text">Dribbble</div>
+                                    <div class="md-meta-row">
+                                        <span class="md-date-label">February 25, 2026</span>
+                                        <span class="md-presented">Presented by <span
+                                                class="md-figma-badge">F</span></span>
+                                    </div>
+                                    <h3 class="md-headline">Beyond greenwashing: 5 brand systems built for a
+                                        regenerative future</h3>
+                                    <p class="md-excerpt">Sustainability in branding has moved far beyond recycled paper
+                                        and earthy color palettes. Today's most compelling brand systems embed
+                                        environmental responsibility into their structure, from materials and messaging
+                                        to digital ecosystems. Explore five brands proving that when sustainability
+                                        becomes foundational, design doesn't lose impact. It gains purpose, clarity, and
+                                        longevity.</p>
+                                    <div class="md-also">
+                                        <h4 class="md-also-title">Also in this issue</h4>
+                                        <ul class="md-also-list">
+                                            <li>Logging off to level up: How R/GA built a digital world that pushes you
+                                                outside</li>
+                                            <li>From Shot to signed contract: Sharing work that attracts the right
+                                                clients</li>
+                                            <li>Get your ticket to the All Flows Creative Industries Festival</li>
+                                        </ul>
+                                    </div>
+                                    <div class="md-article-2">
+                                        <h3 class="md-headline-2">Designing for longevity: When sustainability becomes
+                                            structural</h3>
+                                        <div class="md-img-placeholder"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ── STORAGE PANEL ── -->
+                <div class="mock-panel" id="panelStorage">
+                    <div class="panel-storage">
+                        <div class="st-topbar">
+                            <div class="st-topbar-left">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path
+                                        d="M2 4.5C2 3.67 2.67 3 3.5 3H6.38C6.77 3 7.14 3.16 7.4 3.44L8.6 4.75C8.86 5.03 9.23 5.19 9.62 5.19H12.5C13.33 5.19 14 5.86 14 6.69V11.5C14 12.33 13.33 13 12.5 13H3.5C2.67 13 2 12.33 2 11.5V4.5Z"
+                                        stroke="#64748B" stroke-width="1.3" stroke-linejoin="round" />
+                                </svg>
+                                <span class="st-title">Storage</span>
+                            </div>
+                            <div class="st-topbar-right">
+                                <button class="st-view-btn st-view-active">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <rect x="1" y="1" width="5" height="5" rx="1" stroke="currentColor"
+                                            stroke-width="1.2" />
+                                        <rect x="8" y="1" width="5" height="5" rx="1" stroke="currentColor"
+                                            stroke-width="1.2" />
+                                        <rect x="1" y="8" width="5" height="5" rx="1" stroke="currentColor"
+                                            stroke-width="1.2" />
+                                        <rect x="8" y="8" width="5" height="5" rx="1" stroke="currentColor"
+                                            stroke-width="1.2" />
+                                    </svg>
+                                </button>
+                                <button class="st-view-btn">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M2 3.5H12M2 7H12M2 10.5H12" stroke="currentColor" stroke-width="1.2"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="st-breadcrumb">
+                            <div class="st-breadcrumb-left">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M1 6L5.5 2L10 6" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M2.5 5V10H4.5V7.5H7.5V10H9.5V5" stroke="#94A3B8" stroke-width="1.2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span class="st-breadcrumb-text">Home</span>
+                            </div>
+                            <div class="st-breadcrumb-right">
+                                <button class="st-action-btn st-new-folder">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path
+                                            d="M2 3C2 2.45 2.45 2 3 2H5.17C5.45 2 5.71 2.11 5.9 2.31L6.71 3.19C6.9 3.39 7.16 3.5 7.44 3.5H9C9.55 3.5 10 3.95 10 4.5V9C10 9.55 9.55 10 9 10H3C2.45 10 2 9.55 2 9V3Z"
+                                            stroke="currentColor" stroke-width="1.2" />
+                                    </svg>
+                                    New Folder
+                                </button>
+                                <button class="st-action-btn st-upload">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path d="M6 8V2M3.5 4.5L6 2L8.5 4.5" stroke="white" stroke-width="1.3"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M2 9.5V10.5H10V9.5" stroke="white" stroke-width="1.3"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                    Upload
+                                </button>
+                            </div>
+                        </div>
+                        <div class="st-list">
+                            <div class="st-row st-folder">
+                                <div class="st-row-left">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M2 5.5C2 4.67 2.67 4 3.5 4H8.26C8.65 4 9.02 4.16 9.28 4.44L10.22 5.56C10.48 5.84 10.85 6 11.24 6H16.5C17.33 6 18 6.67 18 7.5V15.5C18 16.33 17.33 17 16.5 17H3.5C2.67 17 2 16.33 2 15.5V5.5Z"
+                                            fill="#F59E0B" opacity="0.9" />
+                                        <path d="M2 8H18" stroke="#D97706" stroke-width="0.8" />
+                                    </svg>
+                                    <span class="st-name">Design Assets</span>
+                                </div>
+                                <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                    </svg></button>
+                            </div>
+                            <div class="st-row st-folder">
+                                <div class="st-row-left">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M2 5.5C2 4.67 2.67 4 3.5 4H8.26C8.65 4 9.02 4.16 9.28 4.44L10.22 5.56C10.48 5.84 10.85 6 11.24 6H16.5C17.33 6 18 6.67 18 7.5V15.5C18 16.33 17.33 17 16.5 17H3.5C2.67 17 2 16.33 2 15.5V5.5Z"
+                                            fill="#F59E0B" opacity="0.9" />
+                                        <path d="M2 8H18" stroke="#D97706" stroke-width="0.8" />
+                                    </svg>
+                                    <span class="st-name">Marketing Campaigns</span>
+                                </div>
+                                <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                    </svg></button>
+                            </div>
+                            <div class="st-row st-folder">
+                                <div class="st-row-left">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M2 5.5C2 4.67 2.67 4 3.5 4H8.26C8.65 4 9.02 4.16 9.28 4.44L10.22 5.56C10.48 5.84 10.85 6 11.24 6H16.5C17.33 6 18 6.67 18 7.5V15.5C18 16.33 17.33 17 16.5 17H3.5C2.67 17 2 16.33 2 15.5V5.5Z"
+                                            fill="#F59E0B" opacity="0.9" />
+                                        <path d="M2 8H18" stroke="#D97706" stroke-width="0.8" />
+                                    </svg>
+                                    <span class="st-name">Engineering Docs</span>
+                                </div>
+                                <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                    </svg></button>
+                            </div>
+                            <div class="st-row st-folder">
+                                <div class="st-row-left">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M2 5.5C2 4.67 2.67 4 3.5 4H8.26C8.65 4 9.02 4.16 9.28 4.44L10.22 5.56C10.48 5.84 10.85 6 11.24 6H16.5C17.33 6 18 6.67 18 7.5V15.5C18 16.33 17.33 17 16.5 17H3.5C2.67 17 2 16.33 2 15.5V5.5Z"
+                                            fill="#F59E0B" opacity="0.9" />
+                                        <path d="M2 8H18" stroke="#D97706" stroke-width="0.8" />
+                                    </svg>
+                                    <span class="st-name">HR & Onboarding</span>
+                                </div>
+                                <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                        <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                    </svg></button>
+                            </div>
+                            <div class="st-row st-file">
+                                <div class="st-row-left">
+                                    <div class="st-file-icon st-file-pdf"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <rect x="2" y="1" width="10" height="12" rx="1.5" stroke="white"
+                                                stroke-width="1.1" />
+                                            <path d="M4 5H10M4 7.5H10M4 10H7.5" stroke="white" stroke-width="1"
+                                                stroke-linecap="round" />
+                                        </svg></div>
+                                    <span class="st-name">Q1 Report 2026.pdf</span>
+                                </div>
+                                <div class="st-row-right">
+                                    <span class="st-size">2.4 MB</span>
+                                    <button class="st-icon-download"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M6 2V8M3.5 5.5L6 8L8.5 5.5" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2 10H10" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" />
+                                        </svg></button>
+                                    <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                            <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="st-row st-file">
+                                <div class="st-row-left">
+                                    <div class="st-file-icon st-file-img"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <rect x="1.5" y="2.5" width="11" height="9" rx="1.5" stroke="white"
+                                                stroke-width="1.1" />
+                                            <circle cx="4.5" cy="5.5" r="1" stroke="white" stroke-width="0.9" />
+                                            <path d="M1.5 9L4.5 6.5L6.5 8.5L8.5 6.5L12.5 10.5" stroke="white"
+                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    <span class="st-name">brand-guidelines-v3.png</span>
+                                </div>
+                                <div class="st-row-right">
+                                    <span class="st-size">8.1 MB</span>
+                                    <button class="st-icon-download"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M6 2V8M3.5 5.5L6 8L8.5 5.5" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2 10H10" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" />
+                                        </svg></button>
+                                    <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                            <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="st-row st-file">
+                                <div class="st-row-left">
+                                    <div class="st-file-icon st-file-doc"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <rect x="2" y="1" width="10" height="12" rx="1.5" stroke="white"
+                                                stroke-width="1.1" />
+                                            <path d="M4 5H10M4 7.5H10M4 10H7.5" stroke="white" stroke-width="1"
+                                                stroke-linecap="round" />
+                                        </svg></div>
+                                    <span class="st-name">product-roadmap-2026.docx</span>
+                                </div>
+                                <div class="st-row-right">
+                                    <span class="st-size">540 KB</span>
+                                    <button class="st-icon-download"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M6 2V8M3.5 5.5L6 8L8.5 5.5" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2 10H10" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" />
+                                        </svg></button>
+                                    <button class="st-more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                            <circle cx="3" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="11" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── ASSIGNMENTS PANEL ── -->
+                <div class="mock-panel" id="panelAssignments">
+                    <div class="panel-assignments">
+                        <div class="as-topbar">
+                            <div class="as-topbar-left">
+                                <h2 class="as-title">Team Assignments</h2>
+                                <p class="as-subtitle">Manage team tasks and deadlines</p>
+                            </div>
+                            <button class="as-new-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 2V10M2 6H10" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                                </svg>New Assignment</button>
+                        </div>
+                        <div class="as-filters">
+                            <div class="as-search"><svg width="13" height="13" viewBox="0 0 12 12" fill="none">
+                                    <circle cx="5" cy="5" r="3.5" stroke="#94A3B8" stroke-width="1.2" />
+                                    <path d="M8 8L10.5 10.5" stroke="#94A3B8" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                </svg><span>Search title, description or members...</span></div>
+                            <button class="as-filter-btn">All Statuses <svg width="10" height="10" viewBox="0 0 10 10"
+                                    fill="none">
+                                    <path d="M3 4L5 6.5L7 4" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></button>
+                            <button class="as-filter-btn">All Priorities <svg width="10" height="10" viewBox="0 0 10 10"
+                                    fill="none">
+                                    <path d="M3 4L5 6.5L7 4" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></button>
+                        </div>
+                        <div class="as-grid">
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-pending">● Pending</span><span
+                                            class="as-badge as-badge-high">● High</span></div><button
+                                        class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">Redesign landing page</h4>
+                                    <p class="as-card-desc">Update the hero section and revise CTA copy to reflect new
+                                        brand guidelines.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#2B8EF0">A</div><span>Alex Chen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-inprogress">● In
+                                            Progress</span><span class="as-badge as-badge-medium">● Medium</span></div>
+                                    <button class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">API rate limit documentation</h4>
+                                    <p class="as-card-desc">Write developer docs covering rate limits, retry logic, and
+                                        error codes.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#10B981">J</div><span>Jamie Park</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-completed">✓
+                                            Completed</span><span class="as-badge as-badge-medium">● Medium</span></div>
+                                    <button class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">Onboard new client accounts</h4>
+                                    <p class="as-card-desc">Complete setup for three new enterprise accounts including
+                                        SSO configuration.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#8B5CF6">S</div><span>Sara
+                                            Nguyen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-pending">● Pending</span><span
+                                            class="as-badge as-badge-low">● Low</span></div><button
+                                        class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">Q2 competitor analysis</h4>
+                                    <p class="as-card-desc">Research top 5 competitors and compile a comparison report
+                                        for leadership review.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#F59E0B">R</div><span>Ryan
+                                            Torres</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-inprogress">● In
+                                            Progress</span><span class="as-badge as-badge-high">● High</span></div>
+                                    <button class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">Mobile push notifications</h4>
+                                    <p class="as-card-desc">Implement and test push notification delivery for iOS and
+                                        Android platforms.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#EF4444">K</div><span>Kai
+                                            Brennan</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="as-card">
+                                <div class="as-card-header">
+                                    <div class="as-badges"><span class="as-badge as-badge-completed">✓
+                                            Completed</span><span class="as-badge as-badge-low">● Low</span></div>
+                                    <button class="as-card-more"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <circle cx="2" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="7" cy="7" r="1" fill="#94A3B8" />
+                                            <circle cx="12" cy="7" r="1" fill="#94A3B8" />
+                                        </svg></button>
+                                </div>
+                                <div class="as-card-body">
+                                    <h4 class="as-card-title">Update privacy policy</h4>
+                                    <p class="as-card-desc">Revise terms and privacy policy to comply with updated
+                                        regional regulations.</p>
+                                </div>
+                                <div class="as-card-footer">
+                                    <div class="as-member">
+                                        <div class="as-avatar" style="background:#06B6D4">L</div><span>Lena Hart</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── TEAM CHAT PANEL ── -->
+                <div class="mock-panel" id="panelTeamChat">
+                    <div class="panel-teamchat">
+                        <div class="tc-groups">
+                            <div class="tc-groups-header"><span class="tc-groups-title">Groups</span><button
+                                    class="tc-add-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path d="M6 2V10M2 6H10" stroke="#64748B" stroke-width="1.5"
+                                            stroke-linecap="round" />
+                                    </svg></button></div>
+                            <div class="tc-group-row tc-group-active">
+                                <div class="tc-group-avatar" style="background:#2B8EF0">E</div>
+                                <div class="tc-group-info"><span class="tc-group-name">Engineering</span><span
+                                        class="tc-group-preview">Let's ship this by Friday 🚀</span></div>
+                            </div>
+                            <div class="tc-group-row">
+                                <div class="tc-group-avatar" style="background:#8B5CF6">D</div>
+                                <div class="tc-group-info"><span class="tc-group-name">Design</span><span
+                                        class="tc-group-preview">New Figma file shared</span></div>
+                            </div>
+                            <div class="tc-group-row">
+                                <div class="tc-group-avatar" style="background:#F59E0B">M</div>
+                                <div class="tc-group-info"><span class="tc-group-name">Marketing</span><span
+                                        class="tc-group-preview">Campaign assets ready ✅</span></div>
+                            </div>
+                            <div class="tc-group-row">
+                                <div class="tc-group-avatar" style="background:#10B981">G</div>
+                                <div class="tc-group-info"><span class="tc-group-name">General</span><span
+                                        class="tc-group-preview">Happy Friday everyone!</span></div>
+                            </div>
+                        </div>
+                        <div class="tc-chat">
+                            <div class="tc-chat-header">
+                                <div class="tc-chat-header-left">
+                                    <div class="tc-group-avatar"
+                                        style="background:#2B8EF0; width:28px; height:28px; font-size:12px">E</div>
+                                    <div>
+                                        <div class="tc-chat-name">Engineering</div>
+                                        <div class="tc-chat-members">5 members</div>
+                                    </div>
+                                </div>
+                                <div class="tc-chat-header-right"><button class="tc-header-btn"><svg width="14"
+                                            height="14" viewBox="0 0 14 14" fill="none">
+                                            <path
+                                                d="M7 2C4.24 2 2 4.24 2 7C2 8.08 2.36 9.08 2.96 9.88L2 12L4.12 11.04C4.92 11.64 5.92 12 7 12C9.76 12 12 9.76 12 7C12 4.24 9.76 2 7 2Z"
+                                                stroke="#64748B" stroke-width="1.2" stroke-linejoin="round" />
+                                        </svg>Add</button><button class="tc-header-icon"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.2" />
+                                            <path d="M7 5V7.5M7 9.5V9.4" stroke="#94A3B8" stroke-width="1.2"
+                                                stroke-linecap="round" />
+                                        </svg></button></div>
+                            </div>
+                            <div class="tc-messages">
+                                <div class="tc-msg-row tc-msg-incoming">
+                                    <div class="tc-msg-avatar" style="background:#2B8EF0">A</div>
+                                    <div class="tc-msg-bubble-wrap"><span class="tc-msg-sender">Alex Chen</span>
+                                        <div class="tc-msg-bubble tc-msg-bubble-in">Hey team, the staging build is ready
+                                            for review<span class="tc-msg-time">9:14 AM</span></div>
+                                    </div>
+                                </div>
+                                <div class="tc-msg-row tc-msg-incoming">
+                                    <div class="tc-msg-avatar" style="background:#10B981">J</div>
+                                    <div class="tc-msg-bubble-wrap"><span class="tc-msg-sender">Jamie Park</span>
+                                        <div class="tc-msg-bubble tc-msg-bubble-in">Looks good! Found one minor
+                                            alignment issue on mobile<span class="tc-msg-time">9:21 AM</span></div>
+                                        <div class="tc-msg-reaction">👍</div>
+                                    </div>
+                                </div>
+                                <div class="tc-msg-row tc-msg-outgoing">
+                                    <div class="tc-msg-bubble-wrap tc-msg-bubble-wrap-out"><span
+                                            class="tc-msg-sender tc-msg-sender-out">Acme Inc</span>
+                                        <div class="tc-msg-bubble tc-msg-bubble-out">On it — will push a fix in 10
+                                            mins<span class="tc-msg-time tc-msg-time-out">9:25 AM</span></div>
+                                    </div>
+                                </div>
+                                <div class="tc-msg-row tc-msg-incoming">
+                                    <div class="tc-msg-avatar" style="background:#8B5CF6">S</div>
+                                    <div class="tc-msg-bubble-wrap"><span class="tc-msg-sender">Sara Nguyen</span>
+                                        <div class="tc-msg-bubble tc-msg-bubble-in">Let's ship this by Friday 🚀<span
+                                                class="tc-msg-time">9:30 AM</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tc-input-bar">
+                                <button class="tc-input-add"><svg width="14" height="14" viewBox="0 0 14 14"
+                                        fill="none">
+                                        <path d="M7 2V12M2 7H12" stroke="#94A3B8" stroke-width="1.4"
+                                            stroke-linecap="round" />
+                                    </svg></button>
+                                <div class="tc-input-field">Message...</div>
+                                <button class="tc-send-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M12 7L2 2L4.5 7L2 12L12 7Z" fill="white" stroke="white"
+                                            stroke-width="0.5" stroke-linejoin="round" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── CALENDAR PANEL ── -->
+                <div class="mock-panel" id="panelCalendar">
+                    <div class="panel-calendar">
+                        <div class="cal-topbar">
+                            <div class="cal-topbar-left">
+                                <div class="cal-icon-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <rect x="2" y="3" width="12" height="11" rx="2" stroke="white"
+                                            stroke-width="1.3" />
+                                        <path d="M2 7H14" stroke="white" stroke-width="1.3" />
+                                        <path d="M5 2V4M11 2V4" stroke="white" stroke-width="1.3"
+                                            stroke-linecap="round" />
+                                    </svg></div>
+                                <button class="cal-nav-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path d="M8 2L4 6L8 10" stroke="#64748B" stroke-width="1.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></button>
+                                <span class="cal-month-title">February 2026</span>
+                                <button class="cal-nav-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path d="M4 2L8 6L4 10" stroke="#64748B" stroke-width="1.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></button>
+                                <button class="cal-today-btn">Today</button>
+                            </div>
+                            <div class="cal-topbar-right">
+                                <div class="cal-account-pill"><svg width="10" height="10" viewBox="0 0 10 10"
+                                        fill="none">
+                                        <rect x="0.5" y="0.5" width="9" height="9" rx="1.5" stroke="#2B8EF0"
+                                            stroke-width="1" />
+                                    </svg>acme.inc</div>
+                                <div class="cal-account-pill"><svg width="10" height="10" viewBox="0 0 10 10"
+                                        fill="none">
+                                        <rect x="0.5" y="0.5" width="9" height="9" rx="1.5" stroke="#64748B"
+                                            stroke-width="1" />
+                                    </svg>alex@acme.inc</div>
+                                <button class="cal-refresh"><svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <path
+                                            d="M11 6.5C11 9 9 11 6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C8 2 9.3 2.7 10.1 3.8"
+                                            stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round" />
+                                        <path d="M10.5 2L10.1 3.8L8.3 3.4" stroke="#94A3B8" stroke-width="1.2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                        <div class="cal-body">
+                            <div class="cal-day-headers">
+                                <div class="cal-day-header">Mon</div>
+                                <div class="cal-day-header">Tue</div>
+                                <div class="cal-day-header">Wed</div>
+                                <div class="cal-day-header">Thu</div>
+                                <div class="cal-day-header">Fri</div>
+                                <div class="cal-day-header">Sat</div>
+                                <div class="cal-day-header">Sun</div>
+                            </div>
+                            <div class="cal-grid">
+                                <div class="cal-cell cal-other-month"><span class="cal-num">26</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">27</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">28</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">29</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">30</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">31</span></div>
+                                <div class="cal-cell"><span class="cal-num">1</span></div>
+                                <div class="cal-cell"><span class="cal-num">2</span></div>
+                                <div class="cal-cell"><span class="cal-num">3</span>
+                                    <div class="cal-event cal-event-blue">Design review</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">4</span></div>
+                                <div class="cal-cell"><span class="cal-num">5</span>
+                                    <div class="cal-event cal-event-blue">Sprint planning</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">6</span></div>
+                                <div class="cal-cell"><span class="cal-num">7</span></div>
+                                <div class="cal-cell"><span class="cal-num">8</span></div>
+                                <div class="cal-cell"><span class="cal-num">9</span></div>
+                                <div class="cal-cell"><span class="cal-num">10</span></div>
+                                <div class="cal-cell"><span class="cal-num">11</span>
+                                    <div class="cal-event cal-event-purple">All-hands meeting</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">12</span></div>
+                                <div class="cal-cell"><span class="cal-num">13</span>
+                                    <div class="cal-event cal-event-green">Client call</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">14</span></div>
+                                <div class="cal-cell"><span class="cal-num">15</span></div>
+                                <div class="cal-cell"><span class="cal-num">16</span>
+                                    <div class="cal-event cal-event-blue">1:1 with Jamie</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">17</span></div>
+                                <div class="cal-cell"><span class="cal-num">18</span></div>
+                                <div class="cal-cell"><span class="cal-num">19</span>
+                                    <div class="cal-event cal-event-purple">Q1 review prep</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">20</span></div>
+                                <div class="cal-cell"><span class="cal-num">21</span></div>
+                                <div class="cal-cell"><span class="cal-num">22</span></div>
+                                <div class="cal-cell"><span class="cal-num">23</span></div>
+                                <div class="cal-cell"><span class="cal-num">24</span></div>
+                                <div class="cal-cell"><span class="cal-num">25</span>
+                                    <div class="cal-event cal-event-green">Standup notes</div>
+                                </div>
+                                <div class="cal-cell cal-today"><span class="cal-num cal-num-today">26</span>
+                                    <div class="cal-event cal-event-blue">Launch prep call</div>
+                                </div>
+                                <div class="cal-cell"><span class="cal-num">27</span></div>
+                                <div class="cal-cell"><span class="cal-num">28</span></div>
+                                <div class="cal-cell cal-other-month"><span class="cal-num">1</span></div>
+                            </div>
+                        </div>
+                        <div class="cal-detail">
+                            <div class="cal-detail-date">Thursday, February 26</div>
+                            <div class="cal-detail-count">1 event</div>
+                            <div class="cal-detail-event">
+                                <div class="cal-detail-event-bar"></div>
+                                <div class="cal-detail-event-info"><span class="cal-detail-source">acme.inc</span><span
+                                        class="cal-detail-title">All Day</span><span class="cal-detail-name">Launch prep
+                                        call</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── TODO BOARD PANEL ── -->
+                <div class="mock-panel" id="panelTodoBoard">
+                    <div class="panel-todoboard">
+                        <div class="tb-topbar">
+                            <div class="tb-topbar-left">
+                                <h2 class="tb-title">Todo Board</h2><span class="tb-meta">7 tasks · 2 done</span>
+                            </div>
+                            <div class="tb-topbar-right">
+                                <div class="tb-search"><svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                        <circle cx="5" cy="5" r="3.5" stroke="#94A3B8" stroke-width="1.2" />
+                                        <path d="M8 8L10.5 10.5" stroke="#94A3B8" stroke-width="1.2"
+                                            stroke-linecap="round" />
+                                    </svg><span>Search tasks...</span></div>
+                                <div class="tb-priority-filters">
+                                    <button class="tb-pf-btn tb-pf-active">All</button>
+                                    <button class="tb-pf-btn"><span class="tb-dot"
+                                            style="background:#EF4444"></span>Urgent</button>
+                                    <button class="tb-pf-btn"><span class="tb-dot"
+                                            style="background:#F97316"></span>High</button>
+                                    <button class="tb-pf-btn"><span class="tb-dot"
+                                            style="background:#F59E0B"></span>Medium</button>
+                                    <button class="tb-pf-btn"><span class="tb-dot"
+                                            style="background:#22C55E"></span>Low</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-board">
+                            <div class="tb-column">
+                                <div class="tb-col-header">
+                                    <div class="tb-col-header-left"><span class="tb-col-indicator"
+                                            style="background:#94A3B8"></span><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="7" r="5.5" stroke="#94A3B8" stroke-width="1.2" />
+                                        </svg><span class="tb-col-name">To Do</span></div>
+                                    <div class="tb-col-header-right"><span class="tb-col-count">4</span><button
+                                            class="tb-col-add"><svg width="11" height="11" viewBox="0 0 12 12"
+                                                fill="none">
+                                                <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4"
+                                                    stroke-linecap="round" />
+                                            </svg></button></div>
+                                </div>
+                                <div class="tb-card">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check"><span
+                                            class="tb-priority tb-priority-urgent">● Urgent</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title">Audit login security</h4>
+                                    <p class="tb-card-desc">Review auth flows and flag any vulnerabilities before the
+                                        release.</p>
+                                </div>
+                                <div class="tb-card">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check"><span
+                                            class="tb-priority tb-priority-medium">● Medium</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title">Write release notes</h4>
+                                    <p class="tb-card-desc">Document all changes for the v2.4.0 changelog and notify
+                                        users.</p>
+                                </div>
+                                <div class="tb-card">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check"><span
+                                            class="tb-priority tb-priority-medium">● Medium</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title">Set up analytics dashboard</h4>
+                                    <p class="tb-card-desc">Configure event tracking and connect it to the reporting
+                                        pipeline.</p>
+                                </div>
+                                <div class="tb-card">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check"><span
+                                            class="tb-priority tb-priority-low">● Low</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title">Update team handbook</h4>
+                                    <p class="tb-card-desc">Reflect recent process changes in the internal
+                                        documentation.</p>
+                                </div>
+                            </div>
+                            <div class="tb-column">
+                                <div class="tb-col-header">
+                                    <div class="tb-col-header-left"><span class="tb-col-indicator"
+                                            style="background:#F59E0B"></span><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="7" r="5.5" stroke="#F59E0B" stroke-width="1.2" />
+                                            <circle cx="7" cy="7" r="2.5" fill="#F59E0B" />
+                                        </svg><span class="tb-col-name">In Progress</span></div>
+                                    <div class="tb-col-header-right"><span class="tb-col-count">1</span><button
+                                            class="tb-col-add"><svg width="11" height="11" viewBox="0 0 12 12"
+                                                fill="none">
+                                                <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4"
+                                                    stroke-linecap="round" />
+                                            </svg></button></div>
+                                </div>
+                                <div class="tb-card">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check"><span
+                                            class="tb-priority tb-priority-high">● High</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title">Migrate database schema</h4>
+                                    <p class="tb-card-desc">Run the pending migrations on staging, then production after
+                                        QA sign-off.</p>
+                                </div>
+                                <div class="tb-empty"><svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <circle cx="14" cy="14" r="10" stroke="#CBD5E1" stroke-width="1.5" />
+                                        <circle cx="14" cy="14" r="4" fill="#CBD5E1" />
+                                    </svg><span>No more tasks</span><span class="tb-empty-sub">Tap + to add a
+                                        task</span></div>
+                            </div>
+                            <div class="tb-column">
+                                <div class="tb-col-header">
+                                    <div class="tb-col-header-left"><span class="tb-col-indicator"
+                                            style="background:#8B5CF6"></span><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <rect x="2" y="2" width="10" height="10" rx="2" stroke="#8B5CF6"
+                                                stroke-width="1.2" />
+                                            <path d="M4 7L6 9L10 5" stroke="#8B5CF6" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg><span class="tb-col-name">Review</span></div>
+                                    <div class="tb-col-header-right"><span class="tb-col-count">0</span><button
+                                            class="tb-col-add"><svg width="11" height="11" viewBox="0 0 12 12"
+                                                fill="none">
+                                                <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4"
+                                                    stroke-linecap="round" />
+                                            </svg></button></div>
+                                </div>
+                                <div class="tb-empty"><svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <rect x="4" y="4" width="20" height="20" rx="4" stroke="#CBD5E1"
+                                            stroke-width="1.5" />
+                                        <path d="M9 14L12 17L19 10" stroke="#CBD5E1" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg><span>No tasks</span><span class="tb-empty-sub">Tap + to add a task</span>
+                                </div>
+                            </div>
+                            <div class="tb-column">
+                                <div class="tb-col-header">
+                                    <div class="tb-col-header-left"><span class="tb-col-indicator"
+                                            style="background:#22C55E"></span><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="7" r="5.5" stroke="#22C55E" stroke-width="1.2" />
+                                            <path d="M4.5 7L6.5 9L9.5 5" stroke="#22C55E" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg><span class="tb-col-name">Done</span></div>
+                                    <div class="tb-col-header-right"><span class="tb-col-count">2</span><button
+                                            class="tb-col-add"><svg width="11" height="11" viewBox="0 0 12 12"
+                                                fill="none">
+                                                <path d="M6 2V10M2 6H10" stroke="#94A3B8" stroke-width="1.4"
+                                                    stroke-linecap="round" />
+                                            </svg></button></div>
+                                </div>
+                                <div class="tb-card tb-card-done">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check" checked><span
+                                            class="tb-priority tb-priority-medium">● Medium</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title tb-card-title-done">Fix email preview truncation</h4>
+                                    <p class="tb-card-desc">Email subjects were being cut off at 40 characters on
+                                        mobile.</p>
+                                </div>
+                                <div class="tb-card tb-card-done">
+                                    <div class="tb-card-top"><input type="checkbox" class="tb-check" checked><span
+                                            class="tb-priority tb-priority-low">● Low</span><button
+                                            class="tb-card-more"><svg width="13" height="13" viewBox="0 0 13 13"
+                                                fill="none">
+                                                <circle cx="2" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="6.5" cy="6.5" r="1" fill="#94A3B8" />
+                                                <circle cx="11" cy="6.5" r="1" fill="#94A3B8" />
+                                            </svg></button></div>
+                                    <h4 class="tb-card-title tb-card-title-done">Add tooltip to sidebar icons</h4>
+                                    <p class="tb-card-desc">Hover tooltips added to all nav icons for better
+                                        discoverability.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── EMAIL ACCOUNTS PANEL ── -->
+                <div class="mock-panel" id="panelEmailAccounts">
+                    <div class="panel-emailaccounts">
+                        <div class="ea-topbar">
+                            <div class="ea-topbar-left">
+                                <div class="ea-icon-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="white"
+                                            stroke-width="1.3" />
+                                        <path d="M1.5 6L8 10L14.5 6" stroke="white" stroke-width="1.3" />
+                                    </svg></div>
+                                <div>
+                                    <h2 class="ea-title">Email Connections</h2>
+                                    <p class="ea-subtitle">Manage your connected email accounts</p>
+                                </div>
+                            </div>
+                            <button class="ea-add-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 2V10M2 6H10" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                                </svg>Add Account</button>
+                        </div>
+                        <div class="ea-list">
+                            <div class="ea-row">
+                                <div class="ea-row-left">
+                                    <div class="ea-provider-icon ea-provider-outlook"><svg width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <rect x="1" y="1" width="6" height="6" rx="1" fill="white" opacity="0.9" />
+                                            <rect x="9" y="1" width="6" height="6" rx="1" fill="white" opacity="0.7" />
+                                            <rect x="1" y="9" width="6" height="6" rx="1" fill="white" opacity="0.7" />
+                                            <rect x="9" y="9" width="6" height="6" rx="1" fill="white" opacity="0.5" />
+                                        </svg></div>
+                                    <div class="ea-row-info"><span class="ea-account-name">Acme Inc</span><span
+                                            class="ea-account-email">workspace@acme.inc</span></div>
+                                </div><button class="ea-delete-btn"><svg width="13" height="13" viewBox="0 0 14 14"
+                                        fill="none">
+                                        <path d="M3 4H11M5 4V3H9V4M5.5 6V10.5M8.5 6V10.5M4 4L4.5 11H9.5L10 4"
+                                            stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></button>
+                            </div>
+                            <div class="ea-row">
+                                <div class="ea-row-left">
+                                    <div class="ea-provider-icon ea-provider-gmail"><svg width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path d="M2 4L8 9L14 4" stroke="white" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="white"
+                                                stroke-width="1.2" />
+                                        </svg></div>
+                                    <div class="ea-row-info"><span class="ea-account-name">Alex Chen</span><span
+                                            class="ea-account-email">alex.chen@gmail.com</span></div>
+                                </div><button class="ea-delete-btn"><svg width="13" height="13" viewBox="0 0 14 14"
+                                        fill="none">
+                                        <path d="M3 4H11M5 4V3H9V4M5.5 6V10.5M8.5 6V10.5M4 4L4.5 11H9.5L10 4"
+                                            stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── SLACK PANEL (placeholder) ── -->
+                <div class="mock-panel" id="panelSlack">
+                    <div class="panel-coming-soon">
+                        <div class="cs-icon" style="background:#4A154B">
+                            <span class="cs-hash">#</span>
+                        </div>
+                        <span class="cs-label">Slack</span>
+                        <span class="cs-sub">Integration coming soon</span>
+                    </div>
+                </div>
+
+                <!-- ── WHATSAPP PANEL ── -->
+                <div class="mock-panel" id="panelWhatsApp">
+                    <div class="panel-whatsapp">
+                        <div class="wa-tabs">
+                            <button class="wa-tab wa-tab-active"><svg width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path
+                                        d="M9.5 2C10.3 2.9 10.8 4.1 10.8 5.4C10.8 8.4 8.4 10.8 5.4 10.8C3.9 10.8 2.6 10.2 1.7 9.2L1 10.8L2.2 8.5L2 6.5C2 3.5 3.7 2 5.5 2C7 2 8.3 2.7 9.5 2"
+                                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>Connection</button>
+                            <button class="wa-tab"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <rect x="1.5" y="2.5" width="9" height="7" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.2" />
+                                    <path d="M1.5 4.5L6 7.5L10.5 4.5" stroke="currentColor" stroke-width="1.2" />
+                                </svg>Messages</button>
+                        </div>
+                        <div class="wa-content">
+                            <div class="wa-header-section">
+                                <div class="wa-header-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M16 4C17.5 5.7 18.4 7.9 18.4 10.3C18.4 15.3 14.3 19.3 9.3 19.3C7.3 19.3 5.5 18.7 4 17.6L1 19.3L2.8 15.3C1.7 13.8 1 12 1 10.1C1 5.1 5.1 1 10.1 1C12.6 1 14.9 2 16 4"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></div>
+                                <div>
+                                    <h3 class="wa-header-title">WhatsApp Integration</h3>
+                                    <p class="wa-header-sub">Connect your WhatsApp to monitor group messages</p>
+                                </div>
+                            </div>
+                            <div class="wa-status-row">
+                                <div class="wa-status-left">
+                                    <div class="wa-status-icon"><svg width="14" height="14" viewBox="0 0 14 14"
+                                            fill="none">
+                                            <path d="M3 7L6 10L11 4" stroke="white" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    <div>
+                                        <div class="wa-status-label">Connected</div>
+                                        <div class="wa-status-sub">Connected as +1 (555) 012-3456</div>
+                                    </div>
+                                </div>
+                                <button class="wa-disconnect-btn"><svg width="11" height="11" viewBox="0 0 12 12"
+                                        fill="none">
+                                        <path
+                                            d="M2 6C2 3.8 3.8 2 6 2M10 6C10 8.2 8.2 10 6 10M6 2L8 4M6 2L4 4M6 10L4 8M6 10L8 8"
+                                            stroke="#EF4444" stroke-width="1.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>Disconnect</button>
+                            </div>
+                            <div class="wa-section">
+                                <h4 class="wa-section-title">Account Information</h4>
+                                <div class="wa-info-row">
+                                    <div class="wa-info-icon wa-info-icon-phone"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <path
+                                                d="M3.5 2H5.5L7 5.5L5.5 6.5C6.2 7.9 7.1 8.8 8.5 9.5L9.5 8L13 9.5V11.5C13 12.1 12.4 12.5 11.8 12.3C5.9 10.3 2.7 6.1 1.7 3.2C1.5 2.6 1.9 2 2.5 2H3.5Z"
+                                                stroke="#10B981" stroke-width="1.2" stroke-linejoin="round" />
+                                        </svg></div>
+                                    <div class="wa-info-detail"><span class="wa-info-label">Phone Number</span><span
+                                            class="wa-info-value">+1 (555) 012-3456</span></div>
+                                </div>
+                                <div class="wa-info-row">
+                                    <div class="wa-info-icon wa-info-icon-person"><svg width="14" height="14"
+                                            viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="5" r="2.5" stroke="#64748B" stroke-width="1.2" />
+                                            <path d="M2.5 12C2.5 9.8 4.5 8 7 8C9.5 8 11.5 9.8 11.5 12" stroke="#64748B"
+                                                stroke-width="1.2" stroke-linecap="round" />
+                                        </svg></div>
+                                    <div class="wa-info-detail"><span class="wa-info-label">Account Name</span><span
+                                            class="wa-info-value">Acme Workspace</span></div>
+                                </div>
+                            </div>
+                            <div class="wa-section">
+                                <div class="wa-section-header">
+                                    <h4 class="wa-section-title">Monitored Groups</h4><button class="wa-manage-btn"><svg
+                                            width="11" height="11" viewBox="0 0 12 12" fill="none">
+                                            <circle cx="6" cy="6" r="2" stroke="white" stroke-width="1.1" />
+                                            <path
+                                                d="M6 1V2M6 10V11M11 6H10M2 6H1M9.2 2.8L8.5 3.5M3.5 8.5L2.8 9.2M9.2 9.2L8.5 8.5M3.5 3.5L2.8 2.8"
+                                                stroke="white" stroke-width="1.1" stroke-linecap="round" />
+                                        </svg>Manage</button>
+                                </div>
+                                <div class="wa-group-row">
+                                    <div class="wa-group-icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981"
+                                                stroke-width="1.2" stroke-linecap="round" />
+                                            <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                                        </svg></div><span class="wa-group-name">Engineering Team</span>
+                                    <div class="wa-group-check"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                </div>
+                                <div class="wa-group-row">
+                                    <div class="wa-group-icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981"
+                                                stroke-width="1.2" stroke-linecap="round" />
+                                            <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                                        </svg></div><span class="wa-group-name">Product & Design</span>
+                                    <div class="wa-group-check"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                </div>
+                                <div class="wa-group-row">
+                                    <div class="wa-group-icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path d="M2 13C2 10.8 4 9 6.5 9H9.5C12 9 14 10.8 14 13" stroke="#10B981"
+                                                stroke-width="1.2" stroke-linecap="round" />
+                                            <circle cx="8" cy="5.5" r="2.5" stroke="#10B981" stroke-width="1.2" />
+                                        </svg></div><span class="wa-group-name">General Announcements</span>
+                                    <div class="wa-group-check"><svg width="12" height="12" viewBox="0 0 12 12"
+                                            fill="none">
+                                            <path d="M3 6L5 8.5L9 4" stroke="#10B981" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end mock-main -->
+
+        </div>
+        <!-- end mockup-body-3col -->
+
+    </div>
+</div>

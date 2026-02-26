@@ -1,0 +1,47 @@
+<!-- ══════════════════ LIVE CHAT WIDGET ══════════════════ -->
+<div id="chat-widget">
+    <button id="chat-toggle" aria-label="Toggle chat">
+        <svg id="chat-icon-open" width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path
+                d="M4 12C4 8.7 6.7 6 10 6H12C15.3 6 18 8.7 18 12V13C18 16.3 15.3 19 12 19H10L6 21V19H5C4.4 19 4 18.6 4 18V12Z"
+                stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M8 11H14M8 14H12" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <svg id="chat-icon-close" width="22" height="22" viewBox="0 0 22 22" fill="none" style="display:none">
+            <path d="M6 6L16 16M16 6L6 16" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span id="chat-unread-badge"></span>
+    </button>
+
+    <div id="chat-panel">
+        <div id="chat-header">
+            <div id="chat-header-left">
+                <div id="chat-header-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="3" fill="white" />
+                        <circle cx="8" cy="8" r="6.5" stroke="white" stroke-width="1.2" opacity="0.5" />
+                    </svg>
+                </div>
+                <div>
+                    <div id="chat-title">Live Chat</div>
+                    <div id="chat-subtitle">
+                        <span class="online-dot"></span>
+                        <span id="online-count">1 online</span>
+                    </div>
+                </div>
+            </div>
+            <div id="chat-user-id-display"></div>
+        </div>
+
+        <div id="chat-messages"></div>
+
+        <div id="chat-input-wrap">
+            <input id="chat-input" type="text" placeholder="Say something…" maxlength="300" autocomplete="off" />
+            <button id="chat-send">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M2 8L14 2L8 14L7 9L2 8Z" fill="white" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

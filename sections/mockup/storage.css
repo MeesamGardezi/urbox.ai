@@ -1,0 +1,260 @@
+/* ============================================================
+   STORAGE PANEL
+   ============================================================ */
+.panel-storage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+/* ── Top bar ── */
+.st-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.st-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.st-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: -0.2px;
+}
+
+.st-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.st-view-btn {
+    width: 26px;
+    height: 26px;
+    border: none;
+    background: transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 0.15s;
+}
+
+.st-view-btn:hover {
+    background: var(--border);
+}
+
+.st-view-active {
+    background: var(--primary-subtle);
+    color: var(--primary);
+}
+
+.st-icon-btn {
+    width: 26px;
+    height: 26px;
+    border: none;
+    background: transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--muted);
+    margin-left: 4px;
+    transition: background 0.15s;
+}
+
+.st-icon-btn:hover {
+    background: var(--border);
+}
+
+/* ── Breadcrumb bar ── */
+.st-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border);
+    background: #FAFBFD;
+    flex-shrink: 0;
+}
+
+.st-breadcrumb-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.st-breadcrumb-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate);
+}
+
+.st-breadcrumb-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.st-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.st-new-folder {
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--slate);
+}
+
+.st-new-folder:hover {
+    background: #F8FAFC;
+}
+
+.st-upload {
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: white;
+}
+
+.st-upload:hover {
+    background: #1A7FE0;
+}
+
+/* ── File / Folder list ── */
+.st-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 0;
+}
+
+.st-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.st-row:hover {
+    background: #F8FAFC;
+}
+
+.st-row-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.st-row-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.st-name {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--midnight);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.st-size {
+    font-size: 10px;
+    color: var(--muted);
+    min-width: 44px;
+    text-align: right;
+}
+
+.st-more {
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+}
+
+.st-row:hover .st-more {
+    opacity: 1;
+}
+
+.st-more:hover {
+    background: var(--border);
+}
+
+.st-icon-download {
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+}
+
+.st-row:hover .st-icon-download {
+    opacity: 1;
+}
+
+.st-icon-download:hover {
+    background: var(--border);
+}
+
+/* ── File type icons ── */
+.st-file-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.st-file-pdf {
+    background: #EF4444;
+}
+
+.st-file-img {
+    background: #2B8EF0;
+}
+
+.st-file-doc {
+    background: #3B82F6;
+}
