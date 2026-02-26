@@ -56,4 +56,23 @@
     chatScript.type = "module";
     chatScript.src = "sections/chat-widget/chat-widget.js";
     document.body.appendChild(chatScript);
+
+    // ── 4. Smooth Scrolling (no hash in URL) ─────────────────
+    document.body.addEventListener("click", (e) => {
+        const link = e.target.closest("a[href^='#']");
+        if (link) {
+            const targetId = link.getAttribute("href").substring(1);
+            if (targetId) {
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: "smooth" });
+                }
+            } else if (link.getAttribute("href") === "#") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        }
+    });
+
 })();

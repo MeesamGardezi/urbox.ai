@@ -6,7 +6,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
     getFirestore, collection, addDoc,
     query, orderBy, limit, onSnapshot,
-    serverTimestamp, getDocs
+    serverTimestamp, getDocs, setDoc, doc, deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // ── Firebase config ──────────────────────────────────────────
@@ -91,8 +91,57 @@ function openChat() {
     if (!unsubscribe) startListening();
 }
 
+// ── Presence System ──────────────────────────────────────────
+function updatePresence() {
+    try {
+        setDoc(doc(db, "landing_chat_presence", SESSION_USER_ID), {
+            lastActive: Date.now()
+        }, { merge: true });
+    } catch (e) { console.warn(e); }
+}
+
+updatePresence();
+setInterval(updatePresence, 20000);
+
+window.addEventListener("pagehide", () => {
+    deleteDoc(doc(db, "landing_chat_presence", SESSION_USER_ID)).catch(() => { });
+});
+
+let presenceSnapshot = null;
+function renderPresenceCount() {
+    if (!presenceSnapshot) return;
+    const now = Date.now();
+    let count = 0;
+    presenceSnapshot.forEach((d) => {
+        const data = d.data();
+        if (data.lastActive && (now - data.lastActive) < 60000) {
+            count++;
+        }
+    });
+    count = Math.max(1, count);
+
+    onlineCount.textContent = `${count} online`;
+
+    let extBadge = document.getElementById("chat-online-badge");
+    if (!extBadge) {
+        extBadge = document.createElement("span");
+        extBadge.id = "chat-online-badge";
+        chatToggle.appendChild(extBadge);
+    }
+    extBadge.textContent = count;
+}
+
+function startPresenceListener() {
+    onSnapshot(collection(db, "landing_chat_presence"), (snapshot) => {
+        presenceSnapshot = snapshot;
+        renderPresenceCount();
+    });
+    setInterval(renderPresenceCount, 10000);
+}
+
 // ── Start listening immediately for the online badge ─────────
 startListening();
+startPresenceListener();
 
 function closeChat() {
     chatOpen = false;
@@ -201,31 +250,7 @@ function startListening() {
             initialized = true;
             scrollToBottom(true);
         }
-
-        updateOnlineCount(snapshot);
     });
-}
-
-// ── Online count heuristic ───────────────────────────────────
-function updateOnlineCount(snapshot) {
-    const recentUids = new Set();
-    const docs = snapshot.docs.slice(-20);
-    docs.forEach((d) => {
-        const data = d.data();
-        if (data.uid && data.type !== "system") recentUids.add(data.uid);
-    });
-    recentUids.add(SESSION_USER_ID);
-    const count = recentUids.size;
-    onlineCount.textContent = `${count} online`;
-
-    // Update external badge on the toggle button
-    let extBadge = document.getElementById("chat-online-badge");
-    if (!extBadge) {
-        extBadge = document.createElement("span");
-        extBadge.id = "chat-online-badge";
-        chatToggle.appendChild(extBadge);
-    }
-    extBadge.textContent = count;
 }
 
 // ── Send a message ───────────────────────────────────────────

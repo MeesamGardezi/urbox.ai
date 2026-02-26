@@ -1,6 +1,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 <!-- ══════ APP MOCKUP — Sidebar + Dynamic Panel ══════ -->
 <div class="hero-mockup" id="heroMockup">
+    <!-- Floating cursor tooltip -->
+    <div class="cursor-tooltip" id="cursorTooltip"></div>
+
     <!-- Bouncing Pointer Arrow -->
     <div class="sidebar-pointer">
         <span class="sidebar-pointer-text">Click me!</span>
@@ -32,12 +35,8 @@
                 <div class="ms-header">
                     <div class="ms-logo">
                         <div class="ms-logo-icon">
-                            <svg viewBox="0 0 26 26" fill="none" width="16" height="16">
-                                <path d="M13 3L22 8V18L13 23L4 18V8L13 3Z" fill="#2B8EF0" opacity="0.15" />
-                                <path d="M13 3L22 8L13 13L4 8L13 3Z" fill="#2B8EF0" />
-                                <path d="M4 8V18L13 23V13L4 8Z" fill="#1565C0" />
-                                <path d="M22 8V18L13 23V13L22 8Z" fill="#60B4F8" />
-                            </svg>
+                            <img src="logo.png" alt="logo"
+                                style="width: 16px; height: 16px; object-fit: contain; border-radius: 3px;" />
                         </div>
                         <span class="ms-brand">urBox</span>
                     </div>
