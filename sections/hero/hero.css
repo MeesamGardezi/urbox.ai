@@ -13,6 +13,12 @@
     overflow: hidden;
 }
 
+@media (max-width: 600px) {
+    .hero {
+        padding: 90px 5% 60px;
+    }
+}
+
 .hero-glow {
     position: absolute !important;
     border-radius: 50%;
@@ -71,7 +77,7 @@
 
 /* ── Heading ── */
 .hero h1 {
-    font-size: clamp(46px, 7vw, 82px);
+    font-size: clamp(34px, 10vw, 82px);
     color: var(--midnight);
     line-height: 1.05;
     letter-spacing: -1px;

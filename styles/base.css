@@ -59,6 +59,12 @@ h3 {
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 5%;
+    }
+}
+
 .section-bg-white {
     background: white;
     border-bottom: 1px solid var(--border);

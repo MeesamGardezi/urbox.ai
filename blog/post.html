@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../logo.png" />
+    <!-- Title/meta injected dynamically from Firestore -->
+    <title>Loading… — urbox.ai Blog</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../sections/navbar/navbar.css" />
+    <link rel="stylesheet" href="./blog.css" />
+
+    <!-- Analytics -->
+    <script type="module" src="../scripts/analytics.js"></script>
+</head>
+
+<body class="blog-page">
+
+    <!-- ══════ NAVBAR ══════ -->
+    <nav id="navbar">
+        <a href="/" class="nav-logo">
+            <div class="nav-logo-circle">
+                <img src="../logo.png" alt="urbox.ai — shared inbox for teams" width="26" height="26"
+                    style="object-fit:contain;border-radius:5px;" />
+            </div>
+            <span class="nav-wordmark">urbox<span>.ai</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#compare">Compare</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog/">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="https://app.urbox.ai" class="btn-ghost">Log in</a>
+            <a href="https://app.urbox.ai" class="btn-primary">
+                Get started free
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ══════ POST CONTENT (injected by JS) ══════ -->
+    <div id="post-root"></div>
+
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="blog-footer">
+        <p>
+            <a href="/blog/">← All posts</a>
+            &nbsp;·&nbsp;
+            <a href="https://app.urbox.ai">Log in</a>
+            &nbsp;·&nbsp;
+            © 2026 urbox.ai
+        </p>
+    </footer>
+
+    <script type="module">
+        import { initializeApp, getApps, getApp }
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs, limit }
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5ySkqiSTi19lHTSt8bhFzypfgqVtaSss",
+            authDomain: "urbox-1.firebaseapp.com",
+            projectId: "urbox-1",
+            storageBucket: "urbox-1.firebasestorage.app",
+            messagingSenderId: "897703212804",
+            appId: "1:897703212804:web:37ad9da2d61544c2ce0251",
+        };
+        const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+        const db = getFirestore(app, "default");
+
+        const root = document.getElementById("post-root");
+
+        function formatDate(ts) {
+            if (!ts) return "";
+            const d = ts.toDate ? ts.toDate() : new Date(ts);
+            return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        }
+
+        function authorInitial(name) {
+            return (name || "U").charAt(0).toUpperCase();
+        }
+
+        function showLoading() {
+            root.innerHTML = `<div class="post-loading"><p>Loading post…</p></div>`;
+        }
+
+        function showError(msg = "Post not found.") {
+            root.innerHTML = `
+                <div class="post-error">
+                    <h2>Post not found</h2>
+                    <p>${msg}</p>
+                    <a href="/blog/" style="color:var(--primary);font-weight:600;">← Back to Blog</a>
+                </div>`;
+            document.title = "Post Not Found — urbox.ai Blog";
+        }
+
+        async function loadPost() {
+            showLoading();
+
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get("slug");
+
+            if (!slug) { showError("No post slug specified."); return; }
+
+            try {
+                const q = query(collection(db, "blog_posts"), where("slug", "==", slug), limit(1));
+                const snap = await getDocs(q);
+
+                if (snap.empty) { showError("We couldn't find that post."); return; }
+
+                const p = snap.docs[0].data();
+
+                // Inject meta tags dynamically
+                document.title = `${p.title} — urbox.ai Blog`;
+                setMeta("description", p.excerpt || "");
+                setMeta("og:title", `${p.title} — urbox.ai Blog`);
+                setMeta("og:description", p.excerpt || "");
+                setMeta("og:type", "article");
+                setMeta("twitter:title", p.title);
+                setMeta("twitter:description", p.excerpt || "");
+
+                // Inject Article schema
+                const schema = {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": p.title,
+                    "description": p.excerpt || "",
+                    "author": { "@type": "Person", "name": p.author || "urbox.ai" },
+                    "publisher": { "@type": "Organization", "name": "urbox.ai", "logo": "https://urbox.ai/logo.png" },
+                    "datePublished": p.publishedAt ? (p.publishedAt.toDate ? p.publishedAt.toDate().toISOString() : new Date(p.publishedAt).toISOString()) : "",
+                    "mainEntityOfPage": { "@type": "WebPage", "@id": window.location.href }
+                };
+                const schemaEl = document.createElement("script");
+                schemaEl.type = "application/ld+json";
+                schemaEl.textContent = JSON.stringify(schema);
+                document.head.appendChild(schemaEl);
+
+                // Render post
+                root.innerHTML = `
+                    <div class="post-header">
+                        <a href="/blog/" class="post-back">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Back to Blog
+                        </a>
+                        <div class="post-eyebrow">
+                            <span class="post-category-pill">${escHtml(p.category || "Article")}</span>
+                            <span class="post-read-time">${p.readTime || 5} min read</span>
+                        </div>
+                        <h1 class="post-title">${escHtml(p.title)}</h1>
+                        <p class="post-excerpt">${escHtml(p.excerpt || "")}</p>
+                        <div class="post-byline">
+                            <div class="post-byline-avatar">${authorInitial(p.author)}</div>
+                            <div>
+                                <div class="post-byline-name">${escHtml(p.author || "urbox.ai")}</div>
+                                <div class="post-byline-date">${formatDate(p.publishedAt)}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-cover-banner">
+                        <div class="cover-gradient">
+                            <div class="cover-blur-circle c1"></div>
+                            <div class="cover-blur-circle c2"></div>
+                        </div>
+                    </div>
+
+                    <article class="post-content">
+                        ${p.content || "<p>No content available.</p>"}
+                    </article>`;
+
+            } catch (err) {
+                console.error(err);
+                showError("Something went wrong loading this post.");
+            }
+        }
+
+        function setMeta(name, content) {
+            let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+            if (!el) {
+                el = document.createElement("meta");
+                const isOg = name.startsWith("og:") || name.startsWith("twitter:");
+                el.setAttribute(isOg ? "property" : "name", name);
+                document.head.appendChild(el);
+            }
+            el.setAttribute("content", content);
+        }
+
+        function escHtml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        loadPost();
+    </script>
+</body>
+
+</html>

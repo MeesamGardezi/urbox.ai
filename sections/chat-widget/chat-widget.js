@@ -21,7 +21,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app, "urbox-database");
+const db = getFirestore(app, "default");
 
 // ── Constants ────────────────────────────────────────────────
 const COLLECTION = "landing_chat_messages";

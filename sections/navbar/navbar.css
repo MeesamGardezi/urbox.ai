@@ -98,6 +98,7 @@ nav.scrolled {
     text-decoration: none;
     transition: border-color 0.2s, color 0.2s;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .btn-ghost:hover {
@@ -120,6 +121,7 @@ nav.scrolled {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -134,6 +136,26 @@ nav.scrolled {
 /* ── Responsive ── */
 @media (max-width: 960px) {
     .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-ghost {
+        padding: 8px 12px;
+    }
+
+    .btn-primary {
+        padding: 9px 12px;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-wordmark {
         display: none;
     }
 }

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../logo.png" />
+    <title>Admin — urbox.ai</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./admin.css" />
+</head>
+
+<body>
+
+    <!-- ════════════════════════════════════════════════════════════
+     LOGIN SCREEN
+     ════════════════════════════════════════════════════════════ -->
+    <div id="login-screen">
+        <div class="login-bg-glow"></div>
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="login-logo-circle">
+                    <img src="../logo.png" alt="urbox.ai" width="28" height="28"
+                        style="object-fit:contain;border-radius:4px;" />
+                </div>
+                <span class="login-wordmark">urbox<span>.ai</span></span>
+            </div>
+            <h1>Admin Dashboard</h1>
+            <p>Enter the admin password to continue.</p>
+
+            <div class="login-input-wrap">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.4"
+                        stroke-linecap="round" />
+                </svg>
+                <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" />
+            </div>
+            <div id="login-error">Incorrect password. Try again.</div>
+            <button id="login-btn">Enter Dashboard</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════
+     DASHBOARD
+     ════════════════════════════════════════════════════════════ -->
+    <div id="dashboard">
+        <!-- Top Bar -->
+        <header class="admin-topbar">
+            <a href="/" class="admin-topbar-logo">
+                <div class="admin-topbar-logo-circle">
+                    <img src="../logo.png" alt="urbox.ai" width="22" height="22"
+                        style="object-fit:contain;border-radius:4px;" />
+                </div>
+                <span class="admin-topbar-wordmark">urbox<span>.ai</span></span>
+            </a>
+            <div class="admin-topbar-divider"></div>
+            <span class="admin-topbar-label">Analytics &amp; CMS</span>
+            <div class="admin-topbar-spacer"></div>
+            <span class="admin-topbar-date" id="topbar-date"></span>
+            <button id="logout-btn">Log out</button>
+        </header>
+
+        <!-- Tab Bar -->
+        <nav class="admin-tabs">
+            <div class="admin-tab active" data-tab="analytics" id="tab-btn-analytics">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M1 11L5 7L8 10L11 6L14 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Analytics
+            </div>
+            <div class="admin-tab" data-tab="blog" id="tab-btn-blog">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <rect x="2" y="2" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M4.5 5.5h6M4.5 8h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                </svg>
+                Blog CMS
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+
+            <!-- ── ANALYTICS TAB ── -->
+            <div class="admin-tab-panel active" id="panel-analytics">
+
+                <!-- Stat Cards -->
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-card-accent"></div>
+                        <div class="stat-card-icon">📊</div>
+                        <div class="stat-card-label">Total Page Views</div>
+                        <div class="stat-card-value" id="stat-total-views">—</div>
+                        <div class="stat-card-sub">All time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-accent"></div>
+                        <div class="stat-card-icon">👤</div>
+                        <div class="stat-card-label">Unique Visitors</div>
+                        <div class="stat-card-value" id="stat-unique-visitors">—</div>
+                        <div class="stat-card-sub">All time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-accent"></div>
+                        <div class="stat-card-icon">📅</div>
+                        <div class="stat-card-label">Views Today</div>
+                        <div class="stat-card-value" id="stat-today">—</div>
+                        <div class="stat-card-sub" id="stat-today-date">—</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-accent"></div>
+                        <div class="stat-card-icon">⏱️</div>
+                        <div class="stat-card-label">Avg. Session</div>
+                        <div class="stat-card-value" id="stat-avg-duration">—</div>
+                        <div class="stat-card-sub">Seconds on page</div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-card-title">Pageviews — Last 14 Days</div>
+                        <div class="chart-wrap"><canvas id="chart-pageviews"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-card-title">Traffic Sources</div>
+                        <div class="chart-wrap"><canvas id="chart-sources"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-card-title">Devices</div>
+                        <div class="chart-wrap"><canvas id="chart-devices"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Tables -->
+                <div class="tables-grid">
+                    <!-- Live Feed -->
+                    <div class="table-card">
+                        <div class="table-card-header">
+                            <span class="table-card-title">Live Feed</span>
+                            <span class="live-label"><span class="live-dot"></span>Real-time</span>
+                        </div>
+                        <div style="overflow-x:auto;">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Page</th>
+                                        <th>Source</th>
+                                        <th>Device</th>
+                                        <th>When</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="live-feed-body">
+                                    <tr>
+                                        <td colspan="4"
+                                            style="text-align:center;color:var(--admin-muted);padding:32px;">Loading…
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Top Pages -->
+                    <div class="table-card">
+                        <div class="table-card-header">
+                            <span class="table-card-title">Top Pages</span>
+                        </div>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Page</th>
+                                    <th>Views</th>
+                                </tr>
+                            </thead>
+                            <tbody id="top-pages-body">
+                                <tr>
+                                    <td colspan="2" style="text-align:center;color:var(--admin-muted);padding:32px;">
+                                        Loading…</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── BLOG CMS TAB ── -->
+            <div class="admin-tab-panel" id="panel-blog">
+                <div class="cms-header">
+                    <div class="cms-title">
+                        Blog Posts
+                        <span id="post-count-label"></span>
+                    </div>
+                    <button class="btn-new-post" id="btn-new-post">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                        New Post
+                    </button>
+                </div>
+
+                <div class="posts-table-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="posts-list-body">
+                            <tr>
+                                <td colspan="5" style="text-align:center;color:var(--admin-muted);padding:40px;">
+                                    Loading…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- /admin-content -->
+    </div><!-- /dashboard -->
+
+    <!-- ════════════════════════════════════════════════════════════
+     EDITOR DRAWER
+     ════════════════════════════════════════════════════════════ -->
+    <div class="editor-overlay" id="editor-overlay"></div>
+    <div class="editor-drawer" id="editor-drawer">
+        <div class="editor-drawer-header">
+            <h2 id="editor-drawer-title">New Post</h2>
+            <button class="btn-close-editor" id="btn-close-editor" title="Close">×</button>
+        </div>
+
+        <div class="editor-body">
+            <input type="hidden" id="editor-post-id" value="" />
+
+            <div class="form-group">
+                <label class="form-label" for="editor-title">Title</label>
+                <input class="form-input" type="text" id="editor-title" placeholder="Your post headline…" />
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="editor-slug">
+                        Slug <span>(auto-generated)</span>
+                    </label>
+                    <input class="form-input" type="text" id="editor-slug" placeholder="your-post-slug" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="editor-category">Category</label>
+                    <input class="form-input" type="text" id="editor-category" placeholder="e.g. Guides, Tips…"
+                        list="category-list" />
+                    <datalist id="category-list">
+                        <option value="Guides"></option>
+                        <option value="Tips &amp; Tricks"></option>
+                        <option value="Product"></option>
+                        <option value="News"></option>
+                        <option value="Case Studies"></option>
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="editor-author">Author</label>
+                    <input class="form-input" type="text" id="editor-author" placeholder="Author name"
+                        value="urbox.ai" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="editor-read-time">
+                        Read Time <span>(min, auto-estimated)</span>
+                    </label>
+                    <input class="form-input" type="number" id="editor-read-time" min="1" value="5" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="editor-excerpt">Excerpt <span>(shown in card grid)</span></label>
+                <textarea class="form-textarea" id="editor-excerpt"
+                    placeholder="Short description shown in the card grid…" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="editor-cover-image">Cover Image URL <span>(optional)</span></label>
+                <input class="form-input" type="url" id="editor-cover-image" placeholder="https://…" />
+                <div id="cover-image-preview" style="margin-top:8px;display:none;">
+                    <img id="cover-img-preview-el" src="" alt="Cover preview"
+                        style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--admin-border);" />
+                </div>
+            </div>
+
+            <!-- SEO Section -->
+            <div class="form-section-label">SEO Settings</div>
+
+            <div class="form-group">
+                <label class="form-label" for="editor-focus-keyword">Focus Keyword <span>(primary SEO
+                        keyword)</span></label>
+                <input class="form-input" type="text" id="editor-focus-keyword"
+                    placeholder="e.g. shared inbox for teams" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="editor-meta-title">Meta Title <span>(leave blank to use post
+                        title)</span></label>
+                <input class="form-input" type="text" id="editor-meta-title"
+                    placeholder="Custom title tag for Google…" />
+                <div class="seo-counter"><span id="meta-title-count">0</span>/60 chars</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="editor-meta-desc">Meta Description <span>(leave blank to use
+                        excerpt)</span></label>
+                <textarea class="form-textarea" id="editor-meta-desc"
+                    placeholder="Custom meta description for search results…" rows="2"></textarea>
+                <div class="seo-counter"><span id="meta-desc-count">0</span>/155 chars</div>
+            </div>
+
+            <!-- Content Editor -->
+            <div class="form-group">
+                <label class="form-label">Content</label>
+                <div class="content-editor-wrap">
+                    <!-- Toolbar -->
+                    <div class="editor-toolbar">
+                        <button class="toolbar-btn" data-action="h2" title="Heading 2">H2</button>
+                        <button class="toolbar-btn" data-action="h3" title="Heading 3">H3</button>
+                        <div class="toolbar-sep"></div>
+                        <button class="toolbar-btn" data-action="bold" title="Bold"><b>B</b></button>
+                        <button class="toolbar-btn" data-action="italic" title="Italic"><i>I</i></button>
+                        <div class="toolbar-sep"></div>
+                        <button class="toolbar-btn" data-action="ul" title="Bullet list">• List</button>
+                        <button class="toolbar-btn" data-action="ol" title="Numbered list">1. List</button>
+                        <button class="toolbar-btn" data-action="blockquote" title="Blockquote">" Quote</button>
+                        <div class="toolbar-sep"></div>
+                        <button class="toolbar-btn" data-action="link" title="Insert link">🔗 Link</button>
+                        <button class="toolbar-btn" data-action="hr" title="Divider">— HR</button>
+                    </div>
+                    <!-- Write/Preview tabs -->
+                    <div class="editor-tabs-bar">
+                        <button class="editor-tab-btn active" id="etab-write">Write</button>
+                        <button class="editor-tab-btn" id="etab-preview">Preview</button>
+                    </div>
+                    <textarea id="editor-content" placeholder="Write your post content here using HTML…"></textarea>
+                    <div id="editor-preview"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-drawer-footer">
+            <button class="btn-save-draft" id="btn-save-draft">Save Draft</button>
+            <button class="btn-publish-post" id="btn-publish-post">
+                <span id="btn-publish-label">Publish</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════
+     CONFIRM DELETE DIALOG
+     ════════════════════════════════════════════════════════════ -->
+    <div class="confirm-overlay" id="confirm-overlay">
+        <div class="confirm-card">
+            <h3>Delete Post?</h3>
+            <p>This action cannot be undone. The post will be permanently removed.</p>
+            <div class="confirm-actions">
+                <button class="btn-cancel-confirm" id="btn-cancel-confirm">Cancel</button>
+                <button class="btn-confirm-delete" id="btn-confirm-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════
+     TOAST
+     ════════════════════════════════════════════════════════════ -->
+    <div id="toast">
+        <span class="toast-icon" id="toast-icon">✓</span>
+        <span id="toast-msg"></span>
+    </div>
+
+    <script type="module" src="./admin.js"></script>
+</body>
+
+</html>
