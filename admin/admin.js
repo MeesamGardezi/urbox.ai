@@ -447,7 +447,7 @@ function renderPostsList(snap) {
         row.innerHTML = `
             <td>
                 <div class="post-row-title">${escHtml(p.title || "Untitled")}</div>
-                <div class="post-row-slug">/blog/post.html?slug=${escHtml(p.slug || "")}</div>
+                <div class="post-row-slug">/blog/${escHtml(p.slug || "")}</div>
             </td>
             <td>${escHtml(p.category || "—")}</td>
             <td><span class="status-badge ${p.status || "draft"}">${p.status === "published" ? "Published" : "Draft"}</span></td>

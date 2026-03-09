@@ -50,3 +50,61 @@ exports.getPost = async (req, res) => {
         res.status(500).render('post', { error: 'Something went wrong loading this post.' });
     }
 };
+
+exports.getSitemap = async (req, res) => {
+    try {
+        const snap = await getDocs(collection(db, "blog_posts"));
+
+        const posts = [];
+        snap.forEach(docSnap => {
+            const p = docSnap.data();
+            if (p.status === "published") {
+                posts.push(p);
+            }
+        });
+
+        const baseUrl = 'https://urbox.ai';
+        const date = new Date().toISOString().split('T')[0];
+
+        let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+        xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+        // Static URLs
+        const staticPages = [
+            { url: '/', priority: '1.0', changefreq: 'weekly' },
+            { url: '/blog/', priority: '0.8', changefreq: 'weekly' },
+            { url: '/contact/', priority: '0.7', changefreq: 'monthly' }
+        ];
+
+        staticPages.forEach(page => {
+            xml += `  <url>\n`;
+            xml += `    <loc>${baseUrl}${page.url}</loc>\n`;
+            xml += `    <lastmod>${date}</lastmod>\n`;
+            xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+            xml += `    <priority>${page.priority}</priority>\n`;
+            xml += `  </url>\n`;
+        });
+
+        // Dynamic Blog Posts URLs
+        posts.forEach(post => {
+            const postDate = post.publishedAt
+                ? post.publishedAt.toDate().toISOString().split('T')[0]
+                : date;
+
+            xml += `  <url>\n`;
+            xml += `    <loc>${baseUrl}/blog/${encodeURIComponent(post.slug)}</loc>\n`;
+            xml += `    <lastmod>${postDate}</lastmod>\n`;
+            xml += `    <changefreq>monthly</changefreq>\n`;
+            xml += `    <priority>0.6</priority>\n`;
+            xml += `  </url>\n`;
+        });
+
+        xml += `</urlset>`;
+
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+    } catch (error) {
+        console.error("Sitemap generation error:", error);
+        res.status(500).end();
+    }
+};

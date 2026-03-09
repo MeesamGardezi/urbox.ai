@@ -179,7 +179,7 @@
                         posts.forEach((p) => {
                             const card = document.createElement("a");
                             card.className = "post-card";
-                            card.href = `/blog/post.html?slug=${encodeURIComponent(p.slug)}`;
+                            card.href = `/blog/${encodeURIComponent(p.slug)}`;
                             card.innerHTML = `
                         <div class="post-card-cover">
                             <span class="post-card-category">${escHtml(p.category || "Article")}</span>

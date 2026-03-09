@@ -201,6 +201,9 @@ app.get('/blog', (req, res) => {
     res.render('pages/blog');
 });
 
+const blogController = require('./controllers/blogController');
+app.get('/sitemap.xml', blogController.getSitemap);
+
 // Admin panel and any other non-migrated paths
 app.use((req, res, next) => {
     if (req.path.startsWith('/api') || req.path.startsWith('/blog/')) {
