@@ -1224,3 +1224,314 @@ body {
 .toast-icon {
     font-size: 15px;
 }
+
+/* ════════════════════════════════════════════════════════════
+   CONTACTS TAB
+   ════════════════════════════════════════════════════════════ */
+
+/* Tab badge (unread count pill) */
+.tab-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: var(--admin-red);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    margin-left: 2px;
+}
+
+/* Filter row */
+.contacts-filter-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.contacts-filter-btn {
+    padding: 6px 14px;
+    background: var(--admin-surface-2);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--admin-sub);
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.contacts-filter-btn:hover {
+    background: var(--admin-bg);
+    color: var(--admin-text);
+}
+
+.contacts-filter-btn.active {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+    color: var(--admin-primary);
+    font-weight: 600;
+}
+
+/* Table card */
+.contacts-table-card {
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    overflow: hidden;
+    box-shadow: var(--admin-shadow);
+    overflow-x: auto;
+}
+
+/* Contact name/email cell */
+.contact-name {
+    font-weight: 600;
+    color: var(--admin-text);
+    margin-bottom: 2px;
+}
+
+.contact-email {
+    font-size: 12px;
+    color: var(--admin-muted);
+}
+
+/* Message preview */
+.contact-message-preview {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--admin-sub);
+    font-size: 13px;
+    display: block;
+}
+
+/* Contact status badges */
+.contact-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+    border: none;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.contact-status:hover {
+    opacity: 0.8;
+}
+
+.contact-status.new {
+    background: #FEF9C3;
+    color: #854D0E;
+}
+
+.contact-status.read {
+    background: #F1F5F9;
+    color: var(--admin-sub);
+}
+
+.contact-status.replied {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+/* Empty state */
+.contacts-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--admin-muted);
+}
+
+.contacts-empty h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--admin-sub);
+    margin-bottom: 6px;
+}
+
+/* View full message toggle button */
+.btn-view-msg {
+    background: none;
+    border: none;
+    font-size: 11px;
+    font-family: inherit;
+    color: var(--admin-primary);
+    cursor: pointer;
+    padding: 2px 0;
+    display: block;
+    margin-top: 2px;
+}
+
+.btn-view-msg:hover {
+    text-decoration: underline;
+}
+
+/* Message modal overlay */
+.msg-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(15, 23, 42, .35);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+}
+
+.msg-modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.msg-modal-card {
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 540px;
+    width: 90%;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, .16);
+    transform: translateY(10px);
+    transition: transform .2s;
+}
+
+.msg-modal-overlay.open .msg-modal-card {
+    transform: translateY(0);
+}
+
+.msg-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.msg-modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--admin-text);
+}
+
+.msg-modal-sub {
+    font-size: 12px;
+    color: var(--admin-muted);
+    margin-top: 2px;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--admin-muted);
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.btn-close-modal:hover {
+    color: var(--admin-text);
+}
+
+.msg-modal-body {
+    font-size: 14px;
+    color: var(--admin-sub);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    background: var(--admin-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 16px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.msg-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.btn-reply-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--admin-primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s;
+}
+
+.btn-reply-email:hover {
+    background: var(--admin-primary-h);
+}
+    /* ── Mailbox UI overrides ── */
+    #mailbox-list .mail-item {
+        padding: 16px;
+        border-bottom: 1px solid var(--admin-border);
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    #mailbox-list .mail-item:hover {
+        background: #F8FAFC;
+    }
+    #mailbox-list .mail-item.unread {
+        background: #F0Fdf4;
+        border-left: 3px solid #10B981;
+    }
+    #mailbox-list .mail-item-from {
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--admin-text);
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: space-between;
+    }
+    #mailbox-list .mail-item-date {
+        font-weight: 400;
+        font-size: 11px;
+        color: var(--admin-muted);
+    }
+    #mailbox-list .mail-item-subject {
+        font-weight: 500;
+        font-size: 13px;
+        color: var(--admin-text);
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #mailbox-list .mail-item-preview {
+        font-weight: 400;
+        font-size: 12px;
+        color: var(--admin-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Compose Drawer Overrides */
+    .compose-drawer {
+        z-index: 1000;
+    }
+

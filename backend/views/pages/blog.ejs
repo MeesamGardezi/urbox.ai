@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../logo.png" />
+    <title>Blog — urbox.ai | Team Inbox Insights</title>
+    <meta name="description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <link rel="canonical" href="https://urbox.ai/blog/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="urbox.ai" />
+    <meta property="og:title" content="Blog — urbox.ai | Team Inbox Insights" />
+    <meta property="og:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta property="og:url" content="https://urbox.ai/blog/" />
+    <meta property="og:image" content="https://urbox.ai/og-image.png" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@urboxai" />
+    <meta name="twitter:title" content="Blog — urbox.ai | Team Inbox Insights" />
+    <meta name="twitter:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta name="twitter:image" content="https://urbox.ai/og-image.png" />
+
+    <!-- JSON-LD: Blog + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Blog",
+                "name": "urbox.ai Blog",
+                "description": "Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and customer support workflows.",
+                "url": "https://urbox.ai/blog/",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "urbox.ai",
+                    "logo": { "@type": "ImageObject", "url": "https://urbox.ai/logo.png" }
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://urbox.ai/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://urbox.ai/blog/" }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../sections/navbar/navbar.css" />
+    <link rel="stylesheet" href="./blog.css" />
+
+    <!-- Analytics -->
+    <script type="module" src="../scripts/analytics.js"></script>
+</head>
+
+<body class="blog-page">
+
+    <!-- ══════ NAVBAR ══════ -->
+    <%- include('../partials/header') %>
+
+        <!-- ══════ HERO ══════ -->
+        <div class="blog-hero reveal">
+            <div class="blog-hero-eyebrow">The Blog</div>
+            <h1>Insights for teams<br />that move fast</h1>
+            <p>Practical guides on shared inboxes, team communication, WhatsApp for business, and customer support
+                workflows.</p>
+        </div>
+
+        <!-- ══════ POST GRID ══════ -->
+        <section class="blog-grid-section">
+            <!-- Loading skeletons -->
+            <div class="blog-grid" id="blog-grid">
+                <div class="skeleton-card">
+                    <div class="skeleton skeleton-cover"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-line w-80"></div>
+                        <div class="skeleton skeleton-line w-60"></div>
+                        <div class="skeleton skeleton-line w-40" style="margin-top:16px;"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton skeleton-cover"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-line w-80"></div>
+                        <div class="skeleton skeleton-line w-60"></div>
+                        <div class="skeleton skeleton-line w-40" style="margin-top:16px;"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton skeleton-cover"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-line w-80"></div>
+                        <div class="skeleton skeleton-line w-60"></div>
+                        <div class="skeleton skeleton-line w-40" style="margin-top:16px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════ FOOTER ══════ -->
+        <%- include('../partials/footer') %>
+
+            <script type="module">
+                import { initializeApp, getApps, getApp }
+                    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+                import { getFirestore, collection, getDocs }
+                    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+                const firebaseConfig = {
+                    apiKey: "AIzaSyA5ySkqiSTi19lHTSt8bhFzypfgqVtaSss",
+                    authDomain: "urbox-1.firebaseapp.com",
+                    projectId: "urbox-1",
+                    storageBucket: "urbox-1.firebasestorage.app",
+                    messagingSenderId: "897703212804",
+                    appId: "1:897703212804:web:37ad9da2d61544c2ce0251",
+                };
+                const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+                const db = getFirestore(app, "default");
+
+                function formatDate(ts) {
+                    if (!ts) return "";
+                    const d = ts.toDate ? ts.toDate() : new Date(ts);
+                    return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+                }
+
+                async function loadPosts() {
+                    const grid = document.getElementById("blog-grid");
+                    try {
+                        // Fetch ALL docs — orderBy was silently excluding documents with
+                        // missing/null createdAt. Filter + sort entirely client-side instead.
+                        const snap = await getDocs(collection(db, "blog_posts"));
+
+                        // Filter published + sort by publishedAt client-side
+                        const posts = [];
+                        snap.forEach(docSnap => {
+                            const p = docSnap.data();
+                            if (p.status === "published") posts.push(p);
+                        });
+                        posts.sort((a, b) => {
+                            const ta = a.publishedAt ? (a.publishedAt.toDate ? a.publishedAt.toDate() : new Date(a.publishedAt)) : 0;
+                            const tb = b.publishedAt ? (b.publishedAt.toDate ? b.publishedAt.toDate() : new Date(b.publishedAt)) : 0;
+                            return tb - ta;
+                        });
+
+                        if (!posts.length) {
+                            grid.innerHTML = `
+                        <div class="blog-empty">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="28" rx="4" stroke="#64748B" stroke-width="2"/>
+                                <path d="M16 20h16M16 26h10" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <h3>No posts yet</h3>
+                            <p>Check back soon — new articles are on their way.</p>
+                        </div>`;
+                            return;
+                        }
+
+                        grid.innerHTML = "";
+                        posts.forEach((p) => {
+                            const card = document.createElement("a");
+                            card.className = "post-card";
+                            card.href = `/blog/post.html?slug=${encodeURIComponent(p.slug)}`;
+                            card.innerHTML = `
+                        <div class="post-card-cover">
+                            <span class="post-card-category">${escHtml(p.category || "Article")}</span>
+                        </div>
+                        <div class="post-card-body">
+                            <div class="post-card-title">${escHtml(p.title)}</div>
+                            <div class="post-card-excerpt">${escHtml(p.excerpt || "")}</div>
+                            <div class="post-card-meta">
+                                <span class="post-card-author">${escHtml(p.author || "urbox.ai")}</span>
+                                <span class="post-card-info">
+                                    <span>${formatDate(p.publishedAt)}</span>
+                                    <span>·</span>
+                                    <span>${p.readTime || 5} min read</span>
+                                </span>
+                            </div>
+                            <span class="post-card-read-link">Read post →</span>
+                        </div>`;
+                            grid.appendChild(card);
+                        });
+
+                    } catch (err) {
+                        console.error("[blog] load error:", err);
+                        const isPerms = err.code === "permission-denied";
+                        grid.innerHTML = `
+                    <div class="blog-empty" style="border:1px solid #FECACA;background:#FEF2F2;padding:32px 24px;border-radius:12px;text-align:center;">
+                        <p style="color:#DC2626;font-weight:600;margin-bottom:6px;">
+                            ${isPerms ? "⛔ Firebase permission denied" : "⚠️ Failed to load posts"}
+                        </p>
+                        <p style="color:#64748B;font-size:13px;margin:0;">
+                            ${isPerms
+                                ? "Your Firestore rules are blocking reads on <code>blog_posts</code>. Update rules in Firebase Console."
+                                : err.message}
+                        </p>
+                    </div>`;
+                    }
+                }
+
+                function escHtml(str) {
+                    return String(str || "")
+                        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+                }
+
+                // Scroll reveal
+                const observer = new IntersectionObserver(
+                    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } }),
+                    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+                );
+                document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+                loadPosts();
+            </script>
+
+            <script src="../sections/navbar/navbar.js"></script>
+</body>
+
+</html>

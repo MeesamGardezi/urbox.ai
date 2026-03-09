@@ -10,6 +10,50 @@
         content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
     <link rel="canonical" href="https://urbox.ai/blog/" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="urbox.ai" />
+    <meta property="og:title" content="Blog — urbox.ai | Team Inbox Insights" />
+    <meta property="og:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta property="og:url" content="https://urbox.ai/blog/" />
+    <meta property="og:image" content="https://urbox.ai/og-image.png" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@urboxai" />
+    <meta name="twitter:title" content="Blog — urbox.ai | Team Inbox Insights" />
+    <meta name="twitter:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta name="twitter:image" content="https://urbox.ai/og-image.png" />
+
+    <!-- JSON-LD: Blog + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Blog",
+                "name": "urbox.ai Blog",
+                "description": "Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and customer support workflows.",
+                "url": "https://urbox.ai/blog/",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "urbox.ai",
+                    "logo": { "@type": "ImageObject", "url": "https://urbox.ai/logo.png" }
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://urbox.ai/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://urbox.ai/blog/" }
+                ]
+            }
+        ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,6 +87,7 @@
             <li><a href="/#compare">Compare</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact/">Contact</a></li>
         </ul>
         <div class="nav-actions">
             <a href="https://app.urbox.ai" class="btn-ghost">Log in</a>
@@ -99,17 +144,44 @@
     </section>
 
     <!-- ══════ FOOTER ══════ -->
-    <footer class="blog-footer">
-        <p>
-            <a href="/">← Back to urbox.ai</a>
-            &nbsp;·&nbsp;
-            <a href="https://app.urbox.ai">Log in</a>
-            &nbsp;·&nbsp;
-            <a href="https://app.urbox.ai/privacy-policy" target="_blank" rel="noopener">Privacy</a>
-            &nbsp;·&nbsp;
-            © 2026 urbox.ai
-        </p>
+    <footer class="blog-footer-full">
+        <div class="blog-footer-top">
+            <div class="blog-footer-brand">
+                <a href="/" class="nav-logo" style="text-decoration:none;">
+                    <div class="nav-logo-circle">
+                        <img src="../logo.png" alt="urbox.ai" width="22" height="22"
+                            style="object-fit:contain;border-radius:4px;" />
+                    </div>
+                    <span class="nav-wordmark" style="color:white;">urbox<span>.ai</span></span>
+                </a>
+                <p>The smarter shared inbox for teams that want more and pay less.</p>
+            </div>
+            <div class="blog-footer-cols">
+                <div class="blog-footer-col">
+                    <h4>Product</h4>
+                    <a href="/#features">Features</a>
+                    <a href="/#pricing">Pricing</a>
+                    <a href="/#compare">Compare</a>
+                    <a href="https://app.urbox.ai">Log in</a>
+                </div>
+                <div class="blog-footer-col">
+                    <h4>Company</h4>
+                    <a href="/blog/">Blog</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+                <div class="blog-footer-col">
+                    <h4>Legal</h4>
+                    <a href="https://app.urbox.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy
+                        Policy</a>
+                    <a href="https://app.urbox.ai/terms" target="_blank" rel="noopener noreferrer">Terms</a>
+                </div>
+            </div>
+        </div>
+        <div class="blog-footer-bottom">
+            <span>© 2026 urbox.ai. All rights reserved.</span>
+        </div>
     </footer>
+
 
     <script type="module">
         import { initializeApp, getApps, getApp }

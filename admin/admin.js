@@ -47,6 +47,40 @@ const statTodayDate = document.getElementById("stat-today-date");
 const liveFeedBody = document.getElementById("live-feed-body");
 const topPagesBody = document.getElementById("top-pages-body");
 
+// ─── Waitlist
+const waitlistListBody = document.getElementById("waitlist-list-body");
+const waitlistCountLabel = document.getElementById("waitlist-count-label");
+const waitlistTabBadge = document.getElementById("waitlist-tab-badge");
+
+// ─── History
+const historyListBody = document.getElementById("history-list-body");
+const historyCountLabel = document.getElementById("history-count-label");
+const historyTabBadge = document.getElementById("history-tab-badge");
+
+// ─── Mailbox
+const mailboxList = document.getElementById("mailbox-list");
+const mailReaderEmpty = document.getElementById("mail-reader-empty");
+const mailReaderContent = document.getElementById("mail-reader-content");
+const readMailSubject = document.getElementById("read-mail-subject");
+const readMailFrom = document.getElementById("read-mail-from");
+const readMailTo = document.getElementById("read-mail-to");
+const readMailDate = document.getElementById("read-mail-date");
+const readMailBody = document.getElementById("read-mail-body");
+const btnRefreshMail = document.getElementById("btn-refresh-mail");
+const btnComposeMail = document.getElementById("btn-compose-mail");
+const btnReplyMail = document.getElementById("btn-reply-mail");
+
+// ─── Compose Drawer
+const composeOverlay = document.getElementById("compose-overlay");
+const composeDrawer = document.getElementById("compose-drawer");
+const btnCloseCompose = document.getElementById("btn-close-compose");
+const btnCancelCompose = document.getElementById("btn-cancel-compose");
+const btnSendMail = document.getElementById("btn-send-mail");
+const btnSendLabel = document.getElementById("btn-send-label");
+const composeTo = document.getElementById("compose-to");
+const composeSubject = document.getElementById("compose-subject");
+const composeBody = document.getElementById("compose-body");
+
 // ─── Blog CMS
 const postCountLabel = document.getElementById("post-count-label");
 const postsListBody = document.getElementById("posts-list-body");
@@ -112,6 +146,10 @@ function showDashboard() {
     });
     loadAnalytics();
     loadBlogPosts();
+    loadContacts();
+    loadWaitlist();
+    loadHistory();
+    loadMailbox();
 }
 
 loginBtn.addEventListener("click", () => {
@@ -138,8 +176,7 @@ logoutBtn.addEventListener("click", () => {
 });
 
 // Check session on load
-if (checkAuth()) showDashboard();
-
+// Moved to the bottom to avoid temporal dead zone issues for variables like allContactDocs.
 // ═══════════════════════════════════════════════════════════════
 // TABS
 // ═══════════════════════════════════════════════════════════════
@@ -149,7 +186,17 @@ document.querySelectorAll(".admin-tab").forEach(tab => {
         document.querySelectorAll(".admin-tab").forEach(t => t.classList.remove("active"));
         document.querySelectorAll(".admin-tab-panel").forEach(p => p.classList.remove("active"));
         tab.classList.add("active");
-        document.getElementById("panel-" + target).classList.add("active");
+        const panel = document.getElementById("panel-" + target);
+        panel.classList.add("active");
+        // Mailbox panel needs to be flex
+        if (target === "mailbox") {
+            panel.style.display = "flex";
+        } else {
+            // Reset other panels inline display block override (if any)
+            document.querySelectorAll(".admin-tab-panel").forEach(p => {
+                if (p.id !== "panel-mailbox") p.style.display = "";
+            });
+        }
     });
 });
 
@@ -674,3 +721,542 @@ function escHtml(str) {
         .replace(/&/g, "&amp;").replace(/</g, "&lt;")
         .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
+
+// ═══════════════════════════════════════════════════════════════
+// CONTACTS
+// ═══════════════════════════════════════════════════════════════
+
+// DOM refs
+const contactsListBody = document.getElementById("contacts-list-body");
+const contactCountLabel = document.getElementById("contact-count-label");
+const contactsTabBadge = document.getElementById("contacts-tab-badge");
+const msgModalOverlay = document.getElementById("msg-modal-overlay");
+const msgModalTitle = document.getElementById("msg-modal-title");
+const msgModalSub = document.getElementById("msg-modal-sub");
+const msgModalBody = document.getElementById("msg-modal-body");
+const btnCloseModal = document.getElementById("btn-close-modal");
+const btnReplyEmail = document.getElementById("btn-reply-email");
+
+let allContactDocs = [];     // cache for filter
+let currentFilter = "all";
+
+// ── Load contacts (real-time) ─────────────────────────────────
+function loadContacts() {
+    const q = query(
+        collection(db, "contact_requests"),
+        orderBy("createdAt", "desc")
+    );
+
+    onSnapshot(q,
+        snap => {
+            allContactDocs = [];
+            snap.forEach(d => allContactDocs.push({ id: d.id, ...d.data() }));
+            renderContacts();
+            updateContactBadge();
+        },
+        err => {
+            console.error("[admin] contacts load error:", err);
+            contactsListBody.innerHTML = `
+                <tr><td colspan="6" style="text-align:center;padding:40px;">
+                    <div style="color:#DC2626;font-weight:600;margin-bottom:6px;">
+                        ${err.code === "permission-denied" ? "⛔ Firestore permission denied" : "⚠️ Failed to load contacts"}
+                    </div>
+                    <div style="color:#64748B;font-size:13px;">${err.message}</div>
+                </td></tr>`;
+        }
+    );
+}
+
+function updateContactBadge() {
+    const newCount = allContactDocs.filter(d => d.status === "new").length;
+    if (newCount > 0) {
+        contactsTabBadge.textContent = newCount;
+        contactsTabBadge.style.display = "inline-flex";
+    } else {
+        contactsTabBadge.style.display = "none";
+    }
+}
+
+// ── Render ────────────────────────────────────────────────────
+function renderContacts() {
+    const filtered = currentFilter === "all"
+        ? allContactDocs
+        : allContactDocs.filter(d => d.status === currentFilter);
+
+    contactCountLabel.textContent = `${filtered.length} request${filtered.length !== 1 ? "s" : ""}`;
+
+    if (!filtered.length) {
+        const msg = currentFilter === "all" ? "No contact requests yet." : `No "${currentFilter}" requests.`;
+        contactsListBody.innerHTML = `
+            <tr><td colspan="6">
+                <div class="contacts-empty">
+                    <h3>${msg}</h3>
+                    <p>When visitors submit the contact form, their messages will appear here.</p>
+                </div>
+            </td></tr>`;
+        return;
+    }
+
+    contactsListBody.innerHTML = "";
+    filtered.forEach(c => {
+        const ts = c.createdAt ? (c.createdAt.toDate ? c.createdAt.toDate() : new Date(c.createdAt)) : null;
+        const dateStr = ts ? ts.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+        const timeStr = ts ? ts.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }) : "";
+        const status = c.status || "new";
+        const statusLabel = status.charAt(0).toUpperCase() + status.slice(1);
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>
+                <div class="contact-name">${escHtml(c.name || "—")}</div>
+                <div class="contact-email">${escHtml(c.email || "")}</div>
+            </td>
+            <td>${escHtml(c.subject || "—")}</td>
+            <td>
+                <span class="contact-message-preview">${escHtml(c.message || "")}</span>
+                <button class="btn-view-msg" data-id="${c.id}">Read full message</button>
+            </td>
+            <td style="color:var(--admin-muted);font-size:13px;">${escHtml(c.company || "—")}</td>
+            <td style="color:var(--admin-muted);font-size:13px;">
+                <div>${dateStr}</div>
+                <div style="font-size:11px;">${timeStr}</div>
+            </td>
+            <td>
+                <button class="contact-status ${status}" data-id="${c.id}" data-status="${status}" title="Click to change status">
+                    ${statusLabel}
+                </button>
+            </td>`;
+
+        // View message
+        row.querySelector(".btn-view-msg").addEventListener("click", () => {
+            openMsgModal(c);
+        });
+
+        // Cycle status: new → read → replied → new
+        row.querySelector(".contact-status").addEventListener("click", async (e) => {
+            const btn = e.currentTarget;
+            const id = btn.dataset.id;
+            const curr = btn.dataset.status;
+            const next = curr === "new" ? "read" : curr === "read" ? "replied" : "new";
+            try {
+                await updateDoc(doc(db, "contact_requests", id), { status: next });
+            } catch (err) {
+                toast("Error updating status: " + err.message, "error");
+            }
+        });
+
+        contactsListBody.appendChild(row);
+    });
+}
+
+// ── Filter buttons ────────────────────────────────────────────
+document.querySelectorAll(".contacts-filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        currentFilter = btn.dataset.filter;
+        document.querySelectorAll(".contacts-filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderContacts();
+    });
+});
+
+// ── Message modal ─────────────────────────────────────────────
+function openMsgModal(contact) {
+    msgModalTitle.textContent = contact.subject || "Message";
+    msgModalSub.textContent = `From ${contact.name || "—"}  ·  ${contact.email || ""}${contact.company ? "  ·  " + contact.company : ""}`;
+    msgModalBody.textContent = contact.message || "";
+    btnReplyEmail.href = `mailto:${encodeURIComponent(contact.email || "")}?subject=${encodeURIComponent("Re: " + (contact.subject || "Your enquiry"))}`;
+    msgModalOverlay.classList.add("open");
+
+    // Auto-mark as read if new
+    if (contact.status === "new") {
+        updateDoc(doc(db, "contact_requests", contact.id), { status: "read" }).catch(console.error);
+    }
+}
+
+btnCloseModal.addEventListener("click", () => msgModalOverlay.classList.remove("open"));
+msgModalOverlay.addEventListener("click", (e) => {
+    if (e.target === msgModalOverlay) msgModalOverlay.classList.remove("open");
+});
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") msgModalOverlay.classList.remove("open");
+});
+
+// ═══════════════════════════════════════════════════════════════
+// WAITLIST
+// ═══════════════════════════════════════════════════════════════
+let allWaitlistDocs = [];
+
+function loadWaitlist() {
+    const q = query(
+        collection(db, "waitlist"),
+        orderBy("createdAt", "desc")
+    );
+
+    onSnapshot(q,
+        snap => {
+            allWaitlistDocs = [];
+            snap.forEach(d => allWaitlistDocs.push({ id: d.id, ...d.data() }));
+            renderWaitlist();
+            updateWaitlistBadge();
+        },
+        err => {
+            console.error("[admin] waitlist load error:", err);
+            if (waitlistListBody) {
+                waitlistListBody.innerHTML = `
+                    <tr><td colspan="3" style="text-align:center;padding:40px;">
+                        <div style="color:#DC2626;font-weight:600;margin-bottom:6px;">
+                            ${err.code === "permission-denied" ? "⛔ Firestore permission denied" : "⚠️ Failed to load waitlist"}
+                        </div>
+                        <div style="color:#64748B;font-size:13px;">${err.message}</div>
+                    </td></tr>`;
+            }
+        }
+    );
+}
+
+function updateWaitlistBadge() {
+    const count = allWaitlistDocs.length;
+    if (count > 0 && waitlistTabBadge) {
+        waitlistTabBadge.textContent = count;
+        waitlistTabBadge.style.display = "inline-flex";
+    } else if (waitlistTabBadge) {
+        waitlistTabBadge.style.display = "none";
+    }
+}
+
+function renderWaitlist() {
+    if (!waitlistCountLabel || !waitlistListBody) return;
+
+    waitlistCountLabel.textContent = `${allWaitlistDocs.length} signup${allWaitlistDocs.length !== 1 ? "s" : ""}`;
+
+    if (!allWaitlistDocs.length) {
+        waitlistListBody.innerHTML = `
+            <tr><td colspan="3">
+                <div class="contacts-empty" style="text-align:center;padding:40px;">
+                    <h3 style="color:var(--admin-text);margin-bottom:8px;">No waitlist signups yet</h3>
+                    <p style="color:var(--admin-muted);font-size:14px;">When visitors join the waitlist, their emails will appear here.</p>
+                </div>
+            </td></tr>`;
+        return;
+    }
+
+    waitlistListBody.innerHTML = "";
+    allWaitlistDocs.forEach(w => {
+        const ts = w.createdAt ? (w.createdAt.toDate ? w.createdAt.toDate() : new Date(w.createdAt)) : null;
+        const dateStr = ts ? ts.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+        const timeStr = ts ? ts.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }) : "";
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>
+                <div class="contact-email" style="font-weight:500;">${escHtml(w.email || "—")}</div>
+            </td>
+            <td>
+                <span class="source-badge" style="background:var(--admin-surface);border:1px solid var(--admin-border);padding:4px 8px;border-radius:12px;font-size:12px;text-transform:capitalize;">${escHtml(w.source || "Unknown")}</span>
+            </td>
+            <td style="color:var(--admin-muted);font-size:13px;">
+                <div>${dateStr}</div>
+                <div style="font-size:11px;">${timeStr}</div>
+            </td>`;
+        waitlistListBody.appendChild(row);
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// HISTORY
+// ═══════════════════════════════════════════════════════════════
+let allHistoryDocs = [];
+
+function loadHistory() {
+    const q = query(
+        collection(db, "landing_chat_presence"),
+        orderBy("lastActive", "desc")
+    );
+
+    onSnapshot(q,
+        snap => {
+            allHistoryDocs = [];
+            snap.forEach(d => allHistoryDocs.push({ id: d.id, ...d.data() }));
+            renderHistory();
+            updateHistoryBadge();
+        },
+        err => {
+            console.error("[admin] history load error:", err);
+            if (historyListBody) {
+                historyListBody.innerHTML = `
+                    <tr><td colspan="3" style="text-align:center;padding:40px;">
+                        <div style="color:#DC2626;font-weight:600;margin-bottom:6px;">
+                            ${err.code === "permission-denied" ? "⛔ Firestore permission denied" : "⚠️ Failed to load history"}
+                        </div>
+                        <div style="color:#64748B;font-size:13px;">${err.message}</div>
+                    </td></tr>`;
+            }
+        }
+    );
+}
+
+function updateHistoryBadge() {
+    // Show how many people are currently online (active within last 60s)
+    const now = Date.now();
+    const activeCount = allHistoryDocs.filter(d => (now - d.lastActive) < 60000).length;
+
+    if (activeCount > 0 && historyTabBadge) {
+        historyTabBadge.textContent = activeCount;
+        historyTabBadge.style.display = "inline-flex";
+        historyTabBadge.style.background = "#4ADE80";
+        historyTabBadge.style.color = "#064E3B";
+    } else if (historyTabBadge) {
+        historyTabBadge.style.display = "none";
+    }
+}
+
+function renderHistory() {
+    if (!historyCountLabel || !historyListBody) return;
+
+    historyCountLabel.textContent = `${allHistoryDocs.length} user${allHistoryDocs.length !== 1 ? "s" : ""}`;
+
+    if (!allHistoryDocs.length) {
+        historyListBody.innerHTML = `
+            <tr><td colspan="3">
+                <div class="contacts-empty" style="text-align:center;padding:40px;">
+                    <h3 style="color:var(--admin-text);margin-bottom:8px;">No user history yet</h3>
+                    <p style="color:var(--admin-muted);font-size:14px;">Connected users will appear here.</p>
+                </div>
+            </td></tr>`;
+        return;
+    }
+
+    historyListBody.innerHTML = "";
+
+    // Sort array by recent activity
+    allHistoryDocs.sort((a, b) => b.lastActive - a.lastActive);
+
+    const now = Date.now();
+
+    allHistoryDocs.forEach(h => {
+        const ts = new Date(h.lastActive);
+        const dateStr = ts ? ts.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
+        const timeStr = ts ? ts.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "";
+        const isActive = (now - h.lastActive) < 60000;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>
+                <div class="contact-email" style="font-weight:500; font-family: monospace;">${escHtml(h.id)}</div>
+            </td>
+            <td>
+                <div style="font-family: monospace; font-size: 13px; color: var(--admin-text);">${escHtml(h.ipAddress || "Unknown IP")}</div>
+            </td>
+            <td style="color:var(--admin-muted);font-size:13px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    ${isActive ? '<span style="width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; display: inline-block; animation: pulse 2s infinite;"></span>' : ''}
+                    <div>
+                        <div>${dateStr}</div>
+                        <div style="font-size:11px;">${timeStr}</div>
+                    </div>
+                </div>
+            </td>`;
+        historyListBody.appendChild(row);
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MAILBOX
+// ═══════════════════════════════════════════════════════════════
+let allEmails = [];
+
+async function loadMailbox() {
+    if (!mailboxList) return;
+
+    mailboxList.innerHTML = `<div style="padding:40px;text-align:center;color:var(--admin-muted);">Fetching emails from IMAP...</div>`;
+
+    try {
+        const res = await fetch("/api/mail");
+        const data = await res.json();
+
+        if (data.success) {
+            allEmails = data.emails;
+            renderMailbox();
+        } else {
+            throw new Error(data.error || "Failed to fetch emails");
+        }
+    } catch (err) {
+        console.error("Mailbox Error:", err);
+        mailboxList.innerHTML = `
+            <div style="padding:40px;text-align:center;">
+                <div style="color:#DC2626;font-weight:600;margin-bottom:6px;">⚠️ Connection Error</div>
+                <div style="color:#64748B;font-size:13px;">${err.message}</div>
+                <div style="color:#64748B;font-size:12px;margin-top:10px;">Make sure the Node.js backend is running and .env is configured.</div>
+            </div>`;
+    }
+}
+
+function renderMailbox() {
+    if (!allEmails.length) {
+        mailboxList.innerHTML = `<div style="padding:40px;text-align:center;color:var(--admin-muted);">Inbox is empty</div>`;
+        return;
+    }
+
+    mailboxList.innerHTML = "";
+
+    allEmails.forEach((email, index) => {
+        const ts = new Date(email.date);
+        const dateStr = ts.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+        const el = document.createElement("div");
+        el.className = "mail-item";
+
+        // Very basic text extraction for preview
+        const textPreview = (email.text || "").replace(/\s+/g, " ").substring(0, 50);
+
+        let fromName = "Unknown Sender";
+        if (email.from && email.from.length > 0) {
+            fromName = email.from[0].name || email.from[0].address || "Unknown";
+        }
+
+        el.innerHTML = `
+            <div class="mail-item-from">
+                <span title="${escHtml(fromName)}">${escHtml(fromName)}</span>
+                <span class="mail-item-date">${dateStr}</span>
+            </div>
+            <div class="mail-item-subject">${escHtml(email.subject || "No Subject")}</div>
+            <div class="mail-item-preview">${escHtml(textPreview)}...</div>
+        `;
+
+        el.addEventListener("click", () => openEmail(index));
+        mailboxList.appendChild(el);
+    });
+}
+
+function openEmail(index) {
+    const email = allEmails[index];
+    if (!email) return;
+
+    // UI State
+    document.querySelectorAll(".mail-item").forEach(el => el.style.background = "");
+    const mailItems = document.querySelectorAll(".mail-item");
+    if (mailItems[index]) mailItems[index].style.background = "#F0FDF4";
+
+    mailReaderEmpty.style.display = "none";
+    mailReaderContent.style.display = "flex";
+
+    // Populate data
+    readMailSubject.textContent = email.subject || "No Subject";
+
+    let fromName = "", fromAddress = "";
+    if (email.from && email.from.length > 0) {
+        fromName = email.from[0].name || "";
+        fromAddress = email.from[0].address || "";
+    }
+
+    let toStr = "";
+    if (email.to && email.to.length > 0) {
+        toStr = email.to.map(t => t.address).join(", ");
+    }
+
+    readMailFrom.textContent = fromName ? `${fromName} <${fromAddress}>` : `<${fromAddress}>`;
+    readMailTo.textContent = `to ${toStr}`;
+
+    const ts = new Date(email.date);
+    readMailDate.textContent = ts.toLocaleString();
+
+    // Body (Prefer HTML, fallback to text)
+    if (email.html) {
+        // Simple sanitization by placing inside an iframe to prevent CSS/JS pollution
+        readMailBody.innerHTML = `<iframe style="width:100%; height:100%; border:none; min-height: 400px;" srcdoc="${escHtml(email.html).replace(/"/g, '&quot;')}"></iframe>`;
+    } else {
+        readMailBody.innerHTML = `<div style="white-space: pre-wrap; font-family: monospace;">${escHtml(email.text || "No content")}</div>`;
+    }
+
+    // Setup Reply button
+    if (btnReplyMail) {
+        // Remove old listeners by cloning
+        const newBtn = btnReplyMail.cloneNode(true);
+        btnReplyMail.parentNode.replaceChild(newBtn, btnReplyMail);
+
+        newBtn.addEventListener("click", () => {
+            const replyToEmail = fromAddress;
+            const replySubject = email.subject ? (email.subject.startsWith("Re:") ? email.subject : `Re: ${email.subject}`) : "Re: ";
+
+            // Open compose drawer with preset fields
+            openCompose(replyToEmail);
+            composeSubject.value = replySubject;
+            composeBody.focus();
+        });
+    }
+}
+
+if (btnRefreshMail) {
+    btnRefreshMail.addEventListener("click", loadMailbox);
+}
+
+// ─── Compose Drawer Logic ───
+function openCompose(replyTo = "") {
+    composeTo.value = replyTo;
+    composeSubject.value = "";
+    composeBody.value = "";
+
+    if (btnSendLabel) btnSendLabel.textContent = "Send Email";
+    if (btnSendMail) btnSendMail.disabled = false;
+
+    composeOverlay.classList.add("open");
+    composeDrawer.classList.add("open");
+
+    if (replyTo) {
+        composeSubject.value = "Re: ";
+        composeBody.focus();
+    } else {
+        composeTo.focus();
+    }
+}
+
+function closeCompose() {
+    composeOverlay.classList.remove("open");
+    composeDrawer.classList.remove("open");
+}
+
+if (btnComposeMail) btnComposeMail.addEventListener("click", () => openCompose());
+if (btnCloseCompose) btnCloseCompose.addEventListener("click", closeCompose);
+if (btnCancelCompose) btnCancelCompose.addEventListener("click", closeCompose);
+if (composeOverlay) composeOverlay.addEventListener("click", closeCompose);
+
+if (btnSendMail) {
+    btnSendMail.addEventListener("click", async () => {
+        const to = composeTo.value.trim();
+        const subject = composeSubject.value.trim();
+        const body = composeBody.value.trim();
+
+        if (!to || !subject || !body) {
+            toast("Please fill in all fields (To, Subject, Message).", "error");
+            return;
+        }
+
+        if (btnSendLabel) btnSendLabel.textContent = "Sending...";
+        btnSendMail.disabled = true;
+        toast("Sending email...", "success");
+
+        try {
+            const res = await fetch("/api/mail/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ to, subject, body })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                toast("Email sent successfully!", "success");
+                closeCompose();
+            } else {
+                throw new Error(data.error || "Unknown error sending email");
+            }
+        } catch (err) {
+            console.error("Mail send error:", err);
+            toast("Failed to send: " + err.message, "error");
+            if (btnSendLabel) btnSendLabel.textContent = "Try Again";
+            btnSendMail.disabled = false;
+        }
+    });
+}
+
+// Check session on load
+if (checkAuth()) showDashboard();

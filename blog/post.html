@@ -5,8 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="../logo.png" />
-    <!-- Title/meta injected dynamically from Firestore -->
-    <title>Loading… — urbox.ai Blog</title>
+
+    <!-- ══════ SEO — static fallbacks; JS overwrites on load ══════ -->
+    <title>Blog Post — urbox.ai</title>
+    <meta name="description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <link rel="canonical" href="https://urbox.ai/blog/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="urbox.ai" />
+    <meta property="og:title" content="Blog Post — urbox.ai" />
+    <meta property="og:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta property="og:url" content="https://urbox.ai/blog/" />
+    <meta property="og:image" content="https://urbox.ai/og-image.png" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@urboxai" />
+    <meta name="twitter:title" content="Blog Post — urbox.ai" />
+    <meta name="twitter:description"
+        content="Insights, guides, and tips on team communication, shared inboxes, WhatsApp for business, and building better customer support workflows." />
+    <meta name="twitter:image" content="https://urbox.ai/og-image.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,6 +62,7 @@
             <li><a href="/#compare">Compare</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact/">Contact</a></li>
         </ul>
         <div class="nav-actions">
             <a href="https://app.urbox.ai" class="btn-ghost">Log in</a>
@@ -58,14 +80,42 @@
     <div id="post-root"></div>
 
     <!-- ══════ FOOTER ══════ -->
-    <footer class="blog-footer">
-        <p>
-            <a href="/blog/">← All posts</a>
-            &nbsp;·&nbsp;
-            <a href="https://app.urbox.ai">Log in</a>
-            &nbsp;·&nbsp;
-            © 2026 urbox.ai
-        </p>
+    <footer class="blog-footer-full">
+        <div class="blog-footer-top">
+            <div class="blog-footer-brand">
+                <a href="/" class="nav-logo" style="text-decoration:none;">
+                    <div class="nav-logo-circle">
+                        <img src="../logo.png" alt="urbox.ai" width="22" height="22"
+                            style="object-fit:contain;border-radius:4px;" />
+                    </div>
+                    <span class="nav-wordmark" style="color:white;">urbox<span>.ai</span></span>
+                </a>
+                <p>The smarter shared inbox for teams that want more and pay less.</p>
+            </div>
+            <div class="blog-footer-cols">
+                <div class="blog-footer-col">
+                    <h4>Product</h4>
+                    <a href="/#features">Features</a>
+                    <a href="/#pricing">Pricing</a>
+                    <a href="/#compare">Compare</a>
+                    <a href="https://app.urbox.ai">Log in</a>
+                </div>
+                <div class="blog-footer-col">
+                    <h4>Company</h4>
+                    <a href="/blog/">Blog</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+                <div class="blog-footer-col">
+                    <h4>Legal</h4>
+                    <a href="https://app.urbox.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy
+                        Policy</a>
+                    <a href="https://app.urbox.ai/terms" target="_blank" rel="noopener noreferrer">Terms</a>
+                </div>
+            </div>
+        </div>
+        <div class="blog-footer-bottom">
+            <span>© 2026 urbox.ai. All rights reserved.</span>
+        </div>
     </footer>
 
     <script type="module">
@@ -127,26 +177,58 @@
 
                 const p = snap.docs[0].data();
 
-                // Inject meta tags dynamically
+                // ── Dynamic SEO injection (overwrites static fallbacks) ──
+                const postUrl = `https://urbox.ai/blog/post.html?slug=${encodeURIComponent(slug)}`;
+                const publishedISO = p.publishedAt
+                    ? (p.publishedAt.toDate ? p.publishedAt.toDate().toISOString() : new Date(p.publishedAt).toISOString())
+                    : "";
+
                 document.title = `${p.title} — urbox.ai Blog`;
+
+                // Update canonical
+                let canonEl = document.querySelector("link[rel='canonical']");
+                if (!canonEl) { canonEl = document.createElement("link"); canonEl.rel = "canonical"; document.head.appendChild(canonEl); }
+                canonEl.href = postUrl;
+
+                // Standard meta
                 setMeta("description", p.excerpt || "");
+                if (publishedISO) setMeta("article:published_time", publishedISO);
+                setMeta("article:author", p.author || "urbox.ai");
+
+                // Open Graph
+                setMeta("og:type", "article");
+                setMeta("og:site_name", "urbox.ai");
                 setMeta("og:title", `${p.title} — urbox.ai Blog`);
                 setMeta("og:description", p.excerpt || "");
-                setMeta("og:type", "article");
-                setMeta("twitter:title", p.title);
-                setMeta("twitter:description", p.excerpt || "");
+                setMeta("og:url", postUrl);
+                setMeta("og:image", p.coverImage || "https://urbox.ai/og-image.png");
 
-                // Inject Article schema
+                // Twitter / X Card
+                setMeta("twitter:card", "summary_large_image");
+                setMeta("twitter:site", "@urboxai");
+                setMeta("twitter:title", `${p.title} — urbox.ai Blog`);
+                setMeta("twitter:description", p.excerpt || "");
+                setMeta("twitter:image", p.coverImage || "https://urbox.ai/og-image.png");
+
+                // JSON-LD Article schema
                 const schema = {
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": p.title,
                     "description": p.excerpt || "",
                     "author": { "@type": "Person", "name": p.author || "urbox.ai" },
-                    "publisher": { "@type": "Organization", "name": "urbox.ai", "logo": "https://urbox.ai/logo.png" },
-                    "datePublished": p.publishedAt ? (p.publishedAt.toDate ? p.publishedAt.toDate().toISOString() : new Date(p.publishedAt).toISOString()) : "",
-                    "mainEntityOfPage": { "@type": "WebPage", "@id": window.location.href }
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "urbox.ai",
+                        "logo": { "@type": "ImageObject", "url": "https://urbox.ai/logo.png" }
+                    },
+                    "datePublished": publishedISO,
+                    "image": p.coverImage || "https://urbox.ai/og-image.png",
+                    "url": postUrl,
+                    "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl }
                 };
+                // Remove any previously injected schema (e.g. on re-load)
+                document.querySelectorAll("script[type='application/ld+json']").forEach(el => el.remove());
                 const schemaEl = document.createElement("script");
                 schemaEl.type = "application/ld+json";
                 schemaEl.textContent = JSON.stringify(schema);

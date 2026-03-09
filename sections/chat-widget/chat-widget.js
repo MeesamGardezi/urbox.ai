@@ -92,10 +92,27 @@ function openChat() {
 }
 
 // ── Presence System ──────────────────────────────────────────
-function updatePresence() {
+let userIpAddress = null;
+
+async function fetchUserIp() {
+    if (userIpAddress) return userIpAddress;
     try {
+        const res = await fetch("https://api.ipify.org?format=json");
+        const data = await res.json();
+        userIpAddress = data.ip;
+        return userIpAddress;
+    } catch (e) {
+        console.warn("Could not fetch IP", e);
+        return "Unknown IP";
+    }
+}
+
+async function updatePresence() {
+    try {
+        const ip = await fetchUserIp();
         setDoc(doc(db, "landing_chat_presence", SESSION_USER_ID), {
-            lastActive: Date.now()
+            lastActive: Date.now(),
+            ipAddress: ip
         }, { merge: true });
     } catch (e) { console.warn(e); }
 }
