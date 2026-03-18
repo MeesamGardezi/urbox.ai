@@ -1,7 +1,7 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, '.env') });
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 const nodemailer = require("nodemailer");
 const Imap = require("imap");
 const { simpleParser } = require("mailparser");
@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Serve static frontend with caching disabled for instant updates
-const frontendPath = path.join(__dirname, "../frontend");
+const frontendPath = path.join(__dirname, "..");
 app.use(express.static(frontendPath, {
     setHeaders: (res, path) => {
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -205,11 +205,13 @@ const blogController = require('./controllers/blogController');
 app.get('/sitemap.xml', blogController.getSitemap);
 
 // Admin panel and any other non-migrated paths
+app.use('/admin', express.static(path.join(__dirname, '../admin')));
+
 app.use((req, res, next) => {
-    if (req.path.startsWith('/api') || req.path.startsWith('/blog/')) {
+    if (req.path.startsWith('/api') || req.path.startsWith('/blog/') || req.path.startsWith('/admin')) {
         return next();
     }
-    res.sendFile(path.join(frontendPath, "index.html"));
+    res.status(404).send("Page Not Found");
 });
 
 // Start Server
