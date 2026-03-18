@@ -1,14 +1,15 @@
+require('dotenv').config();
 const { initializeApp } = require('firebase/app');
 const { getFirestore, collection, query, where, getDocs, limit } = require('firebase/firestore');
 
 // Use the same public configuration as the frontend
 const firebaseConfig = {
-    apiKey: "AIzaSyA5ySkqiSTi19lHTSt8bhFzypfgqVtaSss",
-    authDomain: "urbox-1.firebaseapp.com",
-    projectId: "urbox-1",
-    storageBucket: "urbox-1.firebasestorage.app",
-    messagingSenderId: "897703212804",
-    appId: "1:897703212804:web:37ad9da2d61544c2ce0251",
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

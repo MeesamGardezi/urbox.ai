@@ -8,12 +8,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA5ySkqiSTi19lHTSt8bhFzypfgqVtaSss",
-    authDomain: "urbox-1.firebaseapp.com",
-    projectId: "urbox-1",
-    storageBucket: "urbox-1.firebasestorage.app",
-    messagingSenderId: "897703212804",
-    appId: "1:897703212804:web:37ad9da2d61544c2ce0251"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
