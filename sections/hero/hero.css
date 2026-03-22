@@ -211,12 +211,12 @@
     width: 520px;
     height: 520px;
     animation: fadeUp 0.8s 0.2s ease both;
-    background: radial-gradient(ellipse at center, #0F1729 0%, #0A0F1E 100%);
+    background: radial-gradient(ellipse at center, #1E293B 0%, #1A2332 100%);
     border-radius: 32px;
-    border: 1px solid rgba(59, 154, 255, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.12);
     box-shadow:
-        0 4px 40px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        0 4px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Decorative orbit rings */
@@ -290,12 +290,12 @@
     position: relative;
     width: 110px;
     height: 110px;
-    background: linear-gradient(145deg, #151E35, #111827);
+    background: linear-gradient(145deg, #263348, #1E293B);
     border-radius: 28px;
-    border: 1px solid rgba(59, 154, 255, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.15);
     box-shadow:
-        0 0 30px rgba(59, 154, 255, 0.12),
-        0 8px 32px rgba(0, 0, 0, 0.4);
+        0 0 30px rgba(59, 154, 255, 0.10),
+        0 8px 32px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -355,8 +355,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(145deg, #151E35, #111827);
-    border: 1.5px solid rgba(59, 154, 255, 0.10);
+    background: linear-gradient(145deg, #263348, #1E293B);
+    border: 1.5px solid rgba(148, 163, 184, 0.12);
     border-radius: 14px;
     padding: 10px 16px;
     font-size: 13px;
@@ -364,8 +364,8 @@
     color: #CBD5E1;
     white-space: nowrap;
     box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        0 4px 16px rgba(0, 0, 0, 0.2);
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        0 4px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
 }
@@ -456,20 +456,20 @@
 
 @keyframes borderFlashDark {
     0%, 100% {
-        border-color: rgba(59, 154, 255, 0.10);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2);
+        border-color: rgba(148, 163, 184, 0.12);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
     }
     55% {
-        border-color: rgba(91, 181, 255, 0.55);
-        box-shadow: 0 0 16px rgba(59, 154, 255, 0.25), 0 0 32px rgba(59, 154, 255, 0.10), 0 4px 16px rgba(0, 0, 0, 0.2);
+        border-color: rgba(91, 181, 255, 0.45);
+        box-shadow: 0 0 14px rgba(59, 154, 255, 0.18), 0 0 28px rgba(59, 154, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.1);
     }
 }
 
 .orbit-node:hover {
     transform: translateY(-3px);
     box-shadow:
-        0 0 20px rgba(59, 154, 255, 0.20),
-        0 8px 32px rgba(0, 0, 0, 0.3) !important;
+        0 0 20px rgba(59, 154, 255, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.15) !important;
     border-color: rgba(91, 181, 255, 0.5) !important;
 }
 
