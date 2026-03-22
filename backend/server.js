@@ -89,11 +89,13 @@ function fetchEmails() {
 
                 const messages = [];
                 let parsedCount = 0;
+                let messageCount = 0;
                 let fetchComplete = false;
 
                 fetch.on("message", (msg) => {
+                    messageCount++;
                     msg.on("body", (stream) => {
-                        simpleParser(stream, async (err, parsed) => {
+                        simpleParser(stream, (err, parsed) => {
                             if (!err) {
                                 messages.push({
                                     id: parsed.messageId,
@@ -122,10 +124,7 @@ function fetchEmails() {
                 });
 
                 function checkDone() {
-                    // Start relative calculation if fetch has completed streaming
-                    if (fetchComplete) {
-                        // All emitted messages have been processed by simpleParser
-                        // We sort them descending by date
+                    if (fetchComplete && parsedCount === messageCount) {
                         messages.sort((a, b) => new Date(b.date) - new Date(a.date));
                         imap.end();
                         resolve(messages);
