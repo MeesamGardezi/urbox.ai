@@ -1,5 +1,5 @@
 /* ============================================================
-   HERO — Split layout with feature orbit
+   HERO — Premium split layout with feature orbit
    ============================================================ */
 .hero {
     min-height: auto;
@@ -7,14 +7,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 120px 5% 80px;
+    padding: 130px 5% 90px;
     position: relative;
     overflow: hidden;
 }
 
 @media (max-width: 600px) {
     .hero {
-        padding: 90px 5% 60px;
+        padding: 100px 5% 60px;
     }
 }
 
@@ -28,19 +28,19 @@
 
 .hero-glow-1 {
     top: -8%;
-    left: 30%;
+    left: 25%;
     transform: translateX(-50%);
     width: 900px;
     height: 600px;
-    background: radial-gradient(ellipse at center, rgba(43, 142, 240, 0.10) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(43, 142, 240, 0.08) 0%, transparent 70%);
 }
 
 .hero-glow-2 {
-    bottom: 5%;
-    right: -5%;
-    width: 500px;
-    height: 400px;
-    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+    bottom: 0;
+    right: 5%;
+    width: 600px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
 }
 
 .hero > * {
@@ -52,7 +52,7 @@
 .hero-split {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 80px;
     width: 100%;
     max-width: 1200px;
 }
@@ -64,7 +64,7 @@
 }
 
 .hero-right {
-    flex: 0 0 460px;
+    flex: 0 0 520px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,13 +76,13 @@
     align-items: center;
     gap: 7px;
     background: var(--primary-subtle);
-    border: 1px solid rgba(43, 142, 240, 0.22);
+    border: 1px solid rgba(43, 142, 240, 0.18);
     border-radius: 100px;
-    padding: 5px 14px;
-    font-size: 12px;
+    padding: 6px 16px;
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--primary-dark);
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-bottom: 28px;
     animation: fadeUp 0.6s ease both;
@@ -98,12 +98,12 @@
 
 /* ── Heading ── */
 .hero h1 {
-    font-size: clamp(32px, 5vw, 62px);
+    font-size: clamp(32px, 4.5vw, 58px);
     color: var(--midnight);
     line-height: 1.08;
-    letter-spacing: -1px;
-    max-width: 600px;
-    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+    max-width: 560px;
+    margin-bottom: 22px;
     animation: fadeUp 0.6s 0.1s ease both;
 }
 
@@ -114,11 +114,11 @@
 
 /* ── Subheading ── */
 .hero-sub {
-    font-size: clamp(15px, 1.8vw, 18px);
+    font-size: clamp(15px, 1.6vw, 17px);
     font-weight: 400;
     color: var(--muted);
-    line-height: 1.65;
-    max-width: 480px;
+    line-height: 1.7;
+    max-width: 440px;
     margin-bottom: 36px;
     animation: fadeUp 0.6s 0.2s ease both;
 }
@@ -127,7 +127,7 @@
 .hero-ctas {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
     margin-bottom: 32px;
     animation: fadeUp 0.6s 0.3s ease both;
@@ -135,7 +135,7 @@
 
 .btn-hero {
     font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: white;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -147,18 +147,18 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 4px 20px rgba(43, 142, 240, 0.32);
+    box-shadow: 0 4px 20px rgba(43, 142, 240, 0.28);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-hero:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(43, 142, 240, 0.44);
+    box-shadow: 0 8px 28px rgba(43, 142, 240, 0.40);
 }
 
 .btn-hero-ghost {
     font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--slate);
     background: white;
@@ -204,17 +204,43 @@
 }
 
 /* ============================================================
-   ORBIT DIAGRAM
+   ORBIT DIAGRAM — Premium
    ============================================================ */
 .orbit-container {
     position: relative;
-    width: 460px;
-    height: 460px;
-    animation: fadeUp 0.8s 0.3s ease both;
+    width: 520px;
+    height: 520px;
+    animation: fadeUp 0.8s 0.2s ease both;
 }
 
-/* SVG arrows layer */
-.orbit-arrows {
+/* Decorative orbit rings */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(43, 142, 240, 0.06);
+    pointer-events: none;
+}
+
+.orbit-ring-1 {
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-ring-2 {
+    top: 50%;
+    left: 50%;
+    width: 440px;
+    height: 440px;
+    transform: translate(-50%, -50%);
+    border-style: dashed;
+    border-color: rgba(43, 142, 240, 0.04);
+}
+
+/* SVG connection lines */
+.orbit-lines {
     position: absolute;
     top: 0;
     left: 0;
@@ -224,34 +250,53 @@
     z-index: 0;
 }
 
-/* Center logo */
+/* ── Center logo ── */
 .orbit-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
+    z-index: 3;
+}
+
+.orbit-center-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(43, 142, 240, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.orbit-center-inner {
+    position: relative;
+    width: 110px;
+    height: 110px;
     background: white;
-    border-radius: 24px;
-    box-shadow: 0 8px 40px rgba(43, 142, 240, 0.18), 0 0 0 1px rgba(43, 142, 240, 0.08);
+    border-radius: 28px;
+    box-shadow:
+        0 0 0 1px rgba(43, 142, 240, 0.08),
+        0 8px 32px rgba(43, 142, 240, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    z-index: 2;
+    gap: 6px;
 }
 
-.orbit-center img {
-    width: 42px;
-    height: 42px;
+.orbit-center-inner img {
+    width: 44px;
+    height: 44px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .orbit-center-label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--midnight);
     letter-spacing: -0.3px;
@@ -261,93 +306,168 @@
     color: var(--primary);
 }
 
-/* Feature nodes */
+/* ── Feature nodes — base ── */
 .orbit-node {
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 14px;
     padding: 10px 16px;
     font-size: 13px;
     font-weight: 600;
     color: var(--slate);
     white-space: nowrap;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        0 4px 16px rgba(0, 0, 0, 0.03);
     z-index: 1;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
 }
 
 .orbit-node:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(43, 142, 240, 0.14);
-    border-color: var(--primary);
+    transform: translateY(-3px) !important;
+    box-shadow:
+        0 4px 12px rgba(43, 142, 240, 0.10),
+        0 12px 32px rgba(43, 142, 240, 0.08);
+    border-color: rgba(43, 142, 240, 0.25);
 }
 
 .orbit-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background: var(--primary-subtle);
-    border-radius: 8px;
+    border-radius: 9px;
     color: var(--primary);
     flex-shrink: 0;
 }
 
-/* Position each node around the center (6 positions like a clock) */
-/* 1: Shared Inbox — top center */
+/* ── PRIMARY nodes (Shared Inbox, WhatsApp) — larger ── */
+.orbit-node-primary {
+    padding: 14px 20px;
+    border-radius: 16px;
+    gap: 12px;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.orbit-icon-lg {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+}
+
+.orbit-node-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.orbit-node-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: -0.2px;
+}
+
+.orbit-node-desc {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0;
+}
+
+/* ── Float animations ── */
+@keyframes floatA {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+@keyframes floatB {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ── Positions ── */
+/* 1: Shared Inbox — top-left (PRIMARY) */
 .orbit-node-1 {
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: fadeUp 0.5s 0.4s ease both;
+    top: 45px;
+    left: 20px;
+    animation: fadeUp 0.5s 0.35s ease both, floatA 6s 1.5s ease-in-out infinite;
 }
-.orbit-node-1:hover { transform: translateX(-50%) translateY(-2px); }
 
-/* 2: Email — top right */
+/* 2: WhatsApp — top-right (PRIMARY) */
 .orbit-node-2 {
-    top: 110px;
-    right: 0;
-    animation: fadeUp 0.5s 0.5s ease both;
+    top: 30px;
+    right: 10px;
+    animation: fadeUp 0.5s 0.45s ease both, floatB 7s 2s ease-in-out infinite;
 }
 
-/* 3: WhatsApp — bottom right */
+/* 3: Email — right */
 .orbit-node-3 {
-    bottom: 100px;
-    right: 0;
-    animation: fadeUp 0.5s 0.6s ease both;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    animation: fadeUp 0.5s 0.55s ease both, floatA 5.5s 1.8s ease-in-out infinite;
 }
 
-/* 4: Live Chat — bottom center */
+/* 4: Live Chat — bottom-right */
 .orbit-node-4 {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: fadeUp 0.5s 0.7s ease both;
+    bottom: 50px;
+    right: 40px;
+    animation: fadeUp 0.5s 0.65s ease both, floatB 6.5s 2.2s ease-in-out infinite;
 }
-.orbit-node-4:hover { transform: translateX(-50%) translateY(-2px); }
 
-/* 5: AI Replies — bottom left */
+/* 5: AI Replies — bottom-left */
 .orbit-node-5 {
-    bottom: 100px;
-    left: 0;
-    animation: fadeUp 0.5s 0.8s ease both;
+    bottom: 40px;
+    left: 20px;
+    animation: fadeUp 0.5s 0.75s ease both, floatA 7s 1.6s ease-in-out infinite;
 }
 
-/* 6: Team Chat — top left */
+/* 6: Team Chat — left */
 .orbit-node-6 {
-    top: 110px;
+    top: 50%;
     left: 0;
-    animation: fadeUp 0.5s 0.9s ease both;
+    transform: translateY(-50%);
+    animation: fadeUp 0.5s 0.85s ease both, floatB 6s 2.4s ease-in-out infinite;
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1060px) {
+    .hero-split {
+        gap: 40px;
+    }
+
+    .hero-right {
+        flex: 0 0 420px;
+    }
+
+    .orbit-container {
+        width: 420px;
+        height: 420px;
+    }
+
+    .orbit-ring-1 { width: 220px; height: 220px; }
+    .orbit-ring-2 { width: 360px; height: 360px; }
+
+    .orbit-center-inner {
+        width: 90px;
+        height: 90px;
+        border-radius: 22px;
+    }
+
+    .orbit-center-inner img { width: 36px; height: 36px; }
+    .orbit-center-label { font-size: 12px; }
+}
+
 @media (max-width: 960px) {
     .hero-split {
         flex-direction: column;
@@ -372,63 +492,71 @@
     .hero-right {
         flex: none;
         width: 100%;
-        max-width: 460px;
+        max-width: 520px;
     }
 }
 
 @media (max-width: 520px) {
     .hero-right {
-        max-width: 340px;
+        max-width: 360px;
     }
 
     .orbit-container {
-        width: 340px;
-        height: 340px;
+        width: 360px;
+        height: 360px;
     }
 
-    .orbit-center {
-        width: 80px;
-        height: 80px;
+    .orbit-ring-1 { width: 180px; height: 180px; }
+    .orbit-ring-2 { width: 300px; height: 300px; }
+
+    .orbit-center-inner {
+        width: 76px;
+        height: 76px;
         border-radius: 18px;
     }
 
-    .orbit-center img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .orbit-center-label {
-        font-size: 11px;
-    }
+    .orbit-center-inner img { width: 30px; height: 30px; }
+    .orbit-center-label { font-size: 11px; }
+    .orbit-center-glow { width: 120px; height: 120px; }
 
     .orbit-node {
-        padding: 7px 10px;
+        padding: 7px 11px;
         font-size: 11px;
-        gap: 5px;
-        border-radius: 9px;
+        gap: 6px;
+        border-radius: 10px;
     }
 
     .orbit-icon {
-        width: 24px;
-        height: 24px;
-        border-radius: 6px;
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
     }
 
-    .orbit-icon svg {
-        width: 14px;
-        height: 14px;
+    .orbit-icon svg { width: 13px; height: 13px; }
+
+    .orbit-node-primary {
+        padding: 9px 13px;
+        gap: 8px;
     }
 
-    .orbit-node-1 { top: 10px; }
-    .orbit-node-2 { top: 70px; right: -5px; }
-    .orbit-node-3 { bottom: 60px; right: -5px; }
-    .orbit-node-4 { bottom: 0; }
-    .orbit-node-5 { bottom: 60px; left: -5px; }
-    .orbit-node-6 { top: 70px; left: -5px; }
-
-    .orbit-arrows {
-        display: none;
+    .orbit-icon-lg {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
     }
+
+    .orbit-icon-lg svg { width: 17px; height: 17px; }
+    .orbit-node-title { font-size: 12px; }
+    .orbit-node-desc { font-size: 10px; }
+
+    .orbit-node-1 { top: 15px; left: 5px; }
+    .orbit-node-2 { top: 10px; right: -5px; }
+    .orbit-node-3 { right: -10px; }
+    .orbit-node-4 { bottom: 20px; right: 15px; }
+    .orbit-node-5 { bottom: 15px; left: 0; }
+    .orbit-node-6 { left: -10px; }
+
+    .orbit-lines { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -507,11 +635,6 @@
 
 /* ── Banner scroll animation (used in mock.css) ── */
 @keyframes bannerScroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }

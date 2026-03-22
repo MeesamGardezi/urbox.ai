@@ -232,74 +232,88 @@
           <!-- RIGHT: Feature orbit -->
           <div class="hero-right">
             <div class="orbit-container">
-              <!-- SVG arrows connecting features to center -->
-              <svg class="orbit-arrows" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Shared Inbox (top) to center -->
-                <path d="M230 80 L230 175" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- Email (top-right) to center -->
-                <path d="M370 130 L280 190" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- WhatsApp (bottom-right) to center -->
-                <path d="M390 310 L285 265" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- Live Chat (bottom) to center -->
-                <path d="M230 400 L230 290" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- AI Replies (bottom-left) to center -->
-                <path d="M70 310 L175 265" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
-                <!-- Team Chat (top-left) to center -->
-                <path d="M90 130 L180 190" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4">
-                  <animate attributeName="stroke-dashoffset" from="20" to="0" dur="2s" repeatCount="indefinite"/>
-                </path>
+              <!-- Decorative orbit rings -->
+              <div class="orbit-ring orbit-ring-1"></div>
+              <div class="orbit-ring orbit-ring-2"></div>
+
+              <!-- SVG connection lines -->
+              <svg class="orbit-lines" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.08"/>
+                    <stop offset="50%" stop-color="#2B8EF0" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#2B8EF0" stop-opacity="0.08"/>
+                  </linearGradient>
+                </defs>
+                <!-- Shared Inbox (top-left) -->
+                <line x1="155" y1="108" x2="225" y2="215" stroke="url(#line-grad)" stroke-width="1.5"/>
+                <!-- WhatsApp (top-right) -->
+                <line x1="380" y1="95" x2="295" y2="210" stroke="url(#line-grad)" stroke-width="1.5"/>
+                <!-- Email (right) -->
+                <line x1="420" y1="270" x2="305" y2="260" stroke="url(#line-grad)" stroke-width="1.5"/>
+                <!-- Live Chat (bottom-right) -->
+                <line x1="395" y1="415" x2="290" y2="300" stroke="url(#line-grad)" stroke-width="1.5"/>
+                <!-- AI Replies (bottom-left) -->
+                <line x1="120" y1="400" x2="225" y2="300" stroke="url(#line-grad)" stroke-width="1.5"/>
+                <!-- Team Chat (left) -->
+                <line x1="85" y1="265" x2="215" y2="260" stroke="url(#line-grad)" stroke-width="1.5"/>
               </svg>
 
               <!-- Center: Logo -->
               <div class="orbit-center">
-                <img src="/logo.png" alt="urbox.ai" />
-                <span class="orbit-center-label">urbox<span>.ai</span></span>
+                <div class="orbit-center-glow"></div>
+                <div class="orbit-center-inner">
+                  <img src="/logo.png" alt="urbox.ai" />
+                  <span class="orbit-center-label">urbox<span>.ai</span></span>
+                </div>
               </div>
 
-              <!-- Orbiting feature nodes -->
-              <div class="orbit-node orbit-node-1">
-                <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><path d="M6 12h4"/></svg>
+              <!-- PRIMARY features (larger) -->
+              <div class="orbit-node orbit-node-primary orbit-node-1">
+                <div class="orbit-icon orbit-icon-lg">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><path d="M6 12h4"/><path d="M6 16h8"/></svg>
                 </div>
-                <span>Shared Inbox</span>
+                <div class="orbit-node-text">
+                  <span class="orbit-node-title">Shared Inbox</span>
+                  <span class="orbit-node-desc">One inbox for everyone</span>
+                </div>
               </div>
-              <div class="orbit-node orbit-node-2">
+
+              <div class="orbit-node orbit-node-primary orbit-node-2">
+                <div class="orbit-icon orbit-icon-lg" style="background: #ECFDF5; color: #059669;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10h.01"/><path d="M12 10h.01"/><path d="M15 10h.01"/></svg>
+                </div>
+                <div class="orbit-node-text">
+                  <span class="orbit-node-title">WhatsApp</span>
+                  <span class="orbit-node-desc">Business messaging</span>
+                </div>
+              </div>
+
+              <!-- SECONDARY features (standard) -->
+              <div class="orbit-node orbit-node-3">
                 <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <span>Email</span>
               </div>
-              <div class="orbit-node orbit-node-3">
-                <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/></svg>
-                </div>
-                <span>WhatsApp</span>
-              </div>
+
               <div class="orbit-node orbit-node-4">
                 <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
                 <span>Live Chat</span>
               </div>
+
               <div class="orbit-node orbit-node-5">
-                <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10h16V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
+                <div class="orbit-icon" style="background: #F5F3FF; color: #7C3AED;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6 2 10.5c0 2.5 1.5 4.7 3.7 6.2L4 22l4.3-2.5c1.2.3 2.4.5 3.7.5 5.52 0 10-4 10-8.5S17.52 2 12 2z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
                 </div>
                 <span>AI Replies</span>
               </div>
+
               <div class="orbit-node orbit-node-6">
                 <div class="orbit-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <span>Team Chat</span>
               </div>
