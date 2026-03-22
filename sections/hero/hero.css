@@ -204,20 +204,26 @@
 }
 
 /* ============================================================
-   ORBIT DIAGRAM — Premium
+   ORBIT DIAGRAM — Dark Premium
    ============================================================ */
 .orbit-container {
     position: relative;
     width: 520px;
     height: 520px;
     animation: fadeUp 0.8s 0.2s ease both;
+    background: radial-gradient(ellipse at center, #0F1729 0%, #0A0F1E 100%);
+    border-radius: 32px;
+    border: 1px solid rgba(59, 154, 255, 0.08);
+    box-shadow:
+        0 4px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Decorative orbit rings */
 .orbit-ring {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(43, 142, 240, 0.06);
+    border: 1px solid rgba(59, 154, 255, 0.07);
     pointer-events: none;
 }
 
@@ -236,7 +242,7 @@
     height: 440px;
     transform: translate(-50%, -50%);
     border-style: dashed;
-    border-color: rgba(43, 142, 240, 0.04);
+    border-color: rgba(59, 154, 255, 0.04);
 }
 
 /* SVG connection lines */
@@ -264,32 +270,32 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(43, 142, 240, 0.12) 0%, rgba(43, 142, 240, 0.04) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 154, 255, 0.18) 0%, rgba(59, 154, 255, 0.05) 40%, transparent 70%);
     pointer-events: none;
     animation: heartbeatGlow 2s ease-in-out infinite;
 }
 
 @keyframes heartbeatGlow {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    15% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
-    30% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.85; }
-    45% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-    60% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    15% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    30% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
+    45% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+    60% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
 }
 
 .orbit-center-inner {
     position: relative;
     width: 110px;
     height: 110px;
-    background: white;
+    background: linear-gradient(145deg, #151E35, #111827);
     border-radius: 28px;
+    border: 1px solid rgba(59, 154, 255, 0.15);
     box-shadow:
-        0 0 0 1px rgba(43, 142, 240, 0.10),
-        0 8px 32px rgba(43, 142, 240, 0.15),
-        0 2px 8px rgba(0, 0, 0, 0.04);
+        0 0 30px rgba(59, 154, 255, 0.12),
+        0 8px 32px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -316,17 +322,17 @@
 .orbit-center-label {
     font-size: 14px;
     font-weight: 700;
-    color: var(--midnight);
+    color: #E2E8F0;
     letter-spacing: -0.3px;
 }
 
 .orbit-center-label span {
-    color: var(--primary);
+    color: #5BB5FF;
 }
 
 /* ── Blood pump animations on lines ── */
 .pump {
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 @keyframes pumpFlow1 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -140; } }
@@ -343,23 +349,23 @@
 .pump-5 { animation: pumpFlow5 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.25s; }
 .pump-6 { animation: pumpFlow6 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.2s; }
 
-/* ── Feature nodes — base ── */
+/* ── Feature nodes — dark base ── */
 .orbit-node {
     position: absolute;
     display: flex;
     align-items: center;
     gap: 10px;
-    background: white;
-    border: 2px solid rgba(226, 232, 240, 0.8);
+    background: linear-gradient(145deg, #151E35, #111827);
+    border: 1.5px solid rgba(59, 154, 255, 0.10);
     border-radius: 14px;
     padding: 10px 16px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--slate);
+    color: #CBD5E1;
     white-space: nowrap;
     box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.04),
-        0 4px 16px rgba(0, 0, 0, 0.03);
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
 }
@@ -373,23 +379,23 @@
     width: 140%;
     height: 130%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(ellipse at center, rgba(43, 142, 240, 0.12) 0%, rgba(43, 142, 240, 0.03) 55%, transparent 75%);
+    background: radial-gradient(ellipse at center, rgba(59, 154, 255, 0.15) 0%, rgba(59, 154, 255, 0.04) 50%, transparent 75%);
     z-index: -1;
     pointer-events: none;
-    filter: blur(2px);
+    filter: blur(4px);
 }
 
 /* Each card gets a different puddle shape */
 .orbit-node-1::before {
     border-radius: 45% 55% 60% 40% / 50% 42% 58% 50%;
-    width: 150%;
-    height: 145%;
+    width: 155%;
+    height: 150%;
     animation: puddleA 2s ease-in-out infinite;
 }
 .orbit-node-2::before {
     border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
-    width: 150%;
-    height: 145%;
+    width: 155%;
+    height: 150%;
     animation: puddleB 2.2s ease-in-out infinite;
     animation-delay: 0.15s;
 }
@@ -414,57 +420,57 @@
     animation-delay: 0.2s;
 }
 
-/* Each puddle morphs into a different shape */
+/* Each puddle morphs between two organic shapes */
 @keyframes puddleA {
-    0%, 100% { border-radius: 45% 55% 60% 40% / 50% 42% 58% 50%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 55% 45% 40% 60% / 42% 58% 50% 50%; opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+    0%, 100% { border-radius: 45% 55% 60% 40% / 50% 42% 58% 50%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 55% 45% 40% 60% / 42% 58% 50% 50%; opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
 }
 @keyframes puddleB {
-    0%, 100% { border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%; opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+    0%, 100% { border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%; opacity: 1; transform: translate(-50%, -50%) scale(1.18); }
 }
 @keyframes puddleC {
-    0%, 100% { border-radius: 40% 60% 55% 45% / 60% 40% 50% 50%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 60% 40% 45% 55% / 40% 60% 50% 50%; opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    0%, 100% { border-radius: 40% 60% 55% 45% / 60% 40% 50% 50%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 60% 40% 45% 55% / 40% 60% 50% 50%; opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
 }
 @keyframes puddleD {
-    0%, 100% { border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 40% 60% 50% 50% / 45% 55% 40% 60%; opacity: 1; transform: translate(-50%, -50%) scale(1.13); }
+    0%, 100% { border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 40% 60% 50% 50% / 45% 55% 40% 60%; opacity: 1; transform: translate(-50%, -50%) scale(1.14); }
 }
 @keyframes puddleE {
-    0%, 100% { border-radius: 60% 40% 50% 50% / 40% 60% 45% 55%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 50% 50% 60% 40% / 60% 40% 55% 45%; opacity: 1; transform: translate(-50%, -50%) scale(1.11); }
+    0%, 100% { border-radius: 60% 40% 50% 50% / 40% 60% 45% 55%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 50% 50% 60% 40% / 60% 40% 55% 45%; opacity: 1; transform: translate(-50%, -50%) scale(1.13); }
 }
 @keyframes puddleF {
-    0%, 100% { border-radius: 42% 58% 45% 55% / 55% 45% 52% 48%; opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { border-radius: 58% 42% 55% 45% / 45% 55% 48% 52%; opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+    0%, 100% { border-radius: 42% 58% 45% 55% / 55% 45% 52% 48%; opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { border-radius: 58% 42% 55% 45% / 45% 55% 48% 52%; opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
 }
 
-/* Border color pulse — card lights up when "receiving" juice */
-.orbit-node-1 { animation: fadeUp 0.5s 0.35s ease both, borderFlash 1.4s ease-in-out infinite; }
-.orbit-node-2 { animation: fadeUp 0.5s 0.45s ease both, borderFlash 1.6s ease-in-out infinite 0.15s; }
-.orbit-node-3 { animation: fadeUp 0.5s 0.55s ease both, borderFlash 1.3s ease-in-out infinite 0.3s; }
-.orbit-node-4 { animation: fadeUp 0.5s 0.65s ease both, borderFlash 1.5s ease-in-out infinite 0.1s; }
-.orbit-node-5 { animation: fadeUp 0.5s 0.75s ease both, borderFlash 1.5s ease-in-out infinite 0.25s; }
-.orbit-node-6 { animation: fadeUp 0.5s 0.85s ease both, borderFlash 1.4s ease-in-out infinite 0.2s; }
+/* Border color pulse — card lights up blue when "receiving" juice */
+.orbit-node-1 { animation: fadeUp 0.5s 0.35s ease both, borderFlashDark 1.4s ease-in-out infinite; }
+.orbit-node-2 { animation: fadeUp 0.5s 0.45s ease both, borderFlashDark 1.6s ease-in-out infinite 0.15s; }
+.orbit-node-3 { animation: fadeUp 0.5s 0.55s ease both, borderFlashDark 1.3s ease-in-out infinite 0.3s; }
+.orbit-node-4 { animation: fadeUp 0.5s 0.65s ease both, borderFlashDark 1.5s ease-in-out infinite 0.1s; }
+.orbit-node-5 { animation: fadeUp 0.5s 0.75s ease both, borderFlashDark 1.5s ease-in-out infinite 0.25s; }
+.orbit-node-6 { animation: fadeUp 0.5s 0.85s ease both, borderFlashDark 1.4s ease-in-out infinite 0.2s; }
 
-@keyframes borderFlash {
+@keyframes borderFlashDark {
     0%, 100% {
-        border-color: rgba(226, 232, 240, 0.8);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.03);
+        border-color: rgba(59, 154, 255, 0.10);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2);
     }
     55% {
-        border-color: rgba(43, 142, 240, 0.5);
-        box-shadow: 0 0 12px rgba(43, 142, 240, 0.15), 0 4px 20px rgba(43, 142, 240, 0.10);
+        border-color: rgba(91, 181, 255, 0.55);
+        box-shadow: 0 0 16px rgba(59, 154, 255, 0.25), 0 0 32px rgba(59, 154, 255, 0.10), 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 }
 
 .orbit-node:hover {
     transform: translateY(-3px);
     box-shadow:
-        0 4px 12px rgba(43, 142, 240, 0.10),
-        0 12px 32px rgba(43, 142, 240, 0.08) !important;
-    border-color: rgba(43, 142, 240, 0.4) !important;
+        0 0 20px rgba(59, 154, 255, 0.20),
+        0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(91, 181, 255, 0.5) !important;
 }
 
 .orbit-icon {
@@ -473,9 +479,9 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--primary-subtle);
+    background: rgba(59, 154, 255, 0.12);
     border-radius: 9px;
-    color: var(--primary);
+    color: #5BB5FF;
     flex-shrink: 0;
 }
 
@@ -484,9 +490,6 @@
     padding: 14px 20px;
     border-radius: 16px;
     gap: 12px;
-    box-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.04),
-        0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .orbit-icon-lg {
@@ -504,14 +507,14 @@
 .orbit-node-title {
     font-size: 14px;
     font-weight: 700;
-    color: var(--midnight);
+    color: #F1F5F9;
     letter-spacing: -0.2px;
 }
 
 .orbit-node-desc {
     font-size: 11.5px;
     font-weight: 400;
-    color: var(--muted);
+    color: #64748B;
     letter-spacing: 0;
 }
 
