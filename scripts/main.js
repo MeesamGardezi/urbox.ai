@@ -57,7 +57,23 @@
     chatScript.src = "sections/chat-widget/chat-widget.js";
     document.body.appendChild(chatScript);
 
-    // ── 4. Smooth Scrolling (no hash in URL) ─────────────────
+    // ── 4. Hero card → scroll to mockup + switch tab ─────────
+    document.querySelectorAll('.hero-card[data-scroll-panel]').forEach(card => {
+        card.addEventListener('click', () => {
+            const panelId = card.dataset.scrollPanel;
+            const mockup = document.getElementById('heroMockup');
+            if (mockup) {
+                mockup.scrollIntoView({ behavior: 'smooth' });
+            }
+            // Switch the mockup tab after a short delay for scroll
+            setTimeout(() => {
+                const sidebarItem = document.querySelector(`.ms-item[data-panel="${panelId}"]`);
+                if (sidebarItem) sidebarItem.click();
+            }, 400);
+        });
+    });
+
+    // ── 5. Smooth Scrolling (no hash in URL) ─────────────────
     document.body.addEventListener("click", (e) => {
         const link = e.target.closest("a[href^='#']");
         if (link) {
