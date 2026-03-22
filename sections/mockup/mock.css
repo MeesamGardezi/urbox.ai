@@ -81,8 +81,8 @@
    ============================================================ */
 .sidebar-pointer {
     position: absolute;
-    left: -110px;
-    top: 85px;
+    left: 8px;
+    top: 70px;
     width: 140px;
     height: 64px;
     z-index: 100;
@@ -199,7 +199,8 @@
 
 @media (max-width: 960px) {
     .sidebar-pointer {
-        display: none;
+        left: 4px;
+        top: 60px;
     }
 }
 

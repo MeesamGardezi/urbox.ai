@@ -63,7 +63,8 @@
             const panelId = card.dataset.scrollPanel;
             const mockup = document.getElementById('heroMockup');
             if (mockup) {
-                mockup.scrollIntoView({ behavior: 'smooth' });
+                const y = mockup.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
             // Switch the mockup tab after a short delay for scroll
             setTimeout(() => {
