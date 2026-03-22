@@ -240,7 +240,7 @@
               <svg class="orbit-lines" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <filter id="pipe-glow" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
                     <feMerge>
                       <feMergeNode in="blur"/>
                       <feMergeNode in="SourceGraphic"/>
@@ -248,33 +248,26 @@
                   </filter>
                 </defs>
 
-                <!-- Thick base pipes (always visible, dim arteries) -->
+                <!-- Base pipes — all 155px radius from center (260,260) -->
                 <g class="orbit-pipes-base">
-                  <line x1="230" y1="220" x2="155" y2="108" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="290" y1="215" x2="380" y2="95"  stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="305" y1="260" x2="420" y2="270" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="290" y1="300" x2="395" y2="415" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="225" y1="300" x2="120" y2="400" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="215" y1="260" x2="85"  y2="265" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
-                  <line x1="260" y1="315" x2="260" y2="455" stroke="#3B9AFF" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="260" y2="105" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="381" y2="163" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="411" y2="295" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="327" y2="400" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="193" y2="400" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="109" y2="295" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
+                  <line x1="260" y1="260" x2="139" y2="163" stroke="#3B9AFF" stroke-opacity="0.10" stroke-width="5" stroke-linecap="round"/>
                 </g>
 
-                <!-- Blood pump boluses — wide bright chunks traveling along each pipe -->
+                <!-- Blood pump boluses traveling along each pipe -->
                 <g filter="url(#pipe-glow)">
-                  <!-- Pipe 1: to Shared Inbox (len ~140) -->
-                  <line class="pump pump-1" x1="230" y1="220" x2="155" y2="108" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 80"/>
-                  <!-- Pipe 2: to WhatsApp (len ~150) -->
-                  <line class="pump pump-2" x1="290" y1="215" x2="380" y2="95"  stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="65 85"/>
-                  <!-- Pipe 3: to Calendar (len ~115) -->
-                  <line class="pump pump-3" x1="305" y1="260" x2="420" y2="270" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="50 65"/>
-                  <!-- Pipe 4: to Live Chat (len ~155) -->
-                  <line class="pump pump-4" x1="290" y1="300" x2="395" y2="415" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
-                  <!-- Pipe 5: to AI Replies (len ~140) -->
-                  <line class="pump pump-5" x1="225" y1="300" x2="120" y2="400" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="55 85"/>
-                  <!-- Pipe 6: to Assignments (len ~130) -->
-                  <line class="pump pump-6" x1="215" y1="260" x2="85"  y2="265" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="50 80"/>
-                  <!-- Pipe 7: to Todo Kanban (len ~140) -->
-                  <line class="pump pump-7" x1="260" y1="315" x2="260" y2="455" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="55 85"/>
+                  <line class="pump pump-1" x1="260" y1="260" x2="260" y2="105" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-2" x1="260" y1="260" x2="381" y2="163" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-3" x1="260" y1="260" x2="411" y2="295" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-4" x1="260" y1="260" x2="327" y2="400" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-5" x1="260" y1="260" x2="193" y2="400" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-6" x1="260" y1="260" x2="109" y2="295" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
+                  <line class="pump pump-7" x1="260" y1="260" x2="139" y2="163" stroke="#5BB5FF" stroke-width="5" stroke-linecap="round" stroke-dasharray="60 95"/>
                 </g>
               </svg>
 
@@ -287,28 +280,24 @@
                 </div>
               </div>
 
-              <!-- PRIMARY features (larger) -->
-              <div class="orbit-node orbit-node-primary orbit-node-1">
-                <div class="orbit-icon orbit-icon-lg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><path d="M6 12h4"/><path d="M6 16h8"/></svg>
+              <!-- 7 nodes — perfect heptagon, all same size -->
+              <!-- N1: top     (-90°) center=(260,105) -->
+              <div class="orbit-node orbit-node-1">
+                <div class="orbit-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><path d="M6 12h4"/><path d="M6 16h8"/></svg>
                 </div>
-                <div class="orbit-node-text">
-                  <span class="orbit-node-title">Shared Inbox</span>
-                  <span class="orbit-node-desc">One inbox for everyone</span>
-                </div>
+                <span>Shared Inbox</span>
               </div>
 
-              <div class="orbit-node orbit-node-primary orbit-node-2">
-                <div class="orbit-icon orbit-icon-lg" style="background: #ECFDF5; color: #059669;">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10h.01"/><path d="M12 10h.01"/><path d="M15 10h.01"/></svg>
+              <!-- N2: top-right (-38.6°) center=(381,163) -->
+              <div class="orbit-node orbit-node-2">
+                <div class="orbit-icon" style="background:#DCFCE7; color:#16A34A;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10h.01"/><path d="M12 10h.01"/><path d="M15 10h.01"/></svg>
                 </div>
-                <div class="orbit-node-text">
-                  <span class="orbit-node-title">WhatsApp</span>
-                  <span class="orbit-node-desc">Business messaging</span>
-                </div>
+                <span>WhatsApp</span>
               </div>
 
-              <!-- SECONDARY features (standard) -->
+              <!-- N3: right (12.9°) center=(411,295) -->
               <div class="orbit-node orbit-node-3">
                 <div class="orbit-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -316,6 +305,7 @@
                 <span>Calendar</span>
               </div>
 
+              <!-- N4: bottom-right (64.3°) center=(327,400) -->
               <div class="orbit-node orbit-node-4">
                 <div class="orbit-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -323,13 +313,15 @@
                 <span>Live Chat</span>
               </div>
 
+              <!-- N5: bottom-left (115.7°) center=(193,400) -->
               <div class="orbit-node orbit-node-5">
-                <div class="orbit-icon" style="background: #F5F3FF; color: #7C3AED;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6 2 10.5c0 2.5 1.5 4.7 3.7 6.2L4 22l4.3-2.5c1.2.3 2.4.5 3.7.5 5.52 0 10-4 10-8.5S17.52 2 12 2z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
+                <div class="orbit-icon" style="background:#FFF7ED; color:#EA580C;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="18" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
                 </div>
-                <span>AI Replies</span>
+                <span>Todo Kanban</span>
               </div>
 
+              <!-- N6: left (167.1°) center=(109,295) -->
               <div class="orbit-node orbit-node-6">
                 <div class="orbit-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
@@ -337,11 +329,13 @@
                 <span>Assignments</span>
               </div>
 
+              <!-- N7: top-left (218.6°) center=(139,163) -->
               <div class="orbit-node orbit-node-7">
-                <div class="orbit-icon" style="background: #FFF7ED; color: #EA580C;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="6" height="18" rx="1"/><rect x="9" y="3" width="6" height="18" rx="1"/><rect x="16" y="3" width="6" height="18" rx="1"/><line x1="5" y1="7" x2="5" y2="7.01"/><line x1="12" y1="7" x2="12" y2="7.01"/><line x1="19" y1="7" x2="19" y2="7.01"/></svg>
+                <div class="orbit-icon" style="background:#F5F3FF; color:#7C3AED;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6 2 10.5c0 2.5 1.5 4.7 3.7 6.2L4 22l4.3-2.5c1.2.3 2.4.5 3.7.5 5.52 0 10-4 10-8.5S17.52 2 12 2z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
                 </div>
-                <span>Todo Kanban</span>
+                <span>AI Replies</span>
+              </div>
               </div>
             </div>
           </div>

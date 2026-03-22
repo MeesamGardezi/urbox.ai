@@ -209,7 +209,7 @@
 .orbit-container {
     position: relative;
     width: 520px;
-    height: 560px;
+    height: 520px;
     animation: fadeUp 0.8s 0.2s ease both;
 }
 
@@ -329,39 +329,35 @@
     opacity: 0.85;
 }
 
-@keyframes pumpFlow1 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -140; } }
-@keyframes pumpFlow2 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -150; } }
-@keyframes pumpFlow3 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -115; } }
-@keyframes pumpFlow4 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -155; } }
-@keyframes pumpFlow5 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -140; } }
-@keyframes pumpFlow6 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -130; } }
-@keyframes pumpFlow7 { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -140; } }
+/* All pipes are exactly 155px — uniform dashoffset */
+@keyframes pumpFlow { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -155; } }
 
-.pump-1 { animation: pumpFlow1 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.pump-2 { animation: pumpFlow2 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.15s; }
-.pump-3 { animation: pumpFlow3 1.3s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.3s; }
-.pump-4 { animation: pumpFlow4 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.1s; }
-.pump-5 { animation: pumpFlow5 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.25s; }
-.pump-6 { animation: pumpFlow6 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.2s; }
-.pump-7 { animation: pumpFlow7 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.35s; }
+.pump-1 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0s; }
+.pump-2 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.21s; }
+.pump-3 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.43s; }
+.pump-4 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.64s; }
+.pump-5 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.86s; }
+.pump-6 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 1.07s; }
+.pump-7 { animation: pumpFlow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 1.29s; }
 
-/* ── Feature nodes — base ── */
+/* ── Feature nodes — uniform style ── */
 .orbit-node {
     position: absolute;
     display: flex;
     align-items: center;
     gap: 10px;
     background: white;
-    border: 2px solid rgba(226, 232, 240, 0.8);
+    border: 2px solid rgba(226, 232, 240, 0.9);
     border-radius: 14px;
     padding: 10px 16px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--slate);
+    color: var(--midnight);
     white-space: nowrap;
+    min-width: 140px;
     box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.04),
-        0 4px 16px rgba(0, 0, 0, 0.03);
+        0 1px 4px rgba(0, 0, 0, 0.05),
+        0 4px 16px rgba(0, 0, 0, 0.04);
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
 }
@@ -491,50 +487,20 @@
     flex-shrink: 0;
 }
 
-/* ── PRIMARY nodes (Shared Inbox, WhatsApp) — larger ── */
-.orbit-node-primary {
-    padding: 14px 20px;
-    border-radius: 16px;
-    gap: 12px;
-    box-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.04),
-        0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.orbit-icon-lg {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-}
-
-.orbit-node-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.orbit-node-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--midnight);
-    letter-spacing: -0.2px;
-}
-
-.orbit-node-desc {
-    font-size: 11.5px;
-    font-weight: 400;
-    color: var(--muted);
-    letter-spacing: 0;
-}
-
-/* ── Positions ── */
-.orbit-node-1 { top: 45px; left: 20px; }
-.orbit-node-2 { top: 30px; right: 10px; }
-.orbit-node-3 { top: 50%; right: 10px; transform: translateY(-50%); }
-.orbit-node-4 { bottom: 65px; right: 40px; }
-.orbit-node-5 { bottom: 65px; left: 20px; }
-.orbit-node-6 { top: 50%; left: 0; transform: translateY(-50%); }
-.orbit-node-7 { bottom: -10px; left: 50%; transform: translateX(-50%); }
+/* ── Perfect heptagon positions ──
+   Radius 155px from center (260,260), 51.43° apart.
+   Card estimated 155×46px → offset top by 23, left by 78.
+   N1(-90°)=(260,105)  N2(-38.6°)=(381,163) N3(12.9°)=(411,295)
+   N4(64.3°)=(327,400) N5(115.7°)=(193,400) N6(167.1°)=(109,295)
+   N7(218.6°)=(139,163)
+   ── */
+.orbit-node-1 { top:  82px; left: 182px; }
+.orbit-node-2 { top: 140px; left: 303px; }
+.orbit-node-3 { top: 272px; left: 333px; }
+.orbit-node-4 { top: 377px; left: 249px; }
+.orbit-node-5 { top: 377px; left: 115px; }
+.orbit-node-6 { top: 272px; left:  31px; }
+.orbit-node-7 { top: 140px; left:  61px; }
 
 /* ============================================================
    RESPONSIVE
@@ -632,28 +598,20 @@
 
     .orbit-icon svg { width: 13px; height: 13px; }
 
-    .orbit-node-primary {
-        padding: 9px 13px;
-        gap: 8px;
-    }
-
     .orbit-icon-lg {
-        width: 32px;
-        height: 32px;
+        width: 26px;
+        height: 26px;
         border-radius: 9px;
     }
 
-    .orbit-icon-lg svg { width: 17px; height: 17px; }
-    .orbit-node-title { font-size: 12px; }
-    .orbit-node-desc { font-size: 10px; }
-
-    .orbit-node-1 { top: 15px; left: 5px; }
-    .orbit-node-2 { top: 10px; right: -5px; }
-    .orbit-node-3 { right: -10px; }
-    .orbit-node-4 { bottom: 35px; right: 15px; }
-    .orbit-node-5 { bottom: 35px; left: 0; }
-    .orbit-node-6 { left: -10px; }
-    .orbit-node-7 { bottom: -15px; }
+    /* Heptagon positions scaled to 360px container (center=180,180, r=107) */
+    .orbit-node-1 { top:  57px; left: 127px; }
+    .orbit-node-2 { top:  97px; left: 211px; }
+    .orbit-node-3 { top: 188px; left: 231px; }
+    .orbit-node-4 { top: 260px; left: 173px; }
+    .orbit-node-5 { top: 260px; left:  81px; }
+    .orbit-node-6 { top: 188px; left:  23px; }
+    .orbit-node-7 { top:  97px; left:  43px; }
 
     .orbit-lines { display: none; }
 }
