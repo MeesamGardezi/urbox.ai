@@ -83,32 +83,16 @@
     position: absolute;
     left: 60px;
     top: 70px;
-    width: 140px;
+    width: 64px;
     height: 64px;
     z-index: 100;
     pointer-events: none;
     animation: moveDownItems 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 8px;
-}
-
-.sidebar-pointer-text {
-    font-family: 'Kalam', 'Caveat', cursive, sans-serif;
-    color: #FF3B30;
-    font-size: 16px;
-    font-weight: 600;
-    white-space: nowrap;
-    transform: rotate(10deg);
-    animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-pointer svg {
     width: 64px;
-    flex-shrink: 0;
     height: auto;
-    transform: scaleX(-1);
     animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
