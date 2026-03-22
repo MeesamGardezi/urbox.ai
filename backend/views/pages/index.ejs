@@ -236,27 +236,108 @@
               <div class="orbit-ring orbit-ring-1"></div>
               <div class="orbit-ring orbit-ring-2"></div>
 
-              <!-- SVG connection lines -->
+              <!-- SVG connection lines with juice-flow animation -->
               <svg class="orbit-lines" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.08"/>
-                    <stop offset="50%" stop-color="#2B8EF0" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#2B8EF0" stop-opacity="0.08"/>
+                  <!-- Base pipe color -->
+                  <linearGradient id="pipe-base" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.10"/>
+                    <stop offset="100%" stop-color="#2B8EF0" stop-opacity="0.10"/>
                   </linearGradient>
+                  <!-- Juice flowing from center outward — each line gets its own -->
+                  <linearGradient id="juice-1" gradientUnits="userSpaceOnUse" x1="230" y1="220" x2="155" y2="108">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.2s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.2s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <linearGradient id="juice-2" gradientUnits="userSpaceOnUse" x1="290" y1="215" x2="380" y2="95">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.5s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.5s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <linearGradient id="juice-3" gradientUnits="userSpaceOnUse" x1="305" y1="260" x2="420" y2="270">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.8s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.8s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <linearGradient id="juice-4" gradientUnits="userSpaceOnUse" x1="290" y1="300" x2="395" y2="415">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.4s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.4s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <linearGradient id="juice-5" gradientUnits="userSpaceOnUse" x1="225" y1="300" x2="120" y2="400">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.6s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.6s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <linearGradient id="juice-6" gradientUnits="userSpaceOnUse" x1="215" y1="260" x2="85" y2="265">
+                    <stop offset="0%" stop-color="#2B8EF0" stop-opacity="0.9">
+                      <animate attributeName="offset" values="0;1;0" dur="2.3s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="15%" stop-color="#60B5FF" stop-opacity="0.7">
+                      <animate attributeName="offset" values="0.15;1;0.15" dur="2.3s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="30%" stop-color="#2B8EF0" stop-opacity="0.08">
+                      <animate attributeName="offset" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                  <!-- Glow filter for lines -->
+                  <filter id="pipe-glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                    <feMerge>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
                 </defs>
-                <!-- Shared Inbox (top-left) -->
-                <line x1="155" y1="108" x2="225" y2="215" stroke="url(#line-grad)" stroke-width="1.5"/>
-                <!-- WhatsApp (top-right) -->
-                <line x1="380" y1="95" x2="295" y2="210" stroke="url(#line-grad)" stroke-width="1.5"/>
-                <!-- Email (right) -->
-                <line x1="420" y1="270" x2="305" y2="260" stroke="url(#line-grad)" stroke-width="1.5"/>
-                <!-- Live Chat (bottom-right) -->
-                <line x1="395" y1="415" x2="290" y2="300" stroke="url(#line-grad)" stroke-width="1.5"/>
-                <!-- AI Replies (bottom-left) -->
-                <line x1="120" y1="400" x2="225" y2="300" stroke="url(#line-grad)" stroke-width="1.5"/>
-                <!-- Team Chat (left) -->
-                <line x1="85" y1="265" x2="215" y2="260" stroke="url(#line-grad)" stroke-width="1.5"/>
+
+                <!-- Background pipes (thick, dim) -->
+                <line x1="230" y1="220" x2="155" y2="108" stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+                <line x1="290" y1="215" x2="380" y2="95"  stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+                <line x1="305" y1="260" x2="420" y2="270" stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+                <line x1="290" y1="300" x2="395" y2="415" stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+                <line x1="225" y1="300" x2="120" y2="400" stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+                <line x1="215" y1="260" x2="85"  y2="265" stroke="url(#pipe-base)" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- Juice flowing over pipes (animated gradients) -->
+                <g filter="url(#pipe-glow)">
+                  <line x1="230" y1="220" x2="155" y2="108" stroke="url(#juice-1)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="290" y1="215" x2="380" y2="95"  stroke="url(#juice-2)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="305" y1="260" x2="420" y2="270" stroke="url(#juice-3)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="290" y1="300" x2="395" y2="415" stroke="url(#juice-4)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="225" y1="300" x2="120" y2="400" stroke="url(#juice-5)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="215" y1="260" x2="85"  y2="265" stroke="url(#juice-6)" stroke-width="3" stroke-linecap="round"/>
+                </g>
               </svg>
 
               <!-- Center: Logo -->

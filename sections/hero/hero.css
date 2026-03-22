@@ -264,11 +264,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(43, 142, 240, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(43, 142, 240, 0.12) 0%, rgba(43, 142, 240, 0.04) 40%, transparent 70%);
     pointer-events: none;
+    animation: heartbeatGlow 2s ease-in-out infinite;
+}
+
+@keyframes heartbeatGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    15% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+    30% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.85; }
+    45% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    60% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
 }
 
 .orbit-center-inner {
@@ -278,14 +287,23 @@
     background: white;
     border-radius: 28px;
     box-shadow:
-        0 0 0 1px rgba(43, 142, 240, 0.08),
-        0 8px 32px rgba(43, 142, 240, 0.12),
+        0 0 0 1px rgba(43, 142, 240, 0.10),
+        0 8px 32px rgba(43, 142, 240, 0.15),
         0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 6px;
+    animation: heartbeatPump 2s ease-in-out infinite;
+}
+
+@keyframes heartbeatPump {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.04); }
+    30% { transform: scale(1.01); }
+    45% { transform: scale(1.05); }
+    60% { transform: scale(1); }
 }
 
 .orbit-center-inner img {
@@ -327,8 +345,38 @@
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
 }
 
+/* Puddle glow behind each card — "receiving juice" */
+.orbit-node::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background: radial-gradient(ellipse at center, rgba(43, 142, 240, 0.10) 0%, rgba(43, 142, 240, 0.03) 50%, transparent 70%);
+    z-index: -1;
+    animation: puddlePulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.orbit-node-primary::before {
+    width: 130%;
+    height: 140%;
+    background: radial-gradient(ellipse at center, rgba(43, 142, 240, 0.14) 0%, rgba(43, 142, 240, 0.04) 50%, transparent 70%);
+}
+
+@keyframes puddlePulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    15% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.08); }
+    30% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.02); }
+    45% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    60% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+}
+
 .orbit-node:hover {
-    transform: translateY(-3px) !important;
+    transform: translateY(-3px);
     box-shadow:
         0 4px 12px rgba(43, 142, 240, 0.10),
         0 12px 32px rgba(43, 142, 240, 0.08);
@@ -383,60 +431,56 @@
     letter-spacing: 0;
 }
 
-/* ── Float animations ── */
-@keyframes floatA {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-@keyframes floatB {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-/* ── Positions ── */
+/* ── Positions (no float — cards stay put, puddles pulse) ── */
 /* 1: Shared Inbox — top-left (PRIMARY) */
 .orbit-node-1 {
     top: 45px;
     left: 20px;
-    animation: fadeUp 0.5s 0.35s ease both, floatA 6s 1.5s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.35s ease both;
 }
+.orbit-node-1::before { animation-delay: 0s; }
 
 /* 2: WhatsApp — top-right (PRIMARY) */
 .orbit-node-2 {
     top: 30px;
     right: 10px;
-    animation: fadeUp 0.5s 0.45s ease both, floatB 7s 2s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.45s ease both;
 }
+.orbit-node-2::before { animation-delay: 0.3s; }
 
 /* 3: Email — right */
 .orbit-node-3 {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    animation: fadeUp 0.5s 0.55s ease both, floatA 5.5s 1.8s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.55s ease both;
 }
+.orbit-node-3::before { animation-delay: 0.6s; }
 
 /* 4: Live Chat — bottom-right */
 .orbit-node-4 {
     bottom: 50px;
     right: 40px;
-    animation: fadeUp 0.5s 0.65s ease both, floatB 6.5s 2.2s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.65s ease both;
 }
+.orbit-node-4::before { animation-delay: 0.2s; }
 
 /* 5: AI Replies — bottom-left */
 .orbit-node-5 {
     bottom: 40px;
     left: 20px;
-    animation: fadeUp 0.5s 0.75s ease both, floatA 7s 1.6s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.75s ease both;
 }
+.orbit-node-5::before { animation-delay: 0.5s; }
 
 /* 6: Team Chat — left */
 .orbit-node-6 {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    animation: fadeUp 0.5s 0.85s ease both, floatB 6s 2.4s ease-in-out infinite;
+    animation: fadeUp 0.5s 0.85s ease both;
 }
+.orbit-node-6::before { animation-delay: 0.4s; }
 
 /* ============================================================
    RESPONSIVE
