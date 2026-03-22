@@ -81,7 +81,7 @@
    ============================================================ */
 .sidebar-pointer {
     position: absolute;
-    left: 8px;
+    left: 60px;
     top: 70px;
     width: 140px;
     height: 64px;
@@ -89,6 +89,7 @@
     pointer-events: none;
     animation: moveDownItems 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     gap: 8px;
 }
@@ -99,7 +100,7 @@
     font-size: 16px;
     font-weight: 600;
     white-space: nowrap;
-    transform: rotate(-10deg);
+    transform: rotate(10deg);
     animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -107,6 +108,7 @@
     width: 64px;
     flex-shrink: 0;
     height: auto;
+    transform: scaleX(-1);
     animation: pointerBounce 0.8s alternate infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -193,13 +195,13 @@
     }
 
     100% {
-        transform: translateX(12px);
+        transform: translateX(-12px);
     }
 }
 
 @media (max-width: 960px) {
     .sidebar-pointer {
-        left: 4px;
+        left: 40px;
         top: 60px;
     }
 }
