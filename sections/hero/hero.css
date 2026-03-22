@@ -211,12 +211,6 @@
     width: 520px;
     height: 520px;
     animation: fadeUp 0.8s 0.2s ease both;
-    background: radial-gradient(ellipse at center, #1E293B 0%, #1A2332 100%);
-    border-radius: 32px;
-    border: 1px solid rgba(148, 163, 184, 0.12);
-    box-shadow:
-        0 4px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Decorative orbit rings */
