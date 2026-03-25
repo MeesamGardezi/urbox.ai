@@ -204,7 +204,22 @@ app.get('/blog', (req, res) => {
 const blogController = require('./controllers/blogController');
 app.get('/sitemap.xml', blogController.getSitemap);
 
-// Admin panel and any other non-migrated paths
+// Admin panel — serve Firebase config as a JS global so admin.js can read it
+// without relying on Vite's import.meta.env (which is unavailable in plain static serving)
+app.get('/admin/env.js', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.send(`window.__ENV__ = {
+  VITE_FIREBASE_API_KEY: ${JSON.stringify(process.env.FIREBASE_API_KEY || '')},
+  VITE_FIREBASE_AUTH_DOMAIN: ${JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN || '')},
+  VITE_FIREBASE_PROJECT_ID: ${JSON.stringify(process.env.FIREBASE_PROJECT_ID || '')},
+  VITE_FIREBASE_STORAGE_BUCKET: ${JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET || '')},
+  VITE_FIREBASE_MESSAGING_SENDER_ID: ${JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID || '')},
+  VITE_FIREBASE_APP_ID: ${JSON.stringify(process.env.FIREBASE_APP_ID || '')},
+  VITE_FIREBASE_MEASUREMENT_ID: ${JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID || '')},
+};`);
+});
+
+// Admin panel static files
 app.use('/admin', express.static(path.join(__dirname, '../admin')));
 
 app.use((req, res, next) => {

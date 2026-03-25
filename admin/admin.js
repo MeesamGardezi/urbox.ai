@@ -12,13 +12,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // ── Firebase ──────────────────────────────────────────────────
+// import.meta.env is Vite-specific; fall back to window.__ENV__ when served as plain static files
+const _env = import.meta.env || window.__ENV__ || {};
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    apiKey: _env.VITE_FIREBASE_API_KEY,
+    authDomain: _env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: _env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: _env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: _env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: _env.VITE_FIREBASE_APP_ID,
 };
 const app = initializeApp(firebaseConfig, "admin");
 const db = getFirestore(app, "default");
